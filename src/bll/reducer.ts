@@ -1,6 +1,6 @@
 const initState = {}
 
-export const reducer = (state: InitialStateLoading = initState, action: ActionType): InitialStateLoading => { // fix any
+export const reducer = (state: InitialStateLoading = initState, action: ActionType): InitialStateLoading => {
     switch (action.type) {
         default:
             return state
