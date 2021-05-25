@@ -5,7 +5,7 @@ import {Registration} from './Registration';
 import {Profile} from './Profile';
 import {RecoveryPassword} from './RecoveryPassword';
 import {NewPassword} from './NewPassword';
-import {Test} from './Test';
+import {Test} from './test/Test';
 import Error404 from './error404/Error404';
 
 export const PATH = {
@@ -23,7 +23,7 @@ const Routes = () => {
     return (
         <div>
             <Switch>
-                <Route path={PATH.PROFILE} exact render={() => <Redirect to={PATH.PROFILE}/>}/>
+                <Route path={'/'} exact render={() => <Redirect to={PATH.PROFILE}/>}/>
 
                 <Route path={PATH.LOGIN} render={() => <Login/>}/>
                 <Route path={PATH.REGISTRATION} render={() => <Registration/>}/>

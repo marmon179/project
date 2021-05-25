@@ -1,21 +1,11 @@
 import React from 'react';
 import './App.css';
-import {Login} from './pages/Login';
-import {NewPassword} from './pages/NewPassword';
-import {Profile} from './pages/Profile';
-import {RecoveryPassword} from './pages/RecoveryPassword';
-import {Registration} from './pages/Registration';
-import {Test} from './pages/Test';
+import Routes from './pages/Routes';
 
 function App() {
     return (
         <div>
-            <Login/>
-            <NewPassword/>
-            <Profile/>
-            <RecoveryPassword/>
-            <Registration/>
-            <Test/>
+            <Routes/>
         </div>
     );
 }
