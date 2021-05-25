@@ -3,19 +3,22 @@ import style from './test.module.css'
 import {TestSuperInput} from './testSuperInput/TestSuperInput';
 import {TestSuperButton} from './testSuperButton/TestSuperButton';
 import {TestSuperCheckbox} from './testSuperCheckbox/TestSuperCheckbox';
-import {SuperEditableSpan} from '../../components/common/c4-SuperEditableSpan/SuperEditableSpan';
 import {TestSuperEditableSpan} from './testSuperEditableSpan/TestSuperEditableSpan';
+import {TestSuperSelect} from './testSuperSelect/TestSuperSelect';
+import {TestSuperRadio} from './testSuperRadio/TestSuperRadio';
+import {TestSuperRange} from './testSuperRange/TestSuperRange';
+import {TestSuperDoubleRange} from './testSuperDoubleRange/TestSuperDoubleRange';
 
 export const Test = () => {
     return (
         <div className={style.test}>
-            <hr/>
             <span>
                 SuperInputText
             </span>
             <div>
                 <TestSuperInput/>
             </div>
+            <hr/>
             {/*----------------------------------------------------*/}
             <hr/>
             <span>
@@ -24,6 +27,34 @@ export const Test = () => {
             <div>
                 <TestSuperButton/>
             </div>
+            <hr/>
+            {/*----------------------------------------------------*/}
+            <hr/>
+            <span>
+                SuperRadio
+            </span>
+            <div>
+                <TestSuperRadio/>
+            </div>
+            <hr/>
+            {/*----------------------------------------------------*/}
+            <hr/>
+            <span>
+                SuperEditableSpan
+            </span>
+            <div>
+                <TestSuperEditableSpan/>
+            </div>
+            <hr/>
+            {/*----------------------------------------------------*/}
+            <hr/>
+            <span>
+                SuperSelect
+            </span>
+            <div>
+                <TestSuperSelect/>
+            </div>
+            <hr/>
             {/*----------------------------------------------------*/}
             <hr/>
             <span>
@@ -32,13 +63,23 @@ export const Test = () => {
             <div>
                 <TestSuperCheckbox/>
             </div>
+            <hr/>
             {/*----------------------------------------------------*/}
             <hr/>
             <span>
-                SuperEditableSpan
+                SuperRange
             </span>
             <div>
-                <TestSuperEditableSpan/>
+                <TestSuperRange/>
+            </div>
+            <hr/>
+            {/*----------------------------------------------------*/}
+            <hr/>
+            <span>
+                SuperDoubleRange
+            </span>
+            <div>
+                <TestSuperDoubleRange/>
             </div>
         </div>
     );
