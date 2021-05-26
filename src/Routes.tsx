@@ -7,6 +7,7 @@ import {RecoveryPassword} from './pages/RecoveryPassword';
 import {NewPassword} from './pages/NewPassword';
 import {Test} from './pages/test/Test';
 import Error404 from './pages/error404/Error404';
+import Header from './pages/header/Header';
 
 export const PATH = {
     LOGIN: '/login',
@@ -14,9 +15,8 @@ export const PATH = {
     PROFILE: '/profile',
     RECOVERY_PASSWORD: '/recovery-password',
     NEW_PASSWORD: '/new-password',
-    TEST: '/test'
-
-
+    TEST: '/test',
+    HEADER: '/header'
 }
 
 const Routes = () => {
