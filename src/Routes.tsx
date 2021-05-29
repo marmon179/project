@@ -1,6 +1,5 @@
 import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom'
-import {Login} from './pages/Login';
 import {Registration} from './pages/Registration';
 import {Profile} from './pages/Profile';
 import {RecoveryPassword} from './pages/RecoveryPassword';
@@ -8,6 +7,7 @@ import {NewPassword} from './pages/NewPassword';
 import {Test} from './pages/test/Test';
 import Error404 from './pages/error404/Error404';
 import Header from './pages/header/Header';
+import { AuthLogin } from './pages/Login/AuthLogin';
 
 export const PATH = {
     LOGIN: '/login',
@@ -25,7 +25,7 @@ const Routes = () => {
             <Switch>
                 <Route path={'/'} exact render={() => <Redirect to={PATH.TEST}/>}/>
 
-                <Route path={PATH.LOGIN} render={() => <Login/>}/>
+                <Route path={PATH.LOGIN} render={() => <AuthLogin/>}/>
                 <Route path={PATH.REGISTRATION} render={() => <Registration/>}/>
                 <Route path={PATH.PROFILE} render={() => <Profile/>}/>
                 <Route path={PATH.RECOVERY_PASSWORD} render={() => <RecoveryPassword/>}/>
