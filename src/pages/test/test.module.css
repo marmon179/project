@@ -1,6 +1,6 @@
 .test {
     min-height: 100vh;
-    background-image: url("https://raw.githubusercontent.com/telegramdesktop/tdesktop/dev/Telegram/Resources/art/bg_initial.jpg");
+    background: linear-gradient(180deg, #E6D4DE 0%, #9890C7 100%);
 }
 .wrapper {
     display: flex;

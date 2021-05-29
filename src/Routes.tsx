@@ -5,9 +5,9 @@ import {Test} from './pages/test/Test';
 import Error404 from './pages/error404/Error404';
 import Header from './pages/header/Header';
 import { AuthLogin } from './pages/Login/AuthLogin';
-import { AurhForgorNewPassword } from './pages/aurhForgorNewPassword/AurhForgorNewPassword';
-import { AuthRegistr } from './pages/authRegistr/AuthRegistr';
-import { AuthForgotPassword } from './pages/authForgotPassword/AuthForgotPassword';
+import { AurhForgorNewPassword } from './pages/ForgorNewPassword/AurhForgorNewPassword';
+import { AuthRegistr } from './pages/Registr/AuthRegistr';
+import { AuthForgotPassword } from './pages/ForgotPassword/AuthForgotPassword';
 
 export const PATH = {
     LOGIN: '/login',
@@ -23,7 +23,7 @@ const Routes = () => {
     return (
         <div>
             <Switch>
-                <Route path={'/'} exact render={() => <Redirect to={PATH.TEST}/>}/>
+                <Route path={'/'} exact render={() => <Redirect to={PATH.LOGIN}/>}/>
 
                 <Route path={PATH.LOGIN} render={() => <AuthLogin/>}/>
                 <Route path={PATH.REGISTRATION} render={() => <AuthRegistr/>}/>
