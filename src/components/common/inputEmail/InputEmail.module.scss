@@ -1,0 +1,21 @@
+@import "./../../../styles/mixins";
+
+.inputEmail {
+  display: flex;
+  flex-direction: column;
+  height: 48px;
+  width: 347px;
+}
+
+.labelEmail {
+  @include textSan("San Francico",13px, 400, 20px);
+  color: #24254A;
+  opacity: 0.5;
+}
+
+.email {
+  height: 24px;
+  border: none;
+  border-bottom: 2px solid rgba(36,37,74,0.2);
+  @include textSan("San Francico",16px, 500, 24px);
+}
