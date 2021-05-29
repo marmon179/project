@@ -2,10 +2,12 @@ import React from 'react';
 import './App.css';
 import Routes from './Routes';
 import Header from './pages/header/Header';
+import './App.css'
+
 
 function App() {
     return (
-        <div>
+        <div className = 'App'>
             <Header/>
             <Routes/>
         </div>
