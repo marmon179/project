@@ -6,9 +6,8 @@ const reducers = combineReducers({
     reducer: reducer
 })
 
-const store = createStore(reducers)
+export const store = createStore(reducers)
 
-export default store
 
 export type AppStoreType = ReturnType<typeof reducers>
 
