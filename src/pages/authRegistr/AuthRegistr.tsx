@@ -15,13 +15,13 @@ export const AuthRegistr = () => {
                     <span className={s.formSubTitle}>Sign In</span>
                     <form action="" className={s.formLogin}>
                         <InputEmail />
-                        <InputPassword title="Password"/>
-                        <InputPassword title="Confirm password"/>
+                        <InputPassword title="Password" />
+                        <InputPassword title="Confirm password" />
+                        <div className={s.btnInner}>
+                            <ButtonSmall title="Cancel" />
+                            <ButtonMedium title="Register" />
+                        </div>
                     </form>
-                    <div className={s.btnInner}>
-                        <ButtonSmall title="Cancel"/>
-                        <ButtonMedium title="Register"/>
-                    </div>
                 </div>
             </div>
         </div>

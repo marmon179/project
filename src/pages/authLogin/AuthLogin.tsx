@@ -17,11 +17,11 @@ export const AuthLogin = () => {
                     <form action="" className={s.formLogin}>
                         <InputEmail />
                         <InputPassword title="Password" />
+                        <a href="#" className={s.linkForgotPassword}>Forgot password</a>
+                        <div className={s.buttonInner}>
+                            <ButtonLarge title="Login" />
+                        </div>
                     </form>
-                    <a href="#" className={s.linkForgotPassword}>Forgot password</a>
-                    <div className={s.buttonInner}>
-                        <ButtonLarge title="Login" />
-                    </div>
                     <div className={s.blockSingUp}>
                         <span className={s.formText}>Don’t have an account?</span>
                         <a href="#" className={s.linkSingUp}>Sign Up</a>

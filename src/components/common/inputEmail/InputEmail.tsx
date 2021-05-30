@@ -3,10 +3,10 @@ import s from "./InputEmail.module.scss";
 
 export const InputEmail = () => {
     return (
-        <form className={s.inputEmail}>
+        <div className={s.inputEmail}>
             <label className={s.labelEmail} htmlFor="email">Email</label>
             <input className={s.email} type="email" />
-        </form>
+        </div>
     );
 };
 

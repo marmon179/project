@@ -14,11 +14,12 @@ export const AurhForgorNewPassword = () => {
                     <span className={s.formSubTitle}>Create new password</span>
                     <form action="" className={s.formLogin}>
                         <InputPassword title="Password" />
+                        <p className={s.textNewPassword}>Create new password and we will send you further instructions
+                            to email</p>
+                        <div className={s.buttonInner}>
+                            <ButtonLarge title="Create new password" />
+                        </div>
                     </form>
-                    <p className={s.textNewPassword}>Create new password and we will send you further instructions to email</p>
-                    <div className={s.buttonInner}>
-                        <ButtonLarge title="Create new password" />
-                    </div>
                 </div>
             </div>
         </div>

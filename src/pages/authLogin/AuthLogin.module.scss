@@ -41,11 +41,13 @@
 
 .buttonInner {
   margin-top: 150px;
+  display: flex;
+  justify-content: center;
 }
 
 .linkForgotPassword {
   position: relative;
-  left: 110px;
+  left: 240px;
   top: 48px;
   @include textSan("San Francico",14px, 400, 17px);
   color: #2D2E46;
