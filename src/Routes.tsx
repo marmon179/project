@@ -1,13 +1,11 @@
 import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {Profile} from './pages/Profile';
-import {Test} from './pages/test/Test';
 import Error404 from './pages/error404/Error404';
-import Header from './pages/header/Header';
-import { AuthLogin } from './pages/Login/AuthLogin';
-import { AurhForgorNewPassword } from './pages/ForgorNewPassword/AurhForgorNewPassword';
-import { AuthRegistr } from './pages/Registr/AuthRegistr';
-import { AuthForgotPassword } from './pages/ForgotPassword/AuthForgotPassword';
+import {AuthLogin} from './pages/Login/AuthLogin';
+import {AurhForgorNewPassword} from './pages/ForgorNewPassword/AurhForgorNewPassword';
+import {AuthForgotPassword} from './pages/ForgotPassword/AuthForgotPassword';
+import {RegistrationContainer} from './pages/Registr/RegistrationContainer';
 
 export const PATH = {
     LOGIN: '/login',
@@ -26,7 +24,7 @@ const Routes = () => {
                 <Route path={'/'} exact render={() => <Redirect to={PATH.LOGIN}/>}/>
 
                 <Route path={PATH.LOGIN} render={() => <AuthLogin/>}/>
-                <Route path={PATH.REGISTRATION} render={() => <AuthRegistr/>}/>
+                <Route path={PATH.REGISTRATION} render={() => <RegistrationContainer/>}/>
                 <Route path={PATH.PROFILE} render={() => <Profile/>}/>
                 <Route path={PATH.RECOVERY_PASSWORD} render={() => <AuthForgotPassword/>}/>
                 <Route path={PATH.NEW_PASSWORD} render={() => <AurhForgorNewPassword/>}/>
