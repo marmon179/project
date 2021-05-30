@@ -114,7 +114,7 @@ export type SetNewPasswordParamsType = {
 }
 
 // Response Types
-type AuthMeResponseType = {
+export type AuthMeResponseType = {
     _id: string;
     email: string;
     name: string;

@@ -1,10 +1,20 @@
-import React from "react";
-import s from "./AurhForgorNewPassword.module.scss";
-import InputPassword from "../../components/common/inputPassword/InputPassword";
-import ButtonLarge from "../../components/common/buttonLarge/ButtonLarge";
+import React from 'react';
+import s from './AurhForgorNewPassword.module.scss';
+import InputPassword from '../../components/common/inputPassword/InputPassword';
+import ButtonLarge from '../../components/common/buttonLarge/ButtonLarge';
+import {useFormik} from 'formik';
+import {setIsLoggedTC} from '../../bll/auth-reducer';
 
 
 export const AurhForgorNewPassword = () => {
+    const formik = useFormik({
+        initialValues: {
+            password: '',
+        },
+        onSubmit: values => {
+            // dispatch(setIsLoggedTC(values))
+        },
+    });
     return (
         <div className={s.form}>
             <div className={s.containerForm}>
@@ -13,12 +23,14 @@ export const AurhForgorNewPassword = () => {
                     <h2 className={s.formTitle}>It-incubator</h2>
                     <span className={s.formSubTitle}>Create new password</span>
                     <form action="" className={s.formLogin}>
-                        {/*<InputPassword title="Password" />*/}
+                        <InputPassword title="Password" onChange={formik.handleChange} values={formik.values.password}/>
+                        <p className={s.textNewPassword}>Create new password and we will send you further instructions
+                            to email</p>
+                        <div className={s.buttonInner}>
+                            <ButtonLarge title="Create new password"/>
+                        </div>
                     </form>
-                    <p className={s.textNewPassword}>Create new password and we will send you further instructions to email</p>
-                    <div className={s.buttonInner}>
-                        <ButtonLarge title="Create new password" />
-                    </div>
+
                 </div>
             </div>
         </div>

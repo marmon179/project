@@ -5,7 +5,7 @@ import InputEmail from "../../components/common/inputEmail/InputEmail";
 import ButtonLarge from "../../components/common/buttonLarge/ButtonLarge";
 import {useFormik} from "formik";
 import {useDispatch} from "react-redux";
-import {setIsLoggedTC} from "../../bll/login-reducer";
+import {setIsLoggedTC} from "../../bll/auth-reducer";
 
 
 export const AuthLogin = () => {
