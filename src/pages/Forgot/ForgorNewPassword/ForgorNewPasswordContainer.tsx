@@ -3,13 +3,6 @@ import {ForgotNewPassword} from './ForgotNewPassword';
 import {useDispatch} from 'react-redux';
 import {validators} from '../../../assets/Validators/validators';
 
-export type initialValuesType = {
-    password: string
-}
-
-export type FormikPasswordErrorType = {
-    password?: string
-}
 
 export const ForgotNewPasswordContainer = () => {
 
@@ -37,4 +30,11 @@ export const ForgotNewPasswordContainer = () => {
         </>
     );
 };
+//types
+export type initialValuesType = {
+    password: string
+}
 
+export type FormikPasswordErrorType = {
+    password?: string
+}

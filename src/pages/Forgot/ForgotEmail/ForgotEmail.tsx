@@ -4,8 +4,7 @@ import ButtonLarge from '../../../components/common/buttonLarge/ButtonLarge';
 import {NavLink, Redirect} from 'react-router-dom';
 import {PATH} from '../../../Routes';
 import {useFormik} from 'formik';
-import {FormikErrorType,} from '../../Registr/RegistrationContainer';
-import {initialValuesType} from './ForgotEmailContainer';
+import {FormikErrorType, initialValuesType} from './ForgotEmailContainer';
 import {Input} from '../../../components/common/c1-SuperInputText/Input';
 
 export type PropsType = {

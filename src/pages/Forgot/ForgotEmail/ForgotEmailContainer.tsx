@@ -1,13 +1,13 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {setMailTC} from '../../../bll/auth-reducer';
 import {AppStateType} from '../../../bll/store';
 import {ForgotEmail} from './ForgotEmail';
 import {validators} from '../../../assets/Validators/validators';
+import {setMailTC} from '../../../bll/ForgotReducer';
 
 
 export const ForgotEmailContainer = () => {
-    const isMail = useSelector<AppStateType, boolean>(state => state.auth.isMail)
+    const isMail = useSelector<AppStateType, boolean>(state => state.forgot.isMail)
     const dispatch = useDispatch()
 
     const initialValues: initialValuesType = {
@@ -36,12 +36,12 @@ export const ForgotEmailContainer = () => {
     );
 };
 //types
-export type initialValuesType = {
-    email: string,
-    from: any,
-    message: string
-}
-
+export type initialValuesType =
+    {
+        email: string,
+        from: any,
+        message: string
+    }
 export type FormikErrorType = {
     email?: string
     password?: string
