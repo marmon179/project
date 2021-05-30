@@ -3,7 +3,6 @@ import s from "./AuthForgotPasswordCheckEmail.module.scss";
 import mail from "./../../assets/img/authForgotPasswordCheckEmail/mail.svg"
 
 
-
 export const AuthForgotPasswordCheckEmail = () => {
     return (
         <div className={s.form}>
