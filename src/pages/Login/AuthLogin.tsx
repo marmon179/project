@@ -19,11 +19,9 @@ export const AuthLogin = () => {
             rememberMe: false
         },
         onSubmit: values => {
-            debugger
             dispatch(setIsLoggedTC(values))
         },
     });
-
     return (
         <div className={s.form}>
             <div className={s.containerForm}>

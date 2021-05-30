@@ -19,12 +19,11 @@ export const setIsLoggedAC = (isLogged: boolean) => ({
 })
 
 export const setIsLoggedTC = (data: LoginParamsType) => (dispatch: Dispatch) => {
-    debugger
     authAPI.login(data)
-        .then(res => {
+        .then((res:any) => {
             dispatch(setIsLoggedAC(true))
         })
-        .catch(rej => {
+        .catch((rej:any) => {
             // rej.error
         })
 }

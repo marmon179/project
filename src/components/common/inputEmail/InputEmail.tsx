@@ -9,7 +9,7 @@ type InputEmailPropsType = {
 export const InputEmail = (props: InputEmailPropsType) => {
 
     return (
-        <form className={s.inputEmail}>
+        <div className={s.inputEmail}>
             <label className={s.labelEmail} htmlFor="email">Email</label>
             <input className={s.email}
                    type="email"
@@ -17,7 +17,7 @@ export const InputEmail = (props: InputEmailPropsType) => {
                    onChange={props.onChange}
                    value={props.values}
             />
-        </form>
+        </div>
     );
 };
 
