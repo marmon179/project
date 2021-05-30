@@ -30,7 +30,7 @@ const Routes = () => {
                 <Route path={PATH.PROFILE} render={() => <Profile/>}/>
                 <Route path={PATH.RECOVERY_PASSWORD} render={() => <AuthForgotPassword/>}/>
                 <Route path={PATH.NEW_PASSWORD} render={() => <AurhForgorNewPassword/>}/>
-                <Route path={PATH.TEST} render={() => <Test/>}/>
+                {/*<Route path={PATH.TEST} render={() => <Test/>}/>*/}
 
                 <Route render={() => <Error404/>}/>
 
