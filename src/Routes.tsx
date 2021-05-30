@@ -8,6 +8,7 @@ import { AuthLogin } from './pages/Login/AuthLogin';
 import { AurhForgorNewPassword } from './pages/ForgorNewPassword/AurhForgorNewPassword';
 import { AuthRegistr } from './pages/Registr/AuthRegistr';
 import { AuthForgotPassword } from './pages/ForgotPassword/AuthForgotPassword';
+import {AuthForgotPasswordCheckEmail} from './pages/ForgotPasswordCheckEmail/AuthForgotPasswordCheckEmail';
 
 export const PATH = {
     LOGIN: '/login',
@@ -16,7 +17,8 @@ export const PATH = {
     RECOVERY_PASSWORD: '/recovery-password',
     NEW_PASSWORD: '/new-password',
     TEST: '/test',
-    HEADER: '/header'
+    HEADER: '/header',
+    FORGOT_EMAIL:'/check-email'
 }
 
 const Routes = () => {
@@ -30,7 +32,7 @@ const Routes = () => {
                 <Route path={PATH.PROFILE} render={() => <Profile/>}/>
                 <Route path={PATH.RECOVERY_PASSWORD} render={() => <AuthForgotPassword/>}/>
                 <Route path={PATH.NEW_PASSWORD} render={() => <AurhForgorNewPassword/>}/>
-                {/*<Route path={PATH.TEST} render={() => <Test/>}/>*/}
+                <Route path={PATH.FORGOT_EMAIL} render={() => <AuthForgotPasswordCheckEmail/>}/>
 
                 <Route render={() => <Error404/>}/>
 

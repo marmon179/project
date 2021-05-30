@@ -5,12 +5,12 @@ import Header from './pages/header/Header';
 import './App.css'
 import {useDispatch, useSelector} from 'react-redux';
 import {setUserDataTC} from './bll/app-reducer';
-import {AppStoreType} from './bll/store';
+import {AppStateType} from './bll/store';
 
 
 function App() {
     const dispatch = useDispatch()
-    const isInitialized = useSelector<AppStoreType, boolean>((state => state.auth.isInitialized))
+    const isInitialized = useSelector<AppStateType, boolean>((state => state.auth.isInitialized))
 
     useEffect(() => {
         dispatch(setUserDataTC())

@@ -43,7 +43,8 @@ export const AuthLogin = () => {
 
                     <div className={s.blockSingUp}>
                         <span className={s.formText}>Don’t have an account?</span>
-                        <a href="#" className={s.linkSingUp}>Sign Up</a>
+                        <NavLink to={PATH.REGISTRATION} className={s.linkSingUp}>Sign Up </NavLink>
+
                     </div>
                 </div>
             </div>

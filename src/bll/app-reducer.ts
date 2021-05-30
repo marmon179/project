@@ -1,12 +1,10 @@
 import {authAPI, AuthMeResponseType} from '../dal/api';
-import {Dispatch} from 'redux';
 import {AxiosError, AxiosResponse} from 'axios';
 import {setInitializeAppAC, setInitializeAppActionType, setIsLoggedAC} from './auth-reducer';
+import {AppThunk} from './store';
 
 const initState = {
     meObject: {} as AuthMeResponseType,
-
-
 }
 
 export const appReducer = (state: InitialStateLoading = initState, action: AppReducerActionType): InitialStateLoading => {
@@ -21,8 +19,8 @@ export const appReducer = (state: InitialStateLoading = initState, action: AppRe
 export const setUserDataAC = (userData: AuthMeResponseType) => ({
     type: 'APP/USER-DATA', userData
 } as const)
-
-export const setUserDataTC = () => (dispatch: Dispatch) => {
+//thunks
+export const setUserDataTC = (): AppThunk => (dispatch) => {
     authAPI.me()
         .then((res: AxiosResponse<AuthMeResponseType>) => {
             dispatch(setUserDataAC(res.data))
