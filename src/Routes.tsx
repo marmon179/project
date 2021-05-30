@@ -25,7 +25,7 @@ const Routes = () => {
                 <Route path={'/'} exact render={() => <Redirect to={PATH.LOGIN}/>}/>
 
                 <Route path={PATH.LOGIN} render={() => <AuthLogin/>}/>
-                <Route path={PATH.REGISTRATION} render={() => <AuthRegistr/>}/>
+                <Route path={PATH.REGISTRATION} render={() => <RegistrationContainer/>}/>
                 <Route path={PATH.PROFILE} render={() => <Profile/>}/>
                 <Route path={PATH.RECOVERY_PASSWORD} render={() => <AuthForgotPassword/>}/>
                 <Route path={PATH.NEW_PASSWORD} render={() => <AurhForgorNewPassword/>}/>
