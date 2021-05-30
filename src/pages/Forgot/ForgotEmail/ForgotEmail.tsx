@@ -1,29 +1,33 @@
 import React from 'react';
 import s from './AuthForgotPassword.module.scss';
-import InputEmail from '../../components/common/inputEmail/InputEmail';
-import ButtonLarge from '../../components/common/buttonLarge/ButtonLarge';
+import ButtonLarge from '../../../components/common/buttonLarge/ButtonLarge';
 import {NavLink, Redirect} from 'react-router-dom';
-import {PATH} from '../../Routes';
+import {PATH} from '../../../Routes';
 import {useFormik} from 'formik';
-import {useDispatch, useSelector} from 'react-redux';
-import {setMailTC} from '../../bll/auth-reducer';
-import {AppStateType} from '../../bll/store';
+import {FormikErrorType,} from '../../Registr/RegistrationContainer';
+import {initialValuesType} from './ForgotEmailContainer';
+import {Input} from '../../../components/common/c1-SuperInputText/Input';
 
+export type PropsType = {
+    initialValues: initialValuesType
+    onSubmit: (values: initialValuesType) => void
+    validate: (values: initialValuesType) => FormikErrorType
+    isMail: boolean
+}
 
-export const AuthForgotPassword = () => {
+export const ForgotEmail: React.FC<PropsType> = props => {
 
-    const isMail = useSelector<AppStateType, boolean>(state => state.auth.isMail)
-    const dispatch = useDispatch()
+    const {
+        initialValues,
+        onSubmit,
+        validate,
+        isMail
+    } = props
 
     const formik = useFormik({
-        initialValues: {
-            email: '',
-            from: '',
-            message: ''
-        },
-        onSubmit: values => {
-            dispatch(setMailTC(values))
-        },
+        initialValues,
+        onSubmit,
+        validate
     });
 
     if (isMail) {
@@ -37,7 +41,14 @@ export const AuthForgotPassword = () => {
                     <h2 className={s.formTitle}>It-incubator</h2>
                     <span className={s.formSubTitle}>Forgot your password?</span>
                     <form action="" className={s.formEmail} onSubmit={formik.handleSubmit}>
-                        <InputEmail values={formik.values.email} onChange={formik.handleChange}/>
+
+                        <Input
+                            type={'text'}
+                            title={'Email'}
+                            error={(formik.touched.email && formik.errors.email) ? formik.errors.email : null}
+                            {...formik.getFieldProps('email')}
+                        />
+
                         <p className={s.textEmail}>Enter your email address and we will send you further
                             instructions </p>
                         <div className={s.buttonInner}>

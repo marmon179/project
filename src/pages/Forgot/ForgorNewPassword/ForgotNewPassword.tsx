@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './AurhForgorNewPassword.module.scss';
-import ButtonLarge from '../../components/common/buttonLarge/ButtonLarge';
+import ButtonLarge from '../../../components/common/buttonLarge/ButtonLarge';
 import {useFormik} from 'formik';
 import {FormikPasswordErrorType, initialValuesType} from './ForgorNewPasswordContainer';
-import {Input} from '../../components/common/c1-SuperInputText/Input';
+import {Input} from '../../../components/common/c1-SuperInputText/Input';
 
 export type PropsType = {
     initialValues: initialValuesType

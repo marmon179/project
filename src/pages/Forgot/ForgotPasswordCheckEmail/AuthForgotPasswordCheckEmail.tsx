@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './AuthForgotPasswordCheckEmail.module.scss';
-import mail from './../../assets/img/authForgotPasswordCheckEmail/mail.svg'
+import mail from '../../../assets/img/authForgotPasswordCheckEmail/mail.svg'
 import {useSelector} from 'react-redux';
-import {AppStateType} from '../../bll/store';
+import {AppStateType} from '../../../bll/store';
 
 
 export const AuthForgotPasswordCheckEmail = () => {

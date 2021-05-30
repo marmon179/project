@@ -3,9 +3,9 @@ import {Redirect, Route, Switch} from 'react-router-dom'
 import {Profile} from './pages/Profile';
 import Error404 from './pages/error404/Error404';
 import {AuthLogin} from './pages/Login/AuthLogin';
-import {AuthForgotPassword} from './pages/ForgotPassword/AuthForgotPassword';
 import {RegistrationContainer} from './pages/Registr/RegistrationContainer';
-import {ForgotNewPasswordContainer} from './pages/ForgorNewPassword/ForgorNewPasswordContainer';
+import {ForgotNewPasswordContainer} from './pages/Forgot/ForgorNewPassword/ForgorNewPasswordContainer';
+import {ForgotEmailContainer} from './pages/Forgot/ForgotEmail/ForgotEmailContainer';
 
 export const PATH = {
     LOGIN: '/login',
@@ -27,7 +27,7 @@ const Routes = () => {
                 <Route path={PATH.LOGIN} render={() => <AuthLogin/>}/>
                 <Route path={PATH.REGISTRATION} render={() => <RegistrationContainer/>}/>
                 <Route path={PATH.PROFILE} render={() => <Profile/>}/>
-                <Route path={PATH.RECOVERY_PASSWORD} render={() => <AuthForgotPassword/>}/>
+                <Route path={PATH.RECOVERY_PASSWORD} render={() => <ForgotEmailContainer/>}/>
                 <Route path={PATH.NEW_PASSWORD} render={() => <ForgotNewPasswordContainer/>}/>
                 {/*<Route path={PATH.TEST} render={() => <Test/>}/>*/}
 

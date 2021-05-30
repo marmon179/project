@@ -1,7 +1,7 @@
 import React from 'react';
 import {ForgotNewPassword} from './ForgotNewPassword';
 import {useDispatch} from 'react-redux';
-import {validators} from '../../assets/Validators/validatorsNewPassword';
+import {validators} from '../../../assets/Validators/validators';
 
 export type initialValuesType = {
     password: string
@@ -19,7 +19,7 @@ export const ForgotNewPasswordContainer = () => {
         password: '',
     }
 
-    const validate = (values: initialValuesType) => {
+    const validate = (values: any) => {
         return validators(values);
     };
 
