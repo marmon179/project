@@ -46,7 +46,6 @@ export const authAPI = {
      * }
      * */
     login(data: LoginParamsType) {
-        debugger
         return instance.post<AuthMeResponseType>('auth/login', data)
     },
 

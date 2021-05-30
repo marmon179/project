@@ -6,6 +6,8 @@ import ButtonLarge from "../../components/common/buttonLarge/ButtonLarge";
 import {useFormik} from "formik";
 import {useDispatch} from "react-redux";
 import {setIsLoggedTC} from "../../bll/login-reducer";
+import { NavLink } from "react-router-dom";
+import {PATH} from "../../Routes";
 
 
 export const AuthLogin = () => {
@@ -19,7 +21,6 @@ export const AuthLogin = () => {
             rememberMe: false
         },
         onSubmit: values => {
-            debugger
             dispatch(setIsLoggedTC(values))
         },
     });
@@ -35,7 +36,7 @@ export const AuthLogin = () => {
                     <form className={s.formLogin} onSubmit={formik.handleSubmit}>
                         <InputEmail values={formik.values.email} onChange={formik.handleChange}/>
                         <InputPassword title="Password" onChange={formik.handleChange} values={formik.values.password}/>
-                        <a href="#" className={s.linkForgotPassword}>Forgot password</a>
+                        <NavLink to={PATH.RECOVERY_PASSWORD} className={s.linkForgotPassword}>Forgot password</NavLink>
                         <div className={s.buttonInner}>
                             <ButtonLarge title="Login" />
                         </div>
@@ -43,7 +44,7 @@ export const AuthLogin = () => {
 
                     <div className={s.blockSingUp}>
                         <span className={s.formText}>Don’t have an account?</span>
-                        <a href="#" className={s.linkSingUp}>Sign Up</a>
+                        <NavLink to={PATH.REGISTRATION} className={s.linkSingUp}>Sign Up</NavLink>
                     </div>
                 </div>
             </div>

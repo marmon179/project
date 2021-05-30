@@ -19,7 +19,6 @@ export const setIsLoggedAC = (isLogged: boolean) => ({
 })
 
 export const setIsLoggedTC = (data: LoginParamsType) => (dispatch: Dispatch) => {
-    debugger
     authAPI.login(data)
         .then(res => {
             dispatch(setIsLoggedAC(true))
