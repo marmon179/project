@@ -11,7 +11,7 @@ export const instance = axios.create({
     withCredentials: true,
 })
 
-const authAPI = {
+export const authAPI = {
     /**
      * Check user Data and cookies
      * */
@@ -46,6 +46,7 @@ const authAPI = {
      * }
      * */
     login(data: LoginParamsType) {
+        debugger
         return instance.post<AuthMeResponseType>('auth/login', data)
     },
 

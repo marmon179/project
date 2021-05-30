@@ -13,7 +13,7 @@ export const AurhForgorNewPassword = () => {
                     <h2 className={s.formTitle}>It-incubator</h2>
                     <span className={s.formSubTitle}>Create new password</span>
                     <form action="" className={s.formLogin}>
-                        <InputPassword title="Password" />
+                        {/*<InputPassword title="Password" />*/}
                     </form>
                     <p className={s.textNewPassword}>Create new password and we will send you further instructions to email</p>
                     <div className={s.buttonInner}>

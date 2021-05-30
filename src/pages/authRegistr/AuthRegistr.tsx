@@ -14,9 +14,9 @@ export const AuthRegistr = () => {
                     <h2 className={s.formTitle}>It-incubator</h2>
                     <span className={s.formSubTitle}>Sign In</span>
                     <form action="" className={s.formLogin}>
-                        <InputEmail />
-                        <InputPassword title="Password"/>
-                        <InputPassword title="Confirm password"/>
+                        {/*<InputEmail />*/}
+                        {/*<InputPassword title="Password"/>*/}
+                        {/*<InputPassword title="Confirm password"/>*/}
                     </form>
                     <div className={s.btnInner}>
                         <ButtonSmall title="Cancel"/>

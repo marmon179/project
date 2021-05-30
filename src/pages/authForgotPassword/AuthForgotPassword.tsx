@@ -14,7 +14,7 @@ export const AuthForgotPassword = () => {
                     <span className={s.formSubTitle}>Forgot your password?</span>
 
                     <form action="" className={s.formEmail}>
-                        <InputEmail />
+                        {/*<InputEmail />*/}
                     </form>
                     <p className={s.textEmail}>Enter your email address and we will send you further instructions </p>
                     <div className={s.buttonInner}>
@@ -27,6 +27,7 @@ export const AuthForgotPassword = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 
