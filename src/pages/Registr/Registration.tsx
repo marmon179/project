@@ -14,7 +14,6 @@ export type PropsType = {
 }
 
 export const Registration: React.FC<PropsType> = props => {
-
     const {
         initialValues,
         onSubmit,

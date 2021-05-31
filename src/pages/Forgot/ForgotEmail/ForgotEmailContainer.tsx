@@ -4,6 +4,7 @@ import {AppStateType} from '../../../bll/store';
 import {ForgotEmail} from './ForgotEmail';
 import {validators} from '../../../assets/Validators/validators';
 import {setMailTC} from '../../../bll/ForgotReducer';
+import {validatorsForgotEmailInput} from '../../../assets/Validators/validatorsForgotEmailInput';
 
 
 export const ForgotEmailContainer = () => {
@@ -17,10 +18,11 @@ export const ForgotEmailContainer = () => {
     }
 
     const validate = (values: any) => {
-        return validators(values);
+        return validatorsForgotEmailInput(values);
     };
 
     const onSubmit = (values: initialValuesType) => {
+        // alert(JSON.stringify(values))
         dispatch(setMailTC(values))
     }
     return (

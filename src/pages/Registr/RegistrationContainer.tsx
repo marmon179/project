@@ -28,7 +28,7 @@ export const RegistrationContainer = () => {
     };
 
     const onSubmit = (values: initialValuesType) => {
-        // alert(JSON.stringify(values))
+        alert(JSON.stringify(values))
         dispatch(isRegistrationTC(values))
     }
 

@@ -1,4 +1,4 @@
-import {authAPI, ForgotParamsType} from '../dal/api';
+import {authAPI, ForgotParamsType, SetNewPasswordParamsType} from '../dal/api';
 import {AppThunk} from './store';
 
 const initState = {
@@ -25,6 +25,12 @@ export const setMailTC = (data: ForgotParamsType): AppThunk => (dispatch) => {
         .then(res => {
             dispatch(setMailAC(true))
             dispatch(getMailNameAC(data.email))
+        })
+}
+export const setNewPasswordTC = (data: SetNewPasswordParamsType): AppThunk => (dispatch) => {
+    authAPI.setNewPassword(data)
+        .then(res => {
+            alert(res.data.info)
         })
 }
 //type

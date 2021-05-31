@@ -12,7 +12,6 @@ export type PropsType = {
 }
 
 export const ForgotNewPassword: React.FC<PropsType> = props => {
-
     const {
         initialValues,
         onSubmit,
@@ -31,7 +30,7 @@ export const ForgotNewPassword: React.FC<PropsType> = props => {
                 <div className={s.formWrapper}>
                     <h2 className={s.formTitle}>It-incubator</h2>
                     <span className={s.formSubTitle}>Create new password</span>
-                    <form action="" className={s.formLogin} onSubmit={formik.handleSubmit}>
+                    <form className={s.formLogin} onSubmit={formik.handleSubmit}>
 
                         <Input
                             type={'password'}
