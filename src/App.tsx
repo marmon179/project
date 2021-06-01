@@ -6,7 +6,7 @@ import './App.css'
 import {useDispatch, useSelector} from 'react-redux';
 import {setUserDataTC} from './bll/app-reducer';
 import {AppStateType} from './bll/store';
-
+// import Main from "./pages/mainPacksList/Main";
 
 
 
