@@ -13,6 +13,7 @@ export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
     validate: (values: initialValuesType) => FormikPasswordErrorType
+    disable: boolean
 }
 
 export const NewPassword: React.FC<PropsType> = React.memo(props => {
@@ -20,7 +21,8 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
     const {
         initialValues,
         onSubmit,
-        validate
+        validate,
+        disable
     } = props
 
     const formik = useFormik({
@@ -50,7 +52,7 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
                         <p className={s.textNewPassword}>Create new password and we will send you further instructions
                             to email</p>
                         <div className={s.buttonInner}>
-                            <ButtonLarge title="Create new password"/>
+                            <ButtonLarge title="Create new password" disabled={disable}/>
                         </div>
                     </form>
 

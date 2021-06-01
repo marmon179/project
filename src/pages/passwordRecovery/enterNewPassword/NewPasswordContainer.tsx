@@ -1,12 +1,14 @@
 import React from 'react';
 import {NewPassword} from './NewPassword';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {validatorsNewPasswordInput} from '../../../assets/Validators/validatorsNewPasswordInput';
 import {useParams} from 'react-router-dom';
 import {setNewPasswordTC} from '../../../bll/PasswordRecoveryReducer';
+import {AppStateType} from '../../../bll/store';
 
 
 export const ForgotNewPasswordContainer = () => {
+    const disable = useSelector<AppStateType, boolean>(state => state.recovery.buttonDisable)
     const {token} = useParams<{ token: string }>()
     const dispatch = useDispatch()
 
@@ -30,6 +32,7 @@ export const ForgotNewPasswordContainer = () => {
                 initialValues={initialValues}
                 onSubmit={onSubmit}
                 validate={validate}
+                disable={disable}
             />
 
         </>

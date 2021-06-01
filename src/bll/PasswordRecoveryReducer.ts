@@ -54,9 +54,7 @@ export const setNewPasswordTC = (data: SetNewPasswordParamsType): AppThunk => (d
         .catch(rej => {
             console.log(rej.response.data.error)
         })
-        .finally(() => {
-            dispatch(disableButtonAC(false))
-        })
+        .finally(() => dispatch(disableButtonAC(false)))
 }
 //type
 export type InitialStateLoading = typeof initState
