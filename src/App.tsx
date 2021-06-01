@@ -4,8 +4,9 @@ import Routes from './Routes';
 import Header from './pages/header/Header';
 import './App.css'
 import {useDispatch, useSelector} from 'react-redux';
-import {setUserDataTC} from './bll/app-reducer';
 import {AppStateType} from './bll/store';
+import {initializeTC} from './bll/auth-reducer';
+
 // import Main from "./pages/mainPacksList/Main";
 
 
@@ -15,8 +16,8 @@ function App() {
     const isInitialized = useSelector<AppStateType, boolean>((state => state.auth.isInitialized))
 
     useEffect(() => {
-        dispatch(setUserDataTC())
-    }, [])
+        dispatch(initializeTC())
+    }, [dispatch])
 
     if (!isInitialized) {
         return <div>
