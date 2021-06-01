@@ -15,7 +15,7 @@ export type PropsType = {
     validate: (values: initialValuesType) => FormikErrorType
 }
 
-export const Registration: React.FC<PropsType> = props => {
+export const Registration: React.FC<PropsType> = React.memo(props => {
     const {
         initialValues,
         onSubmit,
@@ -66,5 +66,5 @@ export const Registration: React.FC<PropsType> = props => {
             </div>
         </div>
     );
-};
+});
 

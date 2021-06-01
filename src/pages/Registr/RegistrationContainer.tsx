@@ -2,6 +2,7 @@ import {useDispatch} from 'react-redux';
 import {isRegistrationTC} from '../../bll/RegistrationReducer';
 import {Registration} from './Registration';
 import {validators} from '../../assets/Validators/validators';
+import React from 'react';
 
 
 export type initialValuesType = {
@@ -25,12 +26,12 @@ export const RegistrationContainer = () => {
 
     const validate = (values: initialValuesType) => {
         return validators(values);
-    };
+    }
 
-    const onSubmit = (values: initialValuesType) => {
+    const onSubmit = React.useCallback((values: initialValuesType) => {
         // alert(JSON.stringify(values))
         dispatch(isRegistrationTC(values))
-    }
+    }, [dispatch, isRegistrationTC])
 
     return (
         <>
