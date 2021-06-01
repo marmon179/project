@@ -8,6 +8,7 @@ import {validatorsForgotEmailInput} from '../../../assets/Validators/validatorsF
 
 export const EnterEmailContainer = () => {
     const isMail = useSelector<AppStateType, boolean>(state => state.recovery.toCheckEmailPage)
+    const disable = useSelector<AppStateType, boolean>(state => state.recovery.buttonDisable)
     const dispatch = useDispatch()
 
     const initialValues: initialValuesType = {
@@ -20,10 +21,10 @@ export const EnterEmailContainer = () => {
         return validatorsForgotEmailInput(values);
     };
 
-    const onSubmit = (values: initialValuesType) => {
+    const onSubmit = React.useCallback((values: initialValuesType) => {
         // alert(JSON.stringify(values))
         dispatch(setMailTC(values))
-    }
+    }, [dispatch, setMailTC])
     return (
         <>
             <EnterEmail
@@ -31,6 +32,7 @@ export const EnterEmailContainer = () => {
                 onSubmit={onSubmit}
                 validate={validate}
                 isMail={isMail}
+                disable={disable}
             />
 
         </>

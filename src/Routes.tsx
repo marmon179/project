@@ -7,6 +7,7 @@ import {RegistrationContainer} from './pages/Registr/RegistrationContainer';
 import {ForgotNewPasswordContainer} from './pages/passwordRecovery/enterNewPassword/NewPasswordContainer';
 import {CheckEmail} from './pages/passwordRecovery/checkEmail/CheckEmail';
 import { EnterEmailContainer } from './pages/passwordRecovery/enterEmail/EnterEmailContainer';
+import {Test} from './pages/test/Test';
 
 export const PATH = {
     LOGIN: '/login',
@@ -31,7 +32,7 @@ const Routes = () => {
                 <Route path={PATH.RECOVERY_PASSWORD} render={() => <EnterEmailContainer/>}/>
                 <Route path={PATH.NEW_PASSWORD} render={() => <ForgotNewPasswordContainer/>}/>
                 <Route path={PATH.FORGOT_EMAIL} render={() => <CheckEmail/>}/>
-                {/*<Route path={PATH.TEST} render={() => <Test/>}/>*/}
+                <Route path={PATH.TEST} render={() => <Test/>}/>
 
                 <Route render={() => <Error404/>}/>
 

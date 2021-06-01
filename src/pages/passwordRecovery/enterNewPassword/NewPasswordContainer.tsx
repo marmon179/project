@@ -20,10 +20,10 @@ export const ForgotNewPasswordContainer = () => {
     };
 
 
-    const onSubmit = (values: initialValuesType) => {
+    const onSubmit = React.useCallback((values: initialValuesType) => {
         // alert(JSON.stringify(values))
         dispatch(setNewPasswordTC(values))
-    }
+    }, [dispatch, setNewPasswordTC])
     return (
         <>
             <NewPassword

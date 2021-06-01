@@ -12,16 +12,12 @@ export type PropsType = {
     onSubmit: (values: initialValuesType) => void
     validate: (values: initialValuesType) => FormikErrorType
     isMail: boolean
+    disable: boolean
 }
 
-export const EnterEmail: React.FC<PropsType> = props => {
+export const EnterEmail: React.FC<PropsType> = React.memo(props => {
 
-    const {
-        initialValues,
-        onSubmit,
-        validate,
-        isMail
-    } = props
+    const {initialValues, onSubmit, validate, isMail, disable} = props
 
     const formik = useFormik({
         initialValues,
@@ -32,7 +28,6 @@ export const EnterEmail: React.FC<PropsType> = props => {
     if (isMail) {
         return <Redirect to={PATH.FORGOT_EMAIL}/>
     }
-
     return (
         <div className={s.form}>
             <div className={s.containerForm}>
@@ -51,7 +46,7 @@ export const EnterEmail: React.FC<PropsType> = props => {
                         <p className={s.textEmail}>Enter your email address and we will send you further
                             instructions </p>
                         <div className={s.buttonInner}>
-                            <ButtonLarge title="Send Instructions"/>
+                            <ButtonLarge title="Send Instructions" disabled={disable}/>
                         </div>
                     </form>
                     <div className={s.blockSingUp}>
@@ -62,5 +57,5 @@ export const EnterEmail: React.FC<PropsType> = props => {
             </div>
         </div>
     );
-};
+});
 

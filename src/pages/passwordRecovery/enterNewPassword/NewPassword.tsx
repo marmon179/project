@@ -15,8 +15,8 @@ export type PropsType = {
     validate: (values: initialValuesType) => FormikPasswordErrorType
 }
 
-export const NewPassword: React.FC<PropsType> = props => {
-    const toLoginPage = useSelector<AppStateType,boolean>(state => state.recovery.toLoginPage)
+export const NewPassword: React.FC<PropsType> = React.memo(props => {
+    const toLoginPage = useSelector<AppStateType, boolean>(state => state.recovery.toLoginPage)
     const {
         initialValues,
         onSubmit,
@@ -36,7 +36,7 @@ export const NewPassword: React.FC<PropsType> = props => {
         <div className={s.form}>
             <div className={s.containerForm}>
                 <div className={s.formWrapper}>
-                    <h2 className={s.formTitle}>It-incubator  </h2>
+                    <h2 className={s.formTitle}>It-incubator </h2>
                     <span className={s.formSubTitle}>Create new password</span>
                     <form className={s.formLogin} onSubmit={formik.handleSubmit}>
 
@@ -58,5 +58,5 @@ export const NewPassword: React.FC<PropsType> = props => {
             </div>
         </div>
     );
-};
+});
 
