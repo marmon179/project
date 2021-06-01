@@ -2,7 +2,6 @@ import React from 'react';
 import s from './AuthRegistr.module.scss';
 import './../../../src/styles/vars.scss';
 import {useFormik} from 'formik';
-import ButtonMedium from '../../components/common/buttonMedium/ButtonMedium';
 import {FormikErrorType, initialValuesType} from './RegistrationContainer';
 import {Input} from '../../components/common/c1-SuperInputText/Input';
 import Logo from '../../components/common/logo/Logo';

@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './NewPassword.module.scss';
-import ButtonLarge from '../../../components/common/buttonLarge/ButtonLarge';
 import {useFormik} from 'formik';
 import {FormikPasswordErrorType, initialValuesType} from './NewPasswordContainer';
 import {Input} from '../../../components/common/c1-SuperInputText/Input';
@@ -9,6 +8,7 @@ import {PATH} from '../../../Routes';
 import {useSelector} from 'react-redux';
 import {AppStateType} from '../../../bll/store';
 import {Loading} from '../../../components/common/loading/Loading';
+import {Button, Size, Variant} from "../../../components/common/c2-SuperButton/Button";
 
 export type PropsType = {
     initialValues: initialValuesType
@@ -57,7 +57,7 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
                         <p className={s.textNewPassword}>Create new password and we will send you further instructions
                             to email</p>
                         <div className={s.buttonInner}>
-                            <ButtonLarge title="Create new password" disabled={disable}/>
+                            <Button size={Size.big} variant={Variant.primary} title="Create new password" disabled={disable}/>
                         </div>
                     </form>
 

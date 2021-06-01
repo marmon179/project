@@ -1,6 +1,5 @@
 @import "./src/styles/mixins";
 @import "./src/styles/vars";
-
 .btn {
   height: 36px;
   border-radius: $borderRadius;
@@ -19,16 +18,25 @@
   &.big {
     width: 266px;
   }
+
   &.default {
     background: #D7D8EF;
-    color: #21268F;
+    color: $primaryColorBtn;
   }
+
   &.primary {
     background: $primaryColorBtn;
     color: #ECECF9;
   }
+
   &.secondary {
     background: #f9b;
     color: #ECECF9;
+  }
+  &:disabled {
+    cursor: auto;
+    background-color: #8fa7a2;
+    color: #fff;
+    box-shadow: 0 0 0;
   }
 }
