@@ -71,7 +71,7 @@ export const authAPI = {
 	        link</a></div>`
      * }
      * */
-    forgot(data: ForgotParamsType) {
+    recovery(data: ForgotParamsType) {
         return instance.post<OtherResponseType>('auth/forgot', data)
     },
 

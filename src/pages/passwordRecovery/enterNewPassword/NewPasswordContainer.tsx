@@ -1,9 +1,9 @@
 import React from 'react';
-import {ForgotNewPassword} from './ForgotNewPassword';
+import {NewPassword} from './NewPassword';
 import {useDispatch} from 'react-redux';
 import {validatorsNewPasswordInput} from '../../../assets/Validators/validatorsNewPasswordInput';
 import {useParams} from 'react-router-dom';
-import {setNewPasswordTC} from '../../../bll/ForgotReducer';
+import {setNewPasswordTC} from '../../../bll/PasswordRecoveryReducer';
 
 
 export const ForgotNewPasswordContainer = () => {
@@ -12,21 +12,21 @@ export const ForgotNewPasswordContainer = () => {
 
     const initialValues: initialValuesType = {
         password: '',
-        resetPasswordToken: ''
+        resetPasswordToken: token
     }
 
-    const validate = (values: any) => {
+    const validate = (values: initialValuesType) => {
         return validatorsNewPasswordInput(values);
     };
 
 
     const onSubmit = (values: initialValuesType) => {
-        alert(JSON.stringify(values))
+        // alert(JSON.stringify(values))
         dispatch(setNewPasswordTC(values))
     }
     return (
         <>
-            <ForgotNewPassword
+            <NewPassword
                 initialValues={initialValues}
                 onSubmit={onSubmit}
                 validate={validate}

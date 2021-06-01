@@ -1,14 +1,13 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../../bll/store';
-import {ForgotEmail} from './ForgotEmail';
-import {validators} from '../../../assets/Validators/validators';
-import {setMailTC} from '../../../bll/ForgotReducer';
+import {EnterEmail} from './EnterEmail';
+import {setMailTC} from '../../../bll/PasswordRecoveryReducer';
 import {validatorsForgotEmailInput} from '../../../assets/Validators/validatorsForgotEmailInput';
 
 
-export const ForgotEmailContainer = () => {
-    const isMail = useSelector<AppStateType, boolean>(state => state.forgot.isMail)
+export const EnterEmailContainer = () => {
+    const isMail = useSelector<AppStateType, boolean>(state => state.recovery.toCheckEmailPage)
     const dispatch = useDispatch()
 
     const initialValues: initialValuesType = {
@@ -27,7 +26,7 @@ export const ForgotEmailContainer = () => {
     }
     return (
         <>
-            <ForgotEmail
+            <EnterEmail
                 initialValues={initialValues}
                 onSubmit={onSubmit}
                 validate={validate}

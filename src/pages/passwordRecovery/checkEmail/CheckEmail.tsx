@@ -1,12 +1,13 @@
 import React from 'react';
-import s from './AuthForgotPasswordCheckEmail.module.scss';
+import s from './CheckEmail.module.scss';
 import mail from '../../../assets/img/authForgotPasswordCheckEmail/mail.svg'
 import {useSelector} from 'react-redux';
 import {AppStateType} from '../../../bll/store';
 
 
-export const AuthForgotPasswordCheckEmail = () => {
-    const mailName = useSelector<AppStateType, string>(state => state.forgot.mailName)
+export const CheckEmail = () => {
+    const mailName = useSelector<AppStateType, string>(state => state.recovery.setMailName)
+
     return (
         <div className={s.form}>
             <div className={s.containerForm}>

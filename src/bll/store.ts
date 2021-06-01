@@ -2,13 +2,13 @@ import {applyMiddleware, combineReducers, createStore} from 'redux';
 import {AuthActionType, authReducer} from './auth-reducer';
 import thunkMiddleware, {ThunkAction} from 'redux-thunk'
 import {appReducer, AppReducerActionType} from './app-reducer';
-import {ForgotActionType, forgotReducer} from './ForgotReducer';
+import {ForgotActionType, passwordRecoveryReducer} from './PasswordRecoveryReducer';
 
 
 const reducers = combineReducers({
     auth: authReducer,
     app: appReducer,
-    forgot: forgotReducer
+    recovery: passwordRecoveryReducer
 })
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware))

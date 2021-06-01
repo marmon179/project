@@ -4,15 +4,16 @@ import {Profile} from './pages/Profile';
 import Error404 from './pages/error404/Error404';
 import {AuthLogin} from './pages/Login/AuthLogin';
 import {RegistrationContainer} from './pages/Registr/RegistrationContainer';
-import {ForgotNewPasswordContainer} from './pages/Forgot/ForgorNewPassword/ForgorNewPasswordContainer';
-import {ForgotEmailContainer} from './pages/Forgot/ForgotEmail/ForgotEmailContainer';
+import {ForgotNewPasswordContainer} from './pages/passwordRecovery/enterNewPassword/NewPasswordContainer';
+import {CheckEmail} from './pages/passwordRecovery/checkEmail/CheckEmail';
+import { EnterEmailContainer } from './pages/passwordRecovery/enterEmail/EnterEmailContainer';
 
 export const PATH = {
     LOGIN: '/login',
     REGISTRATION: '/registration',
     PROFILE: '/profile',
     RECOVERY_PASSWORD: '/recovery-password',
-    NEW_PASSWORD: '/new-password',
+    NEW_PASSWORD: '/set-new-password/:token',
     TEST: '/test',
     HEADER: '/header',
     FORGOT_EMAIL:'/check-email'
@@ -27,8 +28,9 @@ const Routes = () => {
                 <Route path={PATH.LOGIN} render={() => <AuthLogin/>}/>
                 <Route path={PATH.REGISTRATION} render={() => <RegistrationContainer/>}/>
                 <Route path={PATH.PROFILE} render={() => <Profile/>}/>
-                <Route path={PATH.RECOVERY_PASSWORD} render={() => <ForgotEmailContainer/>}/>
+                <Route path={PATH.RECOVERY_PASSWORD} render={() => <EnterEmailContainer/>}/>
                 <Route path={PATH.NEW_PASSWORD} render={() => <ForgotNewPasswordContainer/>}/>
+                <Route path={PATH.FORGOT_EMAIL} render={() => <CheckEmail/>}/>
                 {/*<Route path={PATH.TEST} render={() => <Test/>}/>*/}
 
                 <Route render={() => <Error404/>}/>

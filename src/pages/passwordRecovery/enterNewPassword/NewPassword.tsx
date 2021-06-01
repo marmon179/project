@@ -1,9 +1,13 @@
 import React from 'react';
-import s from './AurhForgorNewPassword.module.scss';
+import s from './NewPassword.module.scss';
 import ButtonLarge from '../../../components/common/buttonLarge/ButtonLarge';
 import {useFormik} from 'formik';
-import {FormikPasswordErrorType, initialValuesType} from './ForgorNewPasswordContainer';
+import {FormikPasswordErrorType, initialValuesType} from './NewPasswordContainer';
 import {Input} from '../../../components/common/c1-SuperInputText/Input';
+import {Redirect} from 'react-router-dom';
+import {PATH} from '../../../Routes';
+import {useSelector} from 'react-redux';
+import {AppStateType} from '../../../bll/store';
 
 export type PropsType = {
     initialValues: initialValuesType
@@ -11,7 +15,8 @@ export type PropsType = {
     validate: (values: initialValuesType) => FormikPasswordErrorType
 }
 
-export const ForgotNewPassword: React.FC<PropsType> = props => {
+export const NewPassword: React.FC<PropsType> = props => {
+    const toLoginPage = useSelector<AppStateType,boolean>(state => state.recovery.toLoginPage)
     const {
         initialValues,
         onSubmit,
@@ -23,12 +28,15 @@ export const ForgotNewPassword: React.FC<PropsType> = props => {
         onSubmit,
         validate
     });
+    if (toLoginPage) {
+        return <Redirect to={PATH.LOGIN}/>
+    }
 
     return (
         <div className={s.form}>
             <div className={s.containerForm}>
                 <div className={s.formWrapper}>
-                    <h2 className={s.formTitle}>It-incubator</h2>
+                    <h2 className={s.formTitle}>It-incubator  </h2>
                     <span className={s.formSubTitle}>Create new password</span>
                     <form className={s.formLogin} onSubmit={formik.handleSubmit}>
 

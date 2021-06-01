@@ -4,7 +4,7 @@ import {AppThunk} from './store';
 
 const initState = {
     isLoggedIn: false,
-    isInitialized: false,
+    isInitialized: true,
 }
 
 export const authReducer = (state: InitialStateLoading = initState, action: AuthActionType): InitialStateLoading => {

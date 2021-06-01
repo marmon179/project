@@ -1,5 +1,7 @@
-import {initialValuesType} from '../../pages/Registr/RegistrationContainer';
-import {FormikPasswordErrorType} from '../../pages/Forgot/ForgorNewPassword/ForgorNewPasswordContainer';
+import {
+    FormikPasswordErrorType,
+    initialValuesType
+} from '../../pages/passwordRecovery/enterNewPassword/NewPasswordContainer';
 
 export const validatorsNewPasswordInput = (values: initialValuesType) => {
     const errors: FormikPasswordErrorType = {}

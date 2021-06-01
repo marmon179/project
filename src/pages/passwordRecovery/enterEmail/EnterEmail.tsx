@@ -1,10 +1,10 @@
 import React from 'react';
-import s from './AuthForgotPassword.module.scss';
+import s from './EnterEmail.module.scss';
 import ButtonLarge from '../../../components/common/buttonLarge/ButtonLarge';
 import {NavLink, Redirect} from 'react-router-dom';
 import {PATH} from '../../../Routes';
 import {useFormik} from 'formik';
-import {FormikErrorType, initialValuesType} from './ForgotEmailContainer';
+import {FormikErrorType, initialValuesType} from './EnterEmailContainer';
 import {Input} from '../../../components/common/c1-SuperInputText/Input';
 
 export type PropsType = {
@@ -14,7 +14,7 @@ export type PropsType = {
     isMail: boolean
 }
 
-export const ForgotEmail: React.FC<PropsType> = props => {
+export const EnterEmail: React.FC<PropsType> = props => {
 
     const {
         initialValues,
