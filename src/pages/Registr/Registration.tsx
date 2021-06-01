@@ -24,7 +24,7 @@ export const Registration: React.FC<PropsType> = React.memo(props => {
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate
+        validationSchema
     });
 
     return (
