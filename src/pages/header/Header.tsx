@@ -7,11 +7,8 @@ function Header() {
     return (
         <div className={style.header}>
             <NavLink to={PATH.LOGIN} className={style.link} activeClassName={style.active}>Login</NavLink>
-            <NavLink to={PATH.NEW_PASSWORD} className={style.link} activeClassName={style.active}>New password</NavLink>
             <NavLink to={PATH.PROFILE} className={style.link} activeClassName={style.active}>Profile</NavLink>
             <NavLink to={PATH.REGISTRATION} className={style.link} activeClassName={style.active}>Registration</NavLink>
-            <NavLink to={PATH.RECOVERY_PASSWORD} className={style.link} activeClassName={style.active}>Recovery
-                password</NavLink>
             <NavLink to={PATH.TEST} className={style.link} activeClassName={style.active}>Test</NavLink>
         </div>
     )
