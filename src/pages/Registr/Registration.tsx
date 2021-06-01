@@ -2,30 +2,29 @@ import React from 'react';
 import s from './AuthRegistr.module.scss';
 import './../../../src/styles/vars.scss';
 import {useFormik} from 'formik';
-import ButtonMedium from '../../components/common/buttonMedium/ButtonMedium';
-import {FormikErrorType, initialValuesType} from './RegistrationContainer';
+import {initialValuesType} from './RegistrationContainer';
 import {Input} from '../../components/common/c1-SuperInputText/Input';
 import Logo from '../../components/common/logo/Logo';
 import Title from '../../components/common/title/Title';
 import {Button, Size, Variant} from '../../components/common/c2-SuperButton/Button';
+import {validationSchema} from '../../assets/Validators/validators';
 
 export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
-    validate: (values: initialValuesType) => FormikErrorType
 }
 
 export const Registration: React.FC<PropsType> = React.memo(props => {
     const {
         initialValues,
         onSubmit,
-        validate
+        // validate
     } = props
 
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate
+        validationSchema
     });
 
     return (
@@ -50,12 +49,12 @@ export const Registration: React.FC<PropsType> = React.memo(props => {
                             {...formik.getFieldProps('password')}
                         />
 
-                        {/*<Input*/}
-                        {/*    type={'password'}*/}
-                        {/*    title={'Confirm password'}*/}
-                        {/*    error={(formik.touched.password && formik.errors.password) ? formik.errors.password : null}*/}
-                        {/*    {...formik.getFieldProps('password')}*/}
-                        {/*/>*/}
+                        <Input
+                            type={'password'}
+                            title={'Confirm password'}
+                            error={(formik.touched.confirmPassword && formik.errors.confirmPassword) ? formik.errors.confirmPassword : null}
+                            {...formik.getFieldProps('confirmPassword')}
+                        />
 
                         <div className={s.btnInner}>
                             <Button size={Size.small} variant={Variant.default} title="Cancel"/>
