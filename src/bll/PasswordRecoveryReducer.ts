@@ -28,7 +28,7 @@ const toCheckEmailPageAC = (toCheckEmailPage: boolean) => ({
 } as const)
 const getMailNameAC = (setMailName: string) => ({type: 'RECOVERY/SET-MAIL-NAME', setMailName} as const)
 const toLoginPageAC = (toLoginPage: boolean) => ({type: 'RECOVERY/LOGIN-PAGE', toLoginPage} as const)
-const disableButtonAC = (disable: boolean) => ({type: 'RECOVERY/BUTTON-DISABLE', disable} as const)
+export const disableButtonAC = (disable: boolean) => ({type: 'RECOVERY/BUTTON-DISABLE', disable} as const)
 //thunks
 export const setMailTC = (data: ForgotParamsType): AppThunk => (dispatch) => {
     dispatch(disableButtonAC(true))
