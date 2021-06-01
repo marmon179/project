@@ -8,6 +8,8 @@ import {setUserDataTC} from './bll/app-reducer';
 import {AppStateType} from './bll/store';
 
 
+
+
 function App() {
     const dispatch = useDispatch()
     const isInitialized = useSelector<AppStateType, boolean>((state => state.auth.isInitialized))
@@ -24,6 +26,7 @@ function App() {
     return (
         <div className="App">
             <Header/>
+            {/*<Main />*/}
             <Routes/>
         </div>
     );

@@ -8,6 +8,8 @@ import {useDispatch} from 'react-redux';
 import {setIsLoggedTC} from '../../bll/auth-reducer';
 import {NavLink} from 'react-router-dom';
 import {PATH} from '../../Routes';
+import Logo from "../../components/common/logo/Logo";
+import Title from "../../components/common/title/Title";
 
 
 export const AuthLogin = () => {
@@ -29,10 +31,10 @@ export const AuthLogin = () => {
             <div className={s.containerForm}>
                 <div className={s.formWrapper}>
 
-                    <h2 className={s.formTitle}>It-incubator</h2>
-                    <span className={s.formSubTitle}>Sign In</span>
+                    <Logo />
+                    <Title title="Sign In" />
 
-                    <form className={s.formLogin} onSubmit={formik.handleSubmit}>
+                    <form onSubmit={formik.handleSubmit}>
                         <InputEmail values={formik.values.email} onChange={formik.handleChange}/>
                         <InputPassword title="Password" onChange={formik.handleChange} values={formik.values.password}/>
                         <NavLink to={PATH.RECOVERY_PASSWORD} className={s.linkForgotPassword}>Forgot password</NavLink>

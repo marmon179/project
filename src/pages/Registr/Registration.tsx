@@ -6,6 +6,8 @@ import ButtonSmall from '../../components/common/buttonSmall/ButtonSmall';
 import ButtonMedium from '../../components/common/buttonMedium/ButtonMedium';
 import {FormikErrorType, initialValuesType} from './RegistrationContainer';
 import {Input} from '../../components/common/c1-SuperInputText/Input';
+import Logo from "../../components/common/logo/Logo";
+import Title from "../../components/common/title/Title";
 
 export type PropsType = {
     initialValues: initialValuesType
@@ -30,9 +32,9 @@ export const Registration: React.FC<PropsType> = props => {
         <div className={s.form}>
             <div className={s.containerForm}>
                 <div className={s.formWrapper}>
-                    <h2 className={s.formTitle}>It-incubator</h2>
-                    <span className={s.formSubTitle}>Sign In</span>
-                    <form className={s.formLogin} onSubmit={formik.handleSubmit}>
+                    <Logo />
+                    <Title title="Sign In" />
+                    <form onSubmit={formik.handleSubmit}>
 
                         <Input
                             type={'text'}
@@ -41,7 +43,6 @@ export const Registration: React.FC<PropsType> = props => {
                             {...formik.getFieldProps('email')}
                         />
 
-
                         <Input
                             type={'password'}
                             title={'Password'}
@@ -49,12 +50,18 @@ export const Registration: React.FC<PropsType> = props => {
                             {...formik.getFieldProps('password')}
                         />
 
+                        {/*<Input*/}
+                        {/*    type={'password'}*/}
+                        {/*    title={'Confirm password'}*/}
+                        {/*    error={(formik.touched.password && formik.errors.password) ? formik.errors.password : null}*/}
+                        {/*    {...formik.getFieldProps('password')}*/}
+                        {/*/>*/}
+
                         <div className={s.btnInner}>
-                            <ButtonSmall title="Cancel"/>
+                            <ButtonSmall  title="Cancel"/>
                             <ButtonMedium title="Register"/>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

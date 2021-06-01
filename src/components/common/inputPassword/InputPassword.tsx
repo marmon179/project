@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./InputPassword.module.scss";
-import eye from './../../../assets/img/inputPassword/eye.svg';
 
 
 type InputPasswordPropsType = {
@@ -18,9 +17,7 @@ export const InputPassword = (props: InputPasswordPropsType) => {
                    name="password"
                    onChange={props.onChange}
                    value={props.values}
-
             />
-            <a href="#" className={s.passwordControl}><img src={eye} alt="#" /></a>
         </div>
     );
 };

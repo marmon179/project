@@ -1,74 +1,43 @@
 @import "./../../styles/mixins";
 
-.form {
-
-}
-
 .containerForm {
   padding: 60px 0;
   display: flex;
   justify-content: center;
 }
-
 .formWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   height: 600px;
   background: #F9F9FE;
   width: 413px;
   border-radius: 8px;
 }
-.formTitle {
-  margin-top: 25px;
-  @include textPop("Poppins",26px, 600, 39px);
+.linkForgotPassword {
+  position: relative;
+  left: 240px;
+  top: 48px;
+  @include textSan("san francico",14px, 400, 17px); color: #2D2E46;
+  text-decoration: none;
 }
-
-.formSubTitle {
-  margin-top: 32px;
-  @include textPop("Poppins",22px, 600, 33px);
-}
-
-.formLogin {
-  margin-top: 38px;
-}
-.formInput {
-  height: 48px;
-  width: 347px;
-  display: flex;
-  flex-direction: column;
-}
-
 .buttonInner {
   margin-top: 150px;
   display: flex;
   justify-content: center;
 }
-
-.linkForgotPassword {
-  position: relative;
-  left: 240px;
-  top: 48px;
-  @include textSan("San Francico",14px, 400, 17px);
-  color: #2D2E46;
-  text-decoration: none;
-}
-
 .blockSingUp {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 31px;
 }
-
 .formText {
-  @include textSan("San Francico",14px, 600, 24px);
-  color: #2D2E46;
+  @include textSan("san francico",14px,600,24px); color: #2D2E46;
   opacity: 0.5;
 }
-
 .linkSingUp {
   margin-top: 11px;
-  @include textSan("San Francico",16px, 600, 24px);
-  text-decoration: none;
+  @include textSan("san francico",16px,600,24px); text-decoration: none;
 }
