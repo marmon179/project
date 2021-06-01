@@ -8,12 +8,14 @@ import {Redirect} from 'react-router-dom';
 import {PATH} from '../../../Routes';
 import {useSelector} from 'react-redux';
 import {AppStateType} from '../../../bll/store';
+import {Loading} from '../../../components/common/loading/Loading';
 
 export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
     validate: (values: initialValuesType) => FormikPasswordErrorType
     disable: boolean
+    loading: boolean
 }
 
 export const NewPassword: React.FC<PropsType> = React.memo(props => {
@@ -22,7 +24,8 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
         initialValues,
         onSubmit,
         validate,
-        disable
+        disable,
+        loading
     } = props
 
     const formik = useFormik({
@@ -41,7 +44,7 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
                     <h2 className={s.formTitle}>It-incubator </h2>
                     <span className={s.formSubTitle}>Create new password</span>
                     <form className={s.formLogin} onSubmit={formik.handleSubmit}>
-
+                        <div>{loading && <Loading/>}</div>
                         <Input
                             type={'password'}
                             title={'Password'}

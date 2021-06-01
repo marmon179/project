@@ -9,6 +9,7 @@ import {AppStateType} from '../../../bll/store';
 
 export const ForgotNewPasswordContainer = () => {
     const disable = useSelector<AppStateType, boolean>(state => state.recovery.buttonDisable)
+    const loading = useSelector<AppStateType, boolean>(state => state.recovery.loading)
     const {token} = useParams<{ token: string }>()
     const dispatch = useDispatch()
 
@@ -33,6 +34,7 @@ export const ForgotNewPasswordContainer = () => {
                 onSubmit={onSubmit}
                 validate={validate}
                 disable={disable}
+                loading={loading}
             />
 
         </>

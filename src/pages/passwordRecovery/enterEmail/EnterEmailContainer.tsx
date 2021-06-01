@@ -9,6 +9,7 @@ import {validatorsForgotEmailInput} from '../../../assets/Validators/validatorsF
 export const EnterEmailContainer = () => {
     const isMail = useSelector<AppStateType, boolean>(state => state.recovery.toCheckEmailPage)
     const disable = useSelector<AppStateType, boolean>(state => state.recovery.buttonDisable)
+    const loading = useSelector<AppStateType, boolean>(state => state.recovery.loading)
     const dispatch = useDispatch()
 
     const initialValues: initialValuesType = {
@@ -33,6 +34,7 @@ export const EnterEmailContainer = () => {
                 validate={validate}
                 isMail={isMail}
                 disable={disable}
+                loading={loading}
             />
 
         </>

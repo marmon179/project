@@ -5,7 +5,8 @@ const initState = {
     toCheckEmailPage: false,
     setMailName: '',
     toLoginPage: false,
-    buttonDisable: false
+    buttonDisable: false,
+    loading: false
 }
 
 export const passwordRecoveryReducer = (state: InitialStateLoading = initState, action: ForgotActionType): InitialStateLoading => {
@@ -18,6 +19,8 @@ export const passwordRecoveryReducer = (state: InitialStateLoading = initState, 
             return {...state, toLoginPage: action.toLoginPage}
         case 'RECOVERY/BUTTON-DISABLE':
             return {...state, buttonDisable: action.disable}
+        case 'RECOVERY/LOADING-SHOW':
+            return {...state, loading: action.loading}
         default:
             return state
     }
@@ -29,9 +32,11 @@ const toCheckEmailPageAC = (toCheckEmailPage: boolean) => ({
 const getMailNameAC = (setMailName: string) => ({type: 'RECOVERY/SET-MAIL-NAME', setMailName} as const)
 const toLoginPageAC = (toLoginPage: boolean) => ({type: 'RECOVERY/LOGIN-PAGE', toLoginPage} as const)
 export const disableButtonAC = (disable: boolean) => ({type: 'RECOVERY/BUTTON-DISABLE', disable} as const)
+export const showLoadingAC = (loading: boolean) => ({type: 'RECOVERY/LOADING-SHOW', loading} as const)
 //thunks
 export const setMailTC = (data: ForgotParamsType): AppThunk => (dispatch) => {
     dispatch(disableButtonAC(true))
+    dispatch(showLoadingAC(true))
     authAPI.recovery(data)
         .then(res => {
             dispatch(toCheckEmailPageAC(true))
@@ -41,11 +46,15 @@ export const setMailTC = (data: ForgotParamsType): AppThunk => (dispatch) => {
         .catch(rej => {
             console.log(rej.response.data.error)
         })
-        .finally(() => dispatch(disableButtonAC(false)))
-
+        .finally(() => {
+                dispatch(disableButtonAC(false))
+                dispatch(showLoadingAC(false))
+            }
+        )
 }
 export const setNewPasswordTC = (data: SetNewPasswordParamsType): AppThunk => (dispatch) => {
     dispatch(disableButtonAC(true))
+    dispatch(showLoadingAC(true))
     authAPI.setNewPassword(data)
         .then(res => {
             dispatch(toLoginPageAC(true))
@@ -54,7 +63,10 @@ export const setNewPasswordTC = (data: SetNewPasswordParamsType): AppThunk => (d
         .catch(rej => {
             console.log(rej.response.data.error)
         })
-        .finally(() => dispatch(disableButtonAC(false)))
+        .finally(() => {
+            dispatch(disableButtonAC(false))
+            dispatch(showLoadingAC(false))
+        })
 }
 //type
 export type InitialStateLoading = typeof initState
@@ -62,4 +74,6 @@ export type setMailActionType = ReturnType<typeof toCheckEmailPageAC>
 export type mailActionType = ReturnType<typeof getMailNameAC>
 export type toLoginPageActionType = ReturnType<typeof toLoginPageAC>
 export type buttonDisableActionType = ReturnType<typeof disableButtonAC>
-export type ForgotActionType = setMailActionType | mailActionType | toLoginPageActionType | buttonDisableActionType
+export type showLoadingActionType = ReturnType<typeof showLoadingAC>
+export type ForgotActionType = setMailActionType | mailActionType | toLoginPageActionType | buttonDisableActionType |
+    showLoadingActionType
