@@ -29,9 +29,8 @@ export const RegistrationContainer = () => {
     }
 
     const onSubmit = React.useCallback((values: initialValuesType) => {
-        // alert(JSON.stringify(values))
         dispatch(isRegistrationTC(values))
-    }, [dispatch, isRegistrationTC])
+    }, [dispatch])
 
     return (
         <>

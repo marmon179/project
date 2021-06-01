@@ -1,0 +1,34 @@
+@import "./src/styles/mixins";
+@import "./src/styles/vars";
+
+.btn {
+  height: 36px;
+  border-radius: $borderRadius;
+  background: #D7D8EF;
+  @include textSan("San Francico", 16px, 500, 19px);
+  border: none;
+
+  &.small {
+    width: 124px;
+  }
+
+  &.medium {
+    width: 187px;
+  }
+
+  &.big {
+    width: 266px;
+  }
+  &.default {
+    background: #D7D8EF;
+    color: #21268F;
+  }
+  &.primary {
+    background: $primaryColorBtn;
+    color: #ECECF9;
+  }
+  &.secondary {
+    background: #f9b;
+    color: #ECECF9;
+  }
+}

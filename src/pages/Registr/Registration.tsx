@@ -2,12 +2,12 @@ import React from 'react';
 import s from './AuthRegistr.module.scss';
 import './../../../src/styles/vars.scss';
 import {useFormik} from 'formik';
-import ButtonSmall from '../../components/common/buttonSmall/ButtonSmall';
 import ButtonMedium from '../../components/common/buttonMedium/ButtonMedium';
 import {FormikErrorType, initialValuesType} from './RegistrationContainer';
 import {Input} from '../../components/common/c1-SuperInputText/Input';
-import Logo from "../../components/common/logo/Logo";
-import Title from "../../components/common/title/Title";
+import Logo from '../../components/common/logo/Logo';
+import Title from '../../components/common/title/Title';
+import {Button, Size, Variant} from '../../components/common/c2-SuperButton/Button';
 
 export type PropsType = {
     initialValues: initialValuesType
@@ -32,8 +32,8 @@ export const Registration: React.FC<PropsType> = React.memo(props => {
         <div className={s.form}>
             <div className={s.containerForm}>
                 <div className={s.formWrapper}>
-                    <Logo />
-                    <Title title="Sign In" />
+                    <Logo/>
+                    <Title title="Sign In"/>
                     <form onSubmit={formik.handleSubmit}>
 
                         <Input
@@ -58,8 +58,8 @@ export const Registration: React.FC<PropsType> = React.memo(props => {
                         {/*/>*/}
 
                         <div className={s.btnInner}>
-                            <ButtonSmall  title="Cancel"/>
-                            <ButtonMedium title="Register"/>
+                            <Button size={Size.small} variant={Variant.default} title="Cancel"/>
+                            <Button size={Size.medium} variant={Variant.primary} title="Register"/>
                         </div>
                     </form>
                 </div>
