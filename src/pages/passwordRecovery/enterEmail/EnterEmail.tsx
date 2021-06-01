@@ -34,10 +34,12 @@ export const EnterEmail: React.FC<PropsType> = React.memo(props => {
     }
     return (
         <div className={s.form}>
+
+            {loading && <Loading/>}
+
             <div className={s.containerForm}>
                 <div className={s.formWrapper}>
                     <h2 className={s.formTitle}>It-incubator </h2>
-                    <div className={s.loading}>{!loading && <Loading/>}</div>
                     <span className={s.formSubTitle}>Forgot your password?</span>
                     <form action="" className={s.formEmail} onSubmit={formik.handleSubmit}>
 

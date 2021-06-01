@@ -39,12 +39,14 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
 
     return (
         <div className={s.form}>
+
+            {loading && <Loading/>}
+
             <div className={s.containerForm}>
                 <div className={s.formWrapper}>
                     <h2 className={s.formTitle}>It-incubator </h2>
                     <span className={s.formSubTitle}>Create new password</span>
                     <form className={s.formLogin} onSubmit={formik.handleSubmit}>
-                        <div>{loading && <Loading/>}</div>
                         <Input
                             type={'password'}
                             title={'Password'}
