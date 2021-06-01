@@ -8,6 +8,7 @@ export type initialValuesType = {
     email: string
     password: string
     confirmPassword?: string
+    acceptTerms?: string
 }
 
 export const RegistrationContainer = () => {
@@ -18,6 +19,7 @@ export const RegistrationContainer = () => {
         email: '',
         password: '',
         confirmPassword: '',
+        acceptTerms: ''
     }
 
     const onSubmit = React.useCallback((values: initialValuesType) => {
