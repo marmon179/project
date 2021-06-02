@@ -2,11 +2,11 @@ import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {Profile} from './pages/Profile';
 import Error404 from './pages/error404/Error404';
-import {AuthLogin} from './pages/Login/AuthLogin';
 import {RegistrationContainer} from './pages/Registr/RegistrationContainer';
 import {ForgotNewPasswordContainer} from './pages/passwordRecovery/enterNewPassword/NewPasswordContainer';
 import {CheckEmail} from './pages/passwordRecovery/checkEmail/CheckEmail';
 import { EnterEmailContainer } from './pages/passwordRecovery/enterEmail/EnterEmailContainer';
+import {AuthLoginContainer} from "./pages/Login/AuthLoginContainer";
 
 export const PATH = {
     LOGIN: '/login',
@@ -25,7 +25,7 @@ const Routes = () => {
             <Switch>
                 <Route path={'/'} exact render={() => <Redirect to={PATH.LOGIN}/>}/>
 
-                <Route path={PATH.LOGIN} render={() => <AuthLogin/>}/>
+                <Route path={PATH.LOGIN} render={() => <AuthLoginContainer/>}/>
                 <Route path={PATH.REGISTRATION} render={() => <RegistrationContainer/>}/>
                 <Route path={PATH.PROFILE} render={() => <Profile/>}/>
                 <Route path={PATH.RECOVERY_PASSWORD} render={() => <EnterEmailContainer/>}/>

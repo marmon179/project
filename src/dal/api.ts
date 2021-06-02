@@ -93,7 +93,7 @@ export const authAPI = {
 export type LoginParamsType = {
     email: string
     password: string
-    rememberMe: boolean
+    rememberMe?: boolean
 }
 export type RegistrationParamsType = {
     email: string

@@ -27,6 +27,9 @@ export const setIsLoggedTC = (data: LoginParamsType): AppThunk => (dispatch) => 
             dispatch(setIsLoggedAC(true))
         })
 }
+
+
+
 //type
 export type InitialStateLoading = typeof initState
 export type setInitializeAppActionType = ReturnType<typeof setInitializeAppAC>
