@@ -1,4 +1,5 @@
-import {FormikErrorType, initialValuesType} from '../../pages/Registr/RegistrationContainer';
+import {initialValuesType} from '../../pages/Registr/RegistrationContainer';
+import {FormikErrorType} from './validators';
 
 export const validatorsForgotEmailInput = (values: initialValuesType) => {
     const errors: FormikErrorType = {}

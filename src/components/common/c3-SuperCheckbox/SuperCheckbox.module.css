@@ -6,7 +6,7 @@
 
 .checkbox {
     appearance: none;
-
+    border-radius: 50%;
     width: 20px;
     height: 20px;
 
@@ -22,5 +22,5 @@
 }
 
 .checkbox:focus {
-    outline: #200bc6 solid 1px;
+    border: #200bc6 solid 1px;
 }

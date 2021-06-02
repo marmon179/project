@@ -5,7 +5,7 @@ import {useSelector} from 'react-redux';
 import {AppStateType} from '../../../bll/store';
 
 
-export const CheckEmail = () => {
+export const CheckEmail = React.memo(() => {
     const mailName = useSelector<AppStateType, string>(state => state.recovery.setMailName)
 
     return (
@@ -20,5 +20,5 @@ export const CheckEmail = () => {
             </div>
         </div>
     );
-};
+});
 

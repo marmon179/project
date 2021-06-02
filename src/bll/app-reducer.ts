@@ -1,7 +1,5 @@
-import {authAPI, AuthMeResponseType} from '../dal/api';
-import {AxiosError, AxiosResponse} from 'axios';
-import {setInitializeAppAC, setInitializeAppActionType, setIsLoggedAC} from './auth-reducer';
-import {AppThunk} from './store';
+import {AuthMeResponseType} from '../dal/api';
+import {setInitializeAppActionType} from './auth-reducer';
 
 const initState = {
     meObject: {} as AuthMeResponseType,
@@ -20,17 +18,16 @@ export const setUserDataAC = (userData: AuthMeResponseType) => ({
     type: 'APP/USER-DATA', userData
 } as const)
 //thunks
-export const setUserDataTC = (): AppThunk => (dispatch) => {
-    authAPI.me()
-        .then((res: AxiosResponse<AuthMeResponseType>) => {
-            dispatch(setUserDataAC(res.data))
-            dispatch(setIsLoggedAC(true))
-            dispatch(setInitializeAppAC(true))
-        })
-        .catch((error: AxiosError) => {
-            console.log('Error', error)
-        })
-}
+// export const setUserDataTC = (): AppThunk => (dispatch) => {
+//     authAPI.me()
+//         .then((res: AxiosResponse<AuthMeResponseType>) => {
+//             dispatch(setUserDataAC(res.data))
+//             dispatch(setIsLoggedAC(true))
+//         })
+//         .catch((error: AxiosError) => {
+//             console.log('Error', error)
+//         })
+// }
 
 //type
 export type InitialStateLoading = typeof initState

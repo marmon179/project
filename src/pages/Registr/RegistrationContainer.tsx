@@ -1,17 +1,14 @@
 import {useDispatch} from 'react-redux';
 import {isRegistrationTC} from '../../bll/RegistrationReducer';
 import {Registration} from './Registration';
-import {validators} from '../../assets/Validators/validators';
+import React from 'react';
 
 
 export type initialValuesType = {
     email: string
     password: string
-}
-
-export type FormikErrorType = {
-    email?: string
-    password?: string
+    confirmPassword?: string
+    acceptTerms?: string
 }
 
 export const RegistrationContainer = () => {
@@ -21,23 +18,19 @@ export const RegistrationContainer = () => {
     const initialValues: initialValuesType = {
         email: '',
         password: '',
+        confirmPassword: '',
+        acceptTerms: ''
     }
 
-    const validate = (values: initialValuesType) => {
-        return validators(values);
-    };
-
-    const onSubmit = (values: initialValuesType) => {
-        // alert(JSON.stringify(values))
+    const onSubmit = React.useCallback((values: initialValuesType) => {
         dispatch(isRegistrationTC(values))
-    }
+    }, [dispatch])
 
     return (
         <>
             <Registration
                 initialValues={initialValues}
                 onSubmit={onSubmit}
-                validate={validate}
             />
         </>
     );

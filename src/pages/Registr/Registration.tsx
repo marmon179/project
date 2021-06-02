@@ -2,38 +2,38 @@ import React from 'react';
 import s from './AuthRegistr.module.scss';
 import './../../../src/styles/vars.scss';
 import {useFormik} from 'formik';
-import ButtonSmall from '../../components/common/buttonSmall/ButtonSmall';
-import ButtonMedium from '../../components/common/buttonMedium/ButtonMedium';
-import {FormikErrorType, initialValuesType} from './RegistrationContainer';
+import {initialValuesType} from './RegistrationContainer';
 import {Input} from '../../components/common/c1-SuperInputText/Input';
-import Logo from "../../components/common/logo/Logo";
-import Title from "../../components/common/title/Title";
+import Logo from '../../components/common/logo/Logo';
+import Title from '../../components/common/title/Title';
+import {Button, Size, Variant} from '../../components/common/c2-SuperButton/Button';
+import {validationSchema} from '../../assets/Validators/validators';
+import {Checkbox} from '../../components/common/c3-SuperCheckbox/Checkbox';
 
 export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
-    validate: (values: initialValuesType) => FormikErrorType
 }
 
-export const Registration: React.FC<PropsType> = props => {
+export const Registration: React.FC<PropsType> = React.memo(props => {
     const {
         initialValues,
         onSubmit,
-        validate
+        // validate
     } = props
 
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate
+        validationSchema
     });
 
     return (
         <div className={s.form}>
             <div className={s.containerForm}>
                 <div className={s.formWrapper}>
-                    <Logo />
-                    <Title title="Sign In" />
+                    <Logo/>
+                    <Title title="Sign In"/>
                     <form onSubmit={formik.handleSubmit}>
 
                         <Input
@@ -57,14 +57,19 @@ export const Registration: React.FC<PropsType> = props => {
                         {/*    {...formik.getFieldProps('password')}*/}
                         {/*/>*/}
 
+                        <Checkbox
+                            error={(formik.touched.acceptTerms && formik.errors.acceptTerms) ? formik.errors.acceptTerms : null}
+                            {...formik.getFieldProps('acceptTerms')}
+                        >Accept Terms & Conditions</Checkbox>
+
                         <div className={s.btnInner}>
-                            <ButtonSmall  title="Cancel"/>
-                            <ButtonMedium title="Register"/>
+                            <Button size={Size.small} variant={Variant.default} title="Cancel"/>
+                            <Button size={Size.medium} variant={Variant.primary} title="Register"/>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     );
-};
+});
 
