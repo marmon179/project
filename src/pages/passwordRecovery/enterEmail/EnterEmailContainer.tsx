@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../../bll/store';
 import {EnterEmail} from './EnterEmail';
 import {setMailTC} from '../../../bll/PasswordRecoveryReducer';
+import * as yup from 'yup';
 
 
 export const EnterEmailContainer = () => {
@@ -16,10 +17,16 @@ export const EnterEmailContainer = () => {
         from: '',
         message: ''
     }
+    const validationSchema = yup.object().shape({
+        email: yup.string()
+            .email('Email is invalid')
+            .required('Email is required'),
+    })
     const onSubmit = React.useCallback((values: initialValuesType) => {
         // alert(JSON.stringify(values))
         dispatch(setMailTC(values))
-    }, [dispatch, setMailTC])
+    }, [dispatch])
+
     return (
         <>
             <EnterEmail
@@ -28,6 +35,7 @@ export const EnterEmailContainer = () => {
                 isMail={isMail}
                 disable={disable}
                 loading={loading}
+                validationSchema={validationSchema}
             />
 
         </>
