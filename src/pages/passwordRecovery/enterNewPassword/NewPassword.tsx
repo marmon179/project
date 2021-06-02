@@ -1,19 +1,19 @@
 import React from 'react';
 import s from './NewPassword.module.scss';
 import {useFormik} from 'formik';
-import {FormikPasswordErrorType, initialValuesType} from './NewPasswordContainer';
+import {initialValuesType} from './NewPasswordContainer';
 import {Input} from '../../../components/common/c1-SuperInputText/Input';
 import {Redirect} from 'react-router-dom';
 import {PATH} from '../../../Routes';
 import {useSelector} from 'react-redux';
 import {AppStateType} from '../../../bll/store';
 import {Loading} from '../../../components/common/loading/Loading';
-import {Button, Size, Variant} from "../../../components/common/c2-SuperButton/Button";
+import {Button, Size, Variant} from '../../../components/common/c2-SuperButton/Button';
+import {validationSchema} from '../../../assets/Validators/validatorsNewPasswordInput';
 
 export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
-    validate: (values: initialValuesType) => FormikPasswordErrorType
     disable: boolean
     loading: boolean
 }
@@ -23,7 +23,6 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
     const {
         initialValues,
         onSubmit,
-        validate,
         disable,
         loading
     } = props
@@ -31,7 +30,7 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate
+        validationSchema
     });
     if (toLoginPage) {
         return <Redirect to={PATH.LOGIN}/>

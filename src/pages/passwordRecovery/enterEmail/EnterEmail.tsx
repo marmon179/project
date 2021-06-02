@@ -3,17 +3,16 @@ import s from './EnterEmail.module.scss';
 import {NavLink, Redirect} from 'react-router-dom';
 import {PATH} from '../../../Routes';
 import {useFormik} from 'formik';
-import {FormikErrorType, initialValuesType} from './EnterEmailContainer';
+import {initialValuesType} from './EnterEmailContainer';
 import {Input} from '../../../components/common/c1-SuperInputText/Input';
 import {Loading} from '../../../components/common/loading/Loading';
-import {Button, Size, Variant} from "../../../components/common/c2-SuperButton/Button";
-import {validationSchema} from '../../../assets/Validators/validators';
+import {Button, Size, Variant} from '../../../components/common/c2-SuperButton/Button';
+import {validationSchema} from '../../../assets/Validators/validatorsForgotEmailInput';
 
 
 export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
-    validate: (values: initialValuesType) => FormikErrorType
     isMail: boolean
     disable: boolean
     loading: boolean
@@ -21,8 +20,7 @@ export type PropsType = {
 
 export const EnterEmail: React.FC<PropsType> = React.memo(props => {
 
-
-    const {initialValues, onSubmit, validate, isMail, disable, loading} = props
+    const {initialValues, onSubmit, isMail, disable, loading} = props
 
     const formik = useFormik({
         initialValues,
@@ -36,7 +34,7 @@ export const EnterEmail: React.FC<PropsType> = React.memo(props => {
     return (
         <div className={s.form}>
 
-            {loading && <Loading/>}
+            {loading && <Loading />}
 
             <div className={s.containerForm}>
                 <div className={s.formWrapper}>

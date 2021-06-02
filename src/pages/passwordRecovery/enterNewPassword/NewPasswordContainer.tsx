@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import {setNewPasswordTC} from '../../../bll/PasswordRecoveryReducer';
 import {AppStateType} from '../../../bll/store';
-import {validatorsNewPasswordInput} from '../../../assets/Validators/validatorsNewPasswordInput';
 
 
 export const ForgotNewPasswordContainer = () => {
@@ -18,11 +17,6 @@ export const ForgotNewPasswordContainer = () => {
         resetPasswordToken: token
     }
 
-    const validate = (values: initialValuesType) => {
-        return validatorsNewPasswordInput(values);
-    };
-
-
     const onSubmit = React.useCallback((values: initialValuesType) => {
         // alert(JSON.stringify(values))
         dispatch(setNewPasswordTC(values))
@@ -32,7 +26,6 @@ export const ForgotNewPasswordContainer = () => {
             <NewPassword
                 initialValues={initialValues}
                 onSubmit={onSubmit}
-                validate={validate}
                 disable={disable}
                 loading={loading}
             />
@@ -46,6 +39,3 @@ export type initialValuesType = {
     resetPasswordToken: string
 }
 
-export type FormikPasswordErrorType = {
-    password?: string,
-}

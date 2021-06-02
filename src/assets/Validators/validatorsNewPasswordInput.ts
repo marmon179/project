@@ -1,14 +1,8 @@
-import {
-    FormikPasswordErrorType,
-    initialValuesType
-} from '../../pages/passwordRecovery/enterNewPassword/NewPasswordContainer';
+import * as yup from 'yup';
 
-export const validatorsNewPasswordInput = (values: initialValuesType) => {
-    const errors: FormikPasswordErrorType = {}
-    if (!values.password) {
-        errors.password = 'Required'
-    } else if (values.password.length < 8) {
-        errors.password = 'Password must be more than 7 characters long';
-    }
-    return errors;
-}
+
+export let validationSchema = yup.object().shape({
+    password: yup.string()
+        .min(8, 'Password must be at least 8 characters')
+        .required('Password is required'),
+})

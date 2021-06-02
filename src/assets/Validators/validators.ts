@@ -40,3 +40,7 @@ export let validationSchema = yup.object().shape({
     acceptTerms: yup.bool()
         .oneOf([true], 'Accept Ts & Cs is required')
 })
+
+
+
+

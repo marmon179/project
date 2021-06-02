@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../../bll/store';
 import {EnterEmail} from './EnterEmail';
 import {setMailTC} from '../../../bll/PasswordRecoveryReducer';
-import {validatorsForgotEmailInput} from '../../../assets/Validators/validatorsForgotEmailInput';
 
 
 export const EnterEmailContainer = () => {
@@ -17,11 +16,6 @@ export const EnterEmailContainer = () => {
         from: '',
         message: ''
     }
-
-    const validate = (values: any) => {
-        return validatorsForgotEmailInput(values);
-    };
-
     const onSubmit = React.useCallback((values: initialValuesType) => {
         // alert(JSON.stringify(values))
         dispatch(setMailTC(values))
@@ -31,7 +25,6 @@ export const EnterEmailContainer = () => {
             <EnterEmail
                 initialValues={initialValues}
                 onSubmit={onSubmit}
-                validate={validate}
                 isMail={isMail}
                 disable={disable}
                 loading={loading}
@@ -47,7 +40,4 @@ export type initialValuesType =
         from: any,
         message: string
     }
-export type FormikErrorType = {
-    email?: string
-    password?: string
-}
+

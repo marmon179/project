@@ -1,19 +1,13 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes} from 'react'
 import s from './Input.module.scss'
+import {FieldConfig} from 'formik';
 
 
-export const Input: React.FC<SuperInputTextPropsType> = (
-    {
-        type,
-        onChange, onChangeText,
-        onKeyPress, onEnter,
-        error,
-        className, spanClassName,
-        title,
-
-        ...restProps
-    }
-) => {
+export const Input: React.FC<SuperInputTextPropsType> = props => {
+    const {
+        type, onChange, onChangeText, onKeyPress, onEnter, error, className,
+        spanClassName, title, ...restProps
+    } = props
 
     const [visibleEye, setVisibleEye] = React.useState(false)
 
@@ -26,6 +20,7 @@ export const Input: React.FC<SuperInputTextPropsType> = (
             <input
                 required
                 type={visibleEye ? 'text' : type}
+
                 onChange={onChangeCallback}
                 className={s.input}
                 {...restProps}
@@ -59,6 +54,6 @@ type SuperInputTextPropsType = DefaultInputPropsType & {
     onEnter?: () => void // Not used
     error?: string | null // Not used
     spanClassName?: string // Not used
-}
+} & FieldConfig<any>
 
 export default Input;
