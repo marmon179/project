@@ -1,13 +1,13 @@
 import React from 'react';
 import s from './AuthLogin.module.scss';
-import ButtonLarge from '../../components/common/buttonLarge/ButtonLarge';
 import {useFormik} from 'formik';
 import {NavLink} from 'react-router-dom';
 import {PATH} from '../../Routes';
 import Logo from "../../components/common/logo/Logo";
 import Title from "../../components/common/title/Title";
 import {Input} from "../../components/common/c1-SuperInputText/Input";
-import {FormikErrorType, initialValuesType} from "../Registr/RegistrationContainer";
+import {FormikErrorType, initialValuesType} from "./AuthLoginContainer";
+import {Button} from "../../components/common/c2-SuperButton/Button";
 
 
 export type PropsType = {
@@ -58,7 +58,7 @@ export const AuthLogin = (props: PropsType) => {
 
                         <NavLink to={PATH.RECOVERY_PASSWORD} className={s.linkForgotPassword}>Forgot password</NavLink>
                         <div className={s.buttonInner}>
-                            <ButtonLarge title="Login"/>
+                            <Button title="Login"/>
                         </div>
                     </form>
 
