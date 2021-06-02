@@ -7,6 +7,7 @@ import {FormikErrorType, initialValuesType} from './EnterEmailContainer';
 import {Input} from '../../../components/common/c1-SuperInputText/Input';
 import {Loading} from '../../../components/common/loading/Loading';
 import {Button, Size, Variant} from "../../../components/common/c2-SuperButton/Button";
+import {validationSchema} from '../../../assets/Validators/validators';
 
 
 export type PropsType = {
@@ -26,7 +27,7 @@ export const EnterEmail: React.FC<PropsType> = React.memo(props => {
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate
+        validationSchema
     });
 
     if (isMail) {

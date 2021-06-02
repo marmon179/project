@@ -1,10 +1,10 @@
 import React from 'react';
 import {NewPassword} from './NewPassword';
 import {useDispatch, useSelector} from 'react-redux';
-import {validatorsNewPasswordInput} from '../../../assets/Validators/validatorsNewPasswordInput';
 import {useParams} from 'react-router-dom';
 import {setNewPasswordTC} from '../../../bll/PasswordRecoveryReducer';
 import {AppStateType} from '../../../bll/store';
+import {validatorsNewPasswordInput} from '../../../assets/Validators/validatorsNewPasswordInput';
 
 
 export const ForgotNewPasswordContainer = () => {
