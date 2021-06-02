@@ -8,6 +8,7 @@ import Logo from '../../components/common/logo/Logo';
 import Title from '../../components/common/title/Title';
 import {Button, Size, Variant} from '../../components/common/c2-SuperButton/Button';
 import {validationSchema} from '../../assets/Validators/validators';
+import {Checkbox} from '../../components/common/c3-SuperCheckbox/Checkbox';
 
 export type PropsType = {
     initialValues: initialValuesType
@@ -55,6 +56,11 @@ export const Registration: React.FC<PropsType> = React.memo(props => {
                         {/*    error={(formik.touched.password && formik.errors.password) ? formik.errors.password : null}*/}
                         {/*    {...formik.getFieldProps('password')}*/}
                         {/*/>*/}
+
+                        <Checkbox
+                            error={(formik.touched.acceptTerms && formik.errors.acceptTerms) ? formik.errors.acceptTerms : null}
+                            {...formik.getFieldProps('acceptTerms')}
+                        >Accept Terms & Conditions</Checkbox>
 
                         <div className={s.btnInner}>
                             <Button size={Size.small} variant={Variant.default} title="Cancel"/>

@@ -80,6 +80,13 @@
     display: none;
     width: 20px;
     height: 20px;
+    transition: all linear 0.2s;
+    &.showPassword {
+        opacity: 0.5;
+    }
+    &.hidePassword {
+        opacity: 1;
+    }
 }
 .label {
     @include textSan("San Francico",13px,400, 20px);
