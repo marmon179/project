@@ -53,8 +53,8 @@ export const Registration: React.FC<PropsType> = React.memo(props => {
                         <Input
                             type={'password'}
                             title={'Confirm password'}
-                            error={(formik.touched.password && formik.errors.password) ? formik.errors.password : null}
-                            {...formik.getFieldProps('password')}
+                            error={(formik.touched.confirmPassword && formik.errors.confirmPassword) ? formik.errors.confirmPassword : null}
+                            {...formik.getFieldProps('confirmPassword')}
                         />
 
                         <Checkbox
