@@ -3,23 +3,22 @@ import s from './Input.module.scss'
 import {FieldConfig, useField} from 'formik';
 
 
-export const InputFormik: React.FC<SuperInputTextPropsType> = props => {
-    const {type, title,} = props
+export const InputFormik: React.FC<SuperInputTextPropsType> = ({title, ...props}) => {
 
     const [visibleEye, setVisibleEye] = React.useState(false)
 
-    const [field, meta] = useField(props);
+    const [field, meta] = useField({...props, type: 'password'});
     return (
         <div className={s.group}>
             <input
                 required
-                type={visibleEye ? 'text' : type}
+                type={visibleEye ? 'text' : 'password'}
                 {...field}
                 className={s.input}
                 {...props}
             />
             <a className={`${s.passwordControl} ${visibleEye ? s.showPassword : s.hidePassword}`}
-               style={type === 'password' ? {display: 'inline'} : {display: 'none'}}
+               style={props.name === 'password' ? {display: 'inline'} : {display: 'none'}}
                onClick={() => setVisibleEye((value) => !value)}
             >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

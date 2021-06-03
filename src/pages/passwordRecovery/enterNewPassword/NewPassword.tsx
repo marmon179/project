@@ -21,13 +21,7 @@ export type PropsType = {
 
 export const NewPassword: React.FC<PropsType> = React.memo(props => {
     const toLoginPage = useSelector<AppStateType, boolean>(state => state.recovery.toLoginPage)
-    const {
-        initialValues,
-        onSubmit,
-        disable,
-        loading,
-        validationSchema
-    } = props
+    const {initialValues, onSubmit, disable, loading, validationSchema} = props
 
     if (toLoginPage) {
         return <Redirect to={PATH.LOGIN}/>
@@ -47,13 +41,10 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
                         <h2 className={s.formTitle}>It-incubator </h2>
                         <span className={s.formSubTitle}>Create new password</span>
                         <Form className={s.formLogin}>
-
                             <InputFormik
-                                type='password'
-                                title='Password'
+                                title="Password"
                                 name="password"
                             />
-
                             <p className={s.textNewPassword}>Create new password and we will send you further
                                 instructions
                                 to email</p>
@@ -61,11 +52,7 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
                                 <Button size={Size.big} variant={Variant.primary} title="Create new password"
                                         disabled={disable}/>
                             </div>
-
-
                         </Form>
-
-
                     </div>
                 </div>
             </div>
