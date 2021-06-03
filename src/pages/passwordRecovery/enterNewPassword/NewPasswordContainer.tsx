@@ -10,6 +10,7 @@ import * as yup from 'yup';
 export const ForgotNewPasswordContainer = () => {
     const disable = useSelector<AppStateType, boolean>(state => state.recovery.buttonDisable)
     const loading = useSelector<AppStateType, boolean>(state => state.recovery.loading)
+    const toLoginPage = useSelector<AppStateType, boolean>(state => state.recovery.toLoginPage)
     const {token} = useParams<{ token: string }>()
     const dispatch = useDispatch()
 
@@ -36,6 +37,7 @@ export const ForgotNewPasswordContainer = () => {
                 disable={disable}
                 loading={loading}
                 validationSchema={validationSchema}
+                toLoginPage={toLoginPage}
             />
 
         </>

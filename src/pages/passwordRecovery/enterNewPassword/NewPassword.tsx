@@ -4,8 +4,6 @@ import {Form, Formik} from 'formik';
 import {initialValuesType} from './NewPasswordContainer';
 import {Redirect} from 'react-router-dom';
 import {PATH} from '../../../Routes';
-import {useSelector} from 'react-redux';
-import {AppStateType} from '../../../bll/store';
 import {Loading} from '../../../components/common/loading/Loading';
 import {Button, Size, Variant} from '../../../components/common/c2-SuperButton/Button';
 import {InputFormik} from '../../../components/common/inputFormik/InputFormik';
@@ -17,11 +15,12 @@ export type PropsType = {
     disable: boolean
     loading: boolean
     validationSchema: any
+    toLoginPage: boolean
 }
 
 export const NewPassword: React.FC<PropsType> = React.memo(props => {
-    const toLoginPage = useSelector<AppStateType, boolean>(state => state.recovery.toLoginPage)
-    const {initialValues, onSubmit, disable, loading, validationSchema} = props
+
+    const {initialValues, onSubmit, disable, loading, validationSchema, toLoginPage} = props
 
     if (toLoginPage) {
         return <Redirect to={PATH.LOGIN}/>
