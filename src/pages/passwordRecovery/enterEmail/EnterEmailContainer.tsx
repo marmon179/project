@@ -15,7 +15,7 @@ export const EnterEmailContainer = () => {
     const initialValues: initialValuesType = {
         email: '',
         from: '',
-        message: ''  //Раскоментировать когда работа будет вестись на githubPages
+        message: '' //Раскоментировать когда работа будет вестись на githubPages
                        // `<div style="background-color: lime; padding: 15px">
                        // Восстановления пароля.Нажмите на ссылку:
                        // <a href='https://marmon179.github.io/project/#/set-new-password/$token$'>
