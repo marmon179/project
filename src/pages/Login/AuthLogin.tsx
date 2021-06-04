@@ -27,7 +27,7 @@ export const AuthLogin = (props: PropsType) => {
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate
+        // validate
     });
 
     return (
