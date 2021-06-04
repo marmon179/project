@@ -4,7 +4,7 @@ import {AppStateType} from '../../../bll/store';
 import {EnterEmail} from './EnterEmail';
 import {setMailTC} from '../../../bll/PasswordRecoveryReducer';
 import * as yup from 'yup';
-import {emailMessage} from '../../../config';
+import {emailMessage, sendMessageMethod} from '../../../config';
 
 
 export const EnterEmailContainer = () => {
@@ -16,7 +16,7 @@ export const EnterEmailContainer = () => {
     const initialValues: initialValuesType = {
         email: '',
         from: '',
-        message: emailMessage,
+        message: sendMessageMethod
     }
     const validationSchema = yup.object().shape({
         email: yup.string()
