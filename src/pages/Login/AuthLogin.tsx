@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './AuthLogin.module.scss';
 import {useFormik} from 'formik';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import {PATH} from '../../Routes';
 import Logo from "../../components/common/logo/Logo";
 import Title from "../../components/common/title/Title";
@@ -14,6 +14,7 @@ export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
     validate: (values: initialValuesType) => FormikErrorType
+    isLoggedIn: boolean
 }
 
 export const AuthLogin = (props: PropsType) => {
@@ -29,6 +30,10 @@ export const AuthLogin = (props: PropsType) => {
         onSubmit,
         validate
     });
+
+    if(props.isLoggedIn) {
+       return <Redirect to={PATH.PROFILE} />
+    }
 
     return (
         <div className={s.form}>
@@ -58,7 +63,7 @@ export const AuthLogin = (props: PropsType) => {
 
                         <NavLink to={PATH.RECOVERY_PASSWORD} className={s.linkForgotPassword}>Forgot password</NavLink>
                         <div className={s.buttonInner}>
-                            <Button title="Login"/>
+                            <Button title="Login" />
                         </div>
                     </form>
 
