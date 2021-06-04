@@ -43,6 +43,7 @@ export const initializeTC = (): AppThunk => (dispatch) => {
     authAPI.me()
         .then((res: AxiosResponse<AuthMeResponseType>) => {
             dispatch(setInitializeAppAC(true))
+            dispatch(setIsLoggedAC(true))
             dispatch(setUserDataAC(res.data))
             if (res.data.error) {
                 setAuthError(res.data.error)
