@@ -1,5 +1,3 @@
-import * as yup from 'yup';
-
 export type FormikErrorType = {
     email?: string
     password?: string
@@ -26,21 +24,3 @@ export const validators = (values: FormikErrorType) => {
     }
     return errors;
 }
-
-export let validationSchema = yup.object().shape({
-    email: yup.string()
-        .email('Email is invalid')
-        .required('Email is required'),
-    password: yup.string()
-        .min(8, 'Password must be at least 8 characters')
-        .required('Password is required'),
-    confirmPassword: yup.string()
-        .oneOf([yup.ref('password'), null], 'Passwords must match')
-        .required('Confirm Password is required'),
-    acceptTerms: yup.bool()
-        .oneOf([true], 'Accept Ts & Cs is required')
-})
-
-
-
-

@@ -4,6 +4,7 @@ import {AppStateType} from '../../../bll/store';
 import {EnterEmail} from './EnterEmail';
 import {setMailTC} from '../../../bll/PasswordRecoveryReducer';
 import * as yup from 'yup';
+import {emailMessage} from '../../../config';
 
 
 export const EnterEmailContainer = () => {
@@ -15,11 +16,7 @@ export const EnterEmailContainer = () => {
     const initialValues: initialValuesType = {
         email: '',
         from: '',
-        message: '' //Раскоментировать когда работа будет вестись на githubPages
-                       // `<div style="background-color: lime; padding: 15px">
-                       // Восстановления пароля.Нажмите на ссылку:
-                       // <a href='https://marmon179.github.io/project/#/set-new-password/$token$'>
-                       // link</a></div>`
+        message: emailMessage,
     }
     const validationSchema = yup.object().shape({
         email: yup.string()
