@@ -15,11 +15,11 @@ export const EnterEmailContainer = () => {
     const initialValues: initialValuesType = {
         email: '',
         from: '',
-        message:   //Раскоментировать когда работа будет вестись на githubPages
-                       `<div style="background-color: lime; padding: 15px">
-                       Восстановления пароля.Нажмите на ссылку:
-                       <a href='https://marmon179.github.io/project/#/set-new-password/$token$'>
-                       link</a></div>`
+        message: ''  //Раскоментировать когда работа будет вестись на githubPages
+                       // `<div style="background-color: lime; padding: 15px">
+                       // Восстановления пароля.Нажмите на ссылку:
+                       // <a href='https://marmon179.github.io/project/#/set-new-password/$token$'>
+                       // link</a></div>`
     }
     const validationSchema = yup.object().shape({
         email: yup.string()
