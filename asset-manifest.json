@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/project/static/css/main.087b5a89.chunk.css",
-    "main.js": "/project/static/js/main.57b50f7c.chunk.js",
-    "main.js.map": "/project/static/js/main.57b50f7c.chunk.js.map",
+    "main.js": "/project/static/js/main.0bcb193d.chunk.js",
+    "main.js.map": "/project/static/js/main.0bcb193d.chunk.js.map",
     "runtime-main.js": "/project/static/js/runtime-main.9464a2d6.js",
     "runtime-main.js.map": "/project/static/js/runtime-main.9464a2d6.js.map",
-    "static/js/2.3486fbe7.chunk.js": "/project/static/js/2.3486fbe7.chunk.js",
-    "static/js/2.3486fbe7.chunk.js.map": "/project/static/js/2.3486fbe7.chunk.js.map",
+    "static/js/2.e2646f3f.chunk.js": "/project/static/js/2.e2646f3f.chunk.js",
+    "static/js/2.e2646f3f.chunk.js.map": "/project/static/js/2.e2646f3f.chunk.js.map",
     "static/js/3.7822d590.chunk.js": "/project/static/js/3.7822d590.chunk.js",
     "static/js/3.7822d590.chunk.js.map": "/project/static/js/3.7822d590.chunk.js.map",
     "index.html": "/project/index.html",
     "static/css/main.087b5a89.chunk.css.map": "/project/static/css/main.087b5a89.chunk.css.map",
-    "static/js/2.3486fbe7.chunk.js.LICENSE.txt": "/project/static/js/2.3486fbe7.chunk.js.LICENSE.txt",
+    "static/js/2.e2646f3f.chunk.js.LICENSE.txt": "/project/static/js/2.e2646f3f.chunk.js.LICENSE.txt",
     "static/media/SuperCheckbox.module.css": "/project/static/media/cgedked.0d7c2269.jpg",
     "static/media/loading.f3889154.svg": "/project/static/media/loading.f3889154.svg",
     "static/media/mail.bc3a4042.svg": "/project/static/media/mail.bc3a4042.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.9464a2d6.js",
-    "static/js/2.3486fbe7.chunk.js",
+    "static/js/2.e2646f3f.chunk.js",
     "static/css/main.087b5a89.chunk.css",
-    "static/js/main.57b50f7c.chunk.js"
+    "static/js/main.0bcb193d.chunk.js"
   ]
 }
