@@ -1,47 +1,38 @@
-import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes} from 'react'
+import React, {DetailedHTMLProps, InputHTMLAttributes} from 'react'
 import s from './SuperCheckbox.module.css'
+import {FieldConfig, useField} from 'formik';
 
 export const Checkbox: React.FC<SuperCheckboxPropsType> = (
     {
         type,
-        onChange, onChangeChecked,
-        className, spanClassName,
+        onChange,
+        className,
         children,
-        error,
         title,
         ...restProps
     }
 ) => {
-    const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange && onChange(e)
 
-        onChangeChecked && onChangeChecked(e.currentTarget.checked)
-    }
-
+    const [field, meta] = useField({...restProps, type: 'checkbox'});
     const finalInputClassName = `${s.checkbox} ${className ? className : ''}`
 
     return (
         <label style={{position: 'relative'}}>
             <input
                 type={'checkbox'}
-                onChange={onChangeCallback}
                 className={finalInputClassName}
-
+                {...field}
                 {...restProps}
             />
             {children && <span className={s.spanClassName}>{children}</span>}
             {children ? title : children}
 
             <div style={{color: 'red', position: 'absolute', top: '30px'}}>
-                {error}
+                {meta.touched && meta.error ? (<div className="error">{meta.error}</div>) : null}
             </div>
         </label>
     )
 }
 //types
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
-type SuperCheckboxPropsType = DefaultInputPropsType & {
-    onChangeChecked?: (checked: boolean) => void
-    spanClassName?: string
-    error?: string | null
-}
+type SuperCheckboxPropsType = DefaultInputPropsType & FieldConfig

@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './AuthRegistr.module.scss';
 import './../../../src/styles/vars.scss';
-import {Formik, useFormik} from 'formik';
+import {Form, Formik} from 'formik';
 import {initialValuesType} from './RegistrationContainer';
 import Logo from '../../components/common/logo/Logo';
 import Title from '../../components/common/title/Title';
@@ -35,12 +35,6 @@ export const Registration: React.FC<PropsType> = React.memo(props => {
         onSubmit,
     } = props
 
-    const formik = useFormik({
-        initialValues,
-        onSubmit,
-        validationSchema
-    });
-
     return (
         <Formik
             initialValues={initialValues}
@@ -52,8 +46,7 @@ export const Registration: React.FC<PropsType> = React.memo(props => {
                     <div className={s.formWrapper}>
                         <Logo/>
                         <Title title="Sign In"/>
-                        <form onSubmit={formik.handleSubmit}>
-
+                        <Form>
                             <Input2
                                 title="Email"
                                 name="email"
@@ -70,15 +63,17 @@ export const Registration: React.FC<PropsType> = React.memo(props => {
                             />
 
                             <Checkbox
-                                error={(formik.touched.acceptTerms && formik.errors.acceptTerms) ? formik.errors.acceptTerms : null}
-                                {...formik.getFieldProps('acceptTerms')}
-                            >Accept Terms & Conditions</Checkbox>
+                                type={'checkbox'}
+                                name={'acceptTerms'}
+                            >
+                                Accept Terms & Conditions
+                                </Checkbox>
 
                             <div className={s.btnInner}>
                                 <Button size={Size.small} variant={Variant.default} title="Cancel"/>
                                 <Button size={Size.medium} variant={Variant.primary} title="Register"/>
                             </div>
-                        </form>
+                        </Form>
                     </div>
                 </div>
             </div>
