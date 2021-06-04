@@ -1,11 +1,9 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {setIsLoggedTC} from '../../bll/auth-reducer';
-import AuthLogin from "./AuthLogin";
-import {validators} from "../../assets/Validators/validators";
-import {LoginParamsType} from "../../dal/api";
-import {AppStateType} from "../../bll/store";
-import {validatorsLogin} from "../../assets/Validators/validatorsLogin";
+import AuthLogin from './AuthLogin';
+import {AppStateType} from '../../bll/store';
+import {validatorsLogin} from '../../assets/Validators/validatorsLogin';
 
 
 export type initialValuesType = {
@@ -15,7 +13,6 @@ export type initialValuesType = {
 
 export type FormikErrorType = {
     email?: string
-    password?: string
 }
 
 export const AuthLoginContainer = () => {
@@ -34,7 +31,7 @@ export const AuthLoginContainer = () => {
     };
 
     const onSubmit = (values: initialValuesType) => {
-        alert(JSON.stringify(values))
+        // alert(JSON.stringify(values))
         dispatch(setIsLoggedTC(values))
     }
 
