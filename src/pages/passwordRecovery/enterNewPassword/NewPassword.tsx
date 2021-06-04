@@ -5,7 +5,7 @@ import {initialValuesType} from './NewPasswordContainer';
 import {Redirect} from 'react-router-dom';
 import {PATH} from '../../../Routes';
 import {Loading} from '../../../components/common/loading/Loading';
-import {Button, Size, Variant} from '../../../components/common/c2-SuperButton/Button';
+import {Button, Size, Palette} from '../../../components/common/c2-SuperButton/Button';
 import {InputFormik} from '../../../components/common/inputFormik/InputFormik';
 
 
@@ -48,7 +48,7 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
                                 instructions
                                 to email</p>
                             <div className={s.buttonInner}>
-                                <Button size={Size.big} variant={Variant.primary} title="Create new password"
+                                <Button size={Size.big} palette={Palette.primary} title="Create new password"
                                         disabled={disable}/>
                             </div>
                         </Form>
@@ -59,4 +59,3 @@ export const NewPassword: React.FC<PropsType> = React.memo(props => {
 
     );
 });
-

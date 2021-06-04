@@ -4,14 +4,14 @@ import s from './Button.module.scss'
 export const Button: React.FC<SuperButtonPropsType> = (
     {
         size = 0,
-        variant = 0,
+        palette = 0,
         title,
         className,
         ...restProps
     }
 ) => {
     const sizeClassName = size === 0 ? s.small : size === 1 ? s.medium : s.big
-    const variantClassName = variant === 0 ? s.default : variant === 1 ? s.primary : s.secondary
+    const variantClassName = palette === 0 ? s.default : palette === 1 ? s.primary : s.secondary
     const finalClassName = `${s.btn} ${sizeClassName} ${variantClassName}  ${className} `
 
     return (
@@ -27,6 +27,7 @@ export const Button: React.FC<SuperButtonPropsType> = (
 type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 type SuperButtonPropsType = DefaultButtonPropsType & {
     size?: Size
+    palette?: Palette
     variant?: Variant
 }
 
@@ -35,8 +36,11 @@ export enum Size {
     medium,
     big
 }
-export enum Variant {
+export enum Palette {
     default,
     primary,
     secondary
+}
+export enum Variant {
+
 }

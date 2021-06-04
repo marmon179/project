@@ -5,7 +5,7 @@ import {PATH} from '../../../Routes';
 import {Form, Formik} from 'formik';
 import {initialValuesType} from './EnterEmailContainer';
 import {Loading} from '../../../components/common/loading/Loading';
-import {Button, Size, Variant} from '../../../components/common/c2-SuperButton/Button';
+import {Button, Size, Palette} from '../../../components/common/c2-SuperButton/Button';
 import {InputFormik} from '../../../components/common/inputFormik/InputFormik';
 
 
@@ -49,7 +49,7 @@ export const EnterEmail: React.FC<PropsType> = React.memo(props => {
                             <p className={s.textEmail}>Enter your email address and we will send you further
                                 instructions </p>
                             <div className={s.buttonInner}>
-                                <Button size={Size.big} variant={Variant.primary} title="Send Instructions"
+                                <Button size={Size.big} palette={Palette.primary} title="Send Instructions"
                                         disabled={disable}/>
                             </div>
 

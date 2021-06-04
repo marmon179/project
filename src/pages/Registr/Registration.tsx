@@ -5,7 +5,7 @@ import {Form, Formik} from 'formik';
 import {initialValuesType} from './RegistrationContainer';
 import Logo from '../../components/common/logo/Logo';
 import Title from '../../components/common/title/Title';
-import {Button, Size, Variant} from '../../components/common/c2-SuperButton/Button';
+import {Button, Size, Palette} from '../../components/common/c2-SuperButton/Button';
 import {Checkbox} from '../../components/common/c3-SuperCheckbox/Checkbox';
 import * as yup from 'yup';
 import {Input2} from '../../components/common/c1-SuperInputText/Input2';
@@ -70,8 +70,8 @@ export const Registration: React.FC<PropsType> = React.memo(props => {
                                 </Checkbox>
 
                             <div className={s.btnInner}>
-                                <Button size={Size.small} variant={Variant.default} title="Cancel"/>
-                                <Button size={Size.medium} variant={Variant.primary} title="Register"/>
+                                <Button size={Size.small} palette={Palette.default} title="Cancel"/>
+                                <Button size={Size.medium} palette={Palette.primary} title="Register"/>
                             </div>
                         </Form>
                     </div>
