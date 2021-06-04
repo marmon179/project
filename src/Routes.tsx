@@ -2,7 +2,6 @@ import React from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {Profile} from './pages/Profile';
 import Error404 from './pages/error404/Error404';
-import {AuthLogin} from './pages/Login/AuthLogin';
 import {RegistrationContainer} from './pages/Registr/RegistrationContainer';
 import {ForgotNewPasswordContainer} from './pages/passwordRecovery/enterNewPassword/NewPasswordContainer';
 import {CheckEmail} from './pages/passwordRecovery/checkEmail/CheckEmail';

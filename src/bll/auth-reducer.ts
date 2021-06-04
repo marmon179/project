@@ -33,6 +33,7 @@ export const setIsLoggedTC = (data: LoginParamsType): AppThunk => (dispatch) => 
             dispatch(setIsLoggedAC(true))
         })
 }
+
 export const initializeTC = (): AppThunk => (dispatch) => {
     authAPI.me()
         .then((res: AxiosResponse<AuthMeResponseType>) => {
