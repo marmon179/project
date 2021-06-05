@@ -18,10 +18,9 @@ export const TestInputSearch = () => {
             <Form className={style.column}>
                 <InputSearch type="text" name="search" placeholder="Search..."/>
             </Form>
-
         </Formik>
 
     );
 };
-//types
+
 

@@ -20,6 +20,7 @@ export function Header() {
             <NavLink to={PATH.FORGOT_EMAIL} className={style.link} activeClassName={style.active}>Check</NavLink>
             <NavLink to={PATH.NEW_PASSWORD} className={style.link} activeClassName={style.active}>NewPassword</NavLink>
             <NavLink to={PATH.PROFILE} className={style.link} activeClassName={style.active}>Profile</NavLink>
+            <NavLink to={PATH.PACKS_LIST} className={style.link} activeClassName={style.active}>PackList</NavLink>
             <NavLink to={PATH.TEST} className={style.link} activeClassName={style.active}>Test</NavLink>
             </div>
         </div>
