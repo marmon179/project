@@ -7,7 +7,7 @@ import Logo from "../../components/common/logo/Logo";
 import Title from "../../components/common/title/Title";
 import {Input} from "../../components/common/c1-SuperInputText/Input";
 import {FormikErrorType, initialValuesType} from "./AuthLoginContainer";
-import {Button} from "../../components/common/c2-SuperButton/Button";
+import {Button, Palette, Size} from "../../components/common/c2-SuperButton/Button";
 
 
 export type PropsType = {
@@ -63,7 +63,7 @@ export const AuthLogin = (props: PropsType) => {
 
                         <NavLink to={PATH.RECOVERY_PASSWORD} className={s.linkForgotPassword}>Forgot password</NavLink>
                         <div className={s.buttonInner}>
-                            <Button title="Login" />
+                            <Button size={Size.big} palette={Palette.primary} title="Login" />
                         </div>
                     </form>
 
