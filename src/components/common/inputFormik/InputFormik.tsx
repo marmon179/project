@@ -18,7 +18,7 @@ export const InputFormik: React.FC<SuperInputTextPropsType> = ({title, ...props}
                 {...props}
             />
             <a className={`${s.passwordControl} ${visibleEye ? s.showPassword : s.hidePassword}`}
-               style={props.name === 'password' ? {display: 'inline'} : {display: 'none'}}
+               style={props.name === 'password' || 'confirmPassword' ? {display: 'inline'} : {display: 'none'}}
                onClick={() => setVisibleEye((value) => !value)}
             >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

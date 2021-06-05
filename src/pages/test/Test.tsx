@@ -7,6 +7,7 @@ import {TestSuperEditableSpan} from './testSuperEditableSpan/TestSuperEditableSp
 import {TestSuperSelect} from './testSuperSelect/TestSuperSelect';
 import {TestSuperRadio} from './testSuperRadio/TestSuperRadio';
 import {TestSuperRange} from './testSuperRange/TestSuperRange';
+import { TestInputSearch } from './testInputSearch/TestSuperInput';
 
 export const Test = () => {
     return (
@@ -70,6 +71,14 @@ export const Test = () => {
             </span>
             <div>
                 <TestSuperRange/>
+            </div>
+            {/*----------------------------------------------------*/}
+            <hr/>
+            <span>
+                InputSearch
+            </span>
+            <div>
+                <TestInputSearch/>
             </div>
             <hr/>
             {/*----------------------------------------------------*/}
