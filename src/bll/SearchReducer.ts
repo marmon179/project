@@ -1,27 +1,24 @@
 import {authAPI, ForgotParamsType, SetNewPasswordParamsType} from '../dal/api';
-import {AppThunk} from './store';
 
 const initState = {
     search: '',
 
 }
 
-export const passwordRecoveryReducer = (state: InitialStateLoading = initState, action: ForgotActionType): InitialStateLoading => {
+export const SearchReducer = (state: InitialStateLoading = initState, action: SearchActionType): InitialStateLoading => {
     switch (action.type) {
         case 'SEARCH/DATE-SEARCH':
-
+            return {...state,search: action.search}
         default:
             return state
     }
 }
 //action
-const toCheckEmailPageAC = (toCheckEmailPage: boolean) => ({
-    type: 'SEARCH/DATE-SEARCH', toCheckEmailPage: toCheckEmailPage
-} as const)
+export const toGetDateAC = (search: string) => ({type: 'SEARCH/DATE-SEARCH', search} as const)
 
 
 //type
 export type InitialStateLoading = typeof initState
-export type setMailActionType = ReturnType<typeof toCheckEmailPageAC>
+export type toGetDateActionType = ReturnType<typeof toGetDateAC>
 
-export type ForgotActionType = setMailActionType
+export type SearchActionType = toGetDateActionType
