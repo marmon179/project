@@ -23,7 +23,9 @@
 
 .header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
+    align-items: center;
+    background: #EBE0E9;
 }
 
 .header:hover {

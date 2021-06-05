@@ -1,11 +1,32 @@
+.conteiner {
+  padding: 24px 136px 71px 136px;
+  border: 2px solid red ;
+}
+
 .packsList {
   display: grid;
-  grid-template-columns: 0.5fr 2fr;
+  grid-template-columns: 0.2fr 0.8fr;
   height: 636px;
-
+  border: 2px solid red ;
 }
 
 .aside {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red ;
+}
+.main {
+  padding: 24px 48px 20px 48px;
+}
+
+.tableInner {
+  text-align: center;
+
+
+}
+
+.table {
+  width: 669px;
   display: flex;
   flex-direction: column;
 }

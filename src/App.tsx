@@ -6,6 +6,7 @@ import './App.css'
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from './bll/store';
 import {initializeTC} from './bll/auth-reducer';
+import Main from "./pages/mainPacksList/Main";
 
 
 
@@ -26,7 +27,7 @@ function App() {
     return (
         <div className="App">
             <Header/>
-            {/*<Main />*/}
+            <Main />
             <Routes/>
         </div>
     );

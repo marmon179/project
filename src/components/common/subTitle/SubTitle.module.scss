@@ -1,0 +1,6 @@
+@import "./src/styles/mixins";
+@import "./src/styles/vars";
+
+.subtitle {
+  @include textSan("San Francisco",16px, 600, 19px);
+}
