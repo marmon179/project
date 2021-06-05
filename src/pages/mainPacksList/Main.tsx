@@ -7,7 +7,7 @@ import TableHeader from '../../components/common/tableHeader/TableHeader';
 import TableRow from '../../components/common/tableRow/TableRow';
 import {Form, Formik} from 'formik';
 import {InputSearch} from '../../components/common/inputSearch/InputSearch';
-import { initialValuesType } from './MainContainer';
+import {initialValuesType} from './MainContainer';
 
 export type PropsType = {
     initialValues: initialValuesType
@@ -35,12 +35,12 @@ export const PacksList: React.FC<PropsType> = (props) => {
                     </aside>
                     <main className={s.main}>
                         <Title title="Packs list"/>
-                        <Form className={s.search}>
-
-                            <InputSearch type="search" name="search" placeholder="Search..."/>
+                        <div className={s.search}>
+                            <Form>
+                                <InputSearch type="search" name="search" placeholder="Search..."/>
+                            </Form>
                             <Button size={Size.medium} palette={Palette.primary} title="Add new pack"/>
-
-                        </Form>
+                        </div>
                         <div className={s.tableInner}>
                             <TableHeader title1="Name" title2="Cards" title3="Last Updated" title4="Created by"
                                          title5="Action"/>
