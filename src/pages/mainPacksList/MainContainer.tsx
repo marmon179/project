@@ -1,12 +1,19 @@
 import React from 'react';
 import {PacksList} from './Main';
-import {useDispatch} from 'react-redux';
-import {toGetDateAC} from '../../bll/SearchReducer';
+import {useDispatch, useSelector} from 'react-redux';
+import {requestPacks, toGetDateAC} from '../../bll/SearchReducer';
+import {AppStateType} from '../../bll/store';
 
 
 export const PacksListContainer = () => {
-
+    const totalItemsCount = useSelector<AppStateType, number>(state => state.search.totalItemsCount)
+    const pageSize = useSelector<AppStateType, number>(state => state.search.pageSize)
+    const currentPage = useSelector<AppStateType, number>(state => state.search.currentPage)
     const dispatch = useDispatch()
+
+    const onPageChanged = (pageNumber: number) => {
+        dispatch(requestPacks(pageNumber,pageSize))
+    }
 
     const initialValues: initialValuesType = {
         search: ''
@@ -21,6 +28,10 @@ export const PacksListContainer = () => {
             <PacksList
                 initialValues={initialValues}
                 onSubmit={onSubmit}
+                currentPage={currentPage}
+                pageSize={pageSize}
+                totalItemsCount={totalItemsCount}
+                onPageChanged={onPageChanged}
             />
         </>
     );

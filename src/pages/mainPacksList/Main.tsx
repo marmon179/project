@@ -8,15 +8,21 @@ import TableRow from '../../components/common/tableRow/TableRow';
 import {Form, Formik} from 'formik';
 import {InputSearch} from '../../components/common/inputSearch/InputSearch';
 import {initialValuesType} from './MainContainer';
+import {Paginator} from '../../components/common/Paginator/Paginator';
 
 export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
+    totalItemsCount: number
+    pageSize: number
+    currentPage: number
+    onPageChanged: (pageNumber: number) => void
 }
 
 export const PacksList: React.FC<PropsType> = (props) => {
 
-    const {initialValues, onSubmit} = props
+    const {initialValues, onSubmit, totalItemsCount, pageSize, currentPage, onPageChanged} = props
+
 
     return (
         <Formik initialValues={initialValues}
@@ -53,10 +59,14 @@ export const PacksList: React.FC<PropsType> = (props) => {
                             <TableRow title1="Pack Name" title2="4" title3="18.03.2021" title4="Ivan Ivanov"/>
                             <TableRow title1="Pack Name" title2="4" title3="18.03.2021" title4="Ivan Ivanov"/>
 
-
                         </div>
                     </main>
+
                 </div>
+                <div className={s.wrapperPaginator}>
+                    <Paginator  totalItemsCount={totalItemsCount} pageSize={pageSize} currentPage={currentPage} onPageChanged={onPageChanged}/>
+                </div>
+
             </div>
         </Formik>
     );
