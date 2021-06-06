@@ -31,7 +31,7 @@ export const PacksList: React.FC<PropsType> = (props) => {
                             <input type="radio" name="switchCard"/>
                         </form>
                         <SubTitle title="Number of cards"/>
-                        Ползунок туда сюда
+                        <input type="range"/>
                     </aside>
                     <main className={s.main}>
                         <Title title="Packs list"/>

@@ -10,6 +10,7 @@ import {initializeTC} from './bll/auth-reducer';
 
 
 
+
 function App() {
     const dispatch = useDispatch()
     const isInitialized = useSelector<AppStateType, boolean>((state => state.auth.isInitialized))
