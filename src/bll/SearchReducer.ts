@@ -5,7 +5,7 @@ const initState = {
     search: '',
     cardPacks: [] as cardPacks[],
     cardPacksTotalCount: 1000,
-    pageSize: 10,
+    pageSize: 9,
     currentPage: 1
 
 

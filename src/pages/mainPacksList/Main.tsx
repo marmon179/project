@@ -9,6 +9,8 @@ import {Form, Formik} from 'formik';
 import {InputSearch} from '../../components/common/inputSearch/InputSearch';
 import {initialValuesType} from './MainContainer';
 import {Paginator} from '../../components/common/Paginator/Paginator';
+import {Packs} from '../../components/Packs/Packs';
+import {PacksContainer} from '../../components/Packs/PacksContainer';
 
 export type PropsType = {
     initialValues: initialValuesType
@@ -47,24 +49,13 @@ export const PacksList: React.FC<PropsType> = (props) => {
                             </Form>
                             <Button size={Size.medium} palette={Palette.primary} title="Add new pack"/>
                         </div>
-                        <div className={s.tableInner}>
-                            <TableHeader title1="Name" title2="Cards" title3="Last Updated" title4="Created by"
-                                         title5="Action"/>
-                            <TableRow title1="Pack Name" title2="4" title3="18.03.2021" title4="Ivan Ivanov"/>
-                            <TableRow title1="Pack Name" title2="4" title3="18.03.2021" title4="Ivan Ivanov"/>
-                            <TableRow title1="Pack Name" title2="4" title3="18.03.2021" title4="Ivan Ivanov"/>
-                            <TableRow title1="Pack Name" title2="4" title3="18.03.2021" title4="Ivan Ivanov"/>
-                            <TableRow title1="Pack Name" title2="4" title3="18.03.2021" title4="Ivan Ivanov"/>
-                            <TableRow title1="Pack Name" title2="4" title3="18.03.2021" title4="Ivan Ivanov"/>
-                            <TableRow title1="Pack Name" title2="4" title3="18.03.2021" title4="Ivan Ivanov"/>
-                            <TableRow title1="Pack Name" title2="4" title3="18.03.2021" title4="Ivan Ivanov"/>
-
-                        </div>
+                        <PacksContainer/>
                     </main>
 
                 </div>
                 <div className={s.wrapperPaginator}>
-                    <Paginator  cardPacksTotalCount={cardPacksTotalCount} pageSize={pageSize} currentPage={currentPage} onPageChanged={onPageChanged}/>
+                    <Paginator cardPacksTotalCount={cardPacksTotalCount} pageSize={pageSize} currentPage={currentPage}
+                               onPageChanged={onPageChanged}/>
                 </div>
 
             </div>
