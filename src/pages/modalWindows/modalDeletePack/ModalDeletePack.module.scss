@@ -1,0 +1,41 @@
+@import "./src/styles/mixins";
+
+.modalDelete {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.containerDelete {
+    height: 221px;
+    width: 395px;
+    border-radius: 2px;
+    background: #F9F9FE;
+    padding: 24px;
+    margin: 15% auto;
+}
+
+.modalTitleInner {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #EDF0F6;
+    padding-bottom: 15px;
+}
+
+.modalDeleteText {
+    margin-top: 20px;
+    @include textSan("San Francisco",14px,400,16px);
+}
+
+.btnInner {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
