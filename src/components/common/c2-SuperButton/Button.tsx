@@ -5,14 +5,17 @@ export const Button: React.FC<SuperButtonPropsType> = (
     {
         size = 0,
         palette = 0,
+        variant = 0,
         title,
         className,
         ...restProps
     }
 ) => {
     const sizeClassName = size === 0 ? s.small : size === 1 ? s.medium : s.big
-    const variantClassName = palette === 0 ? s.default : palette === 1 ? s.primary : s.secondary
-    const finalClassName = `${s.btn} ${sizeClassName} ${variantClassName}  ${className} `
+    const paletteClassName = palette === 0 ? s.default : palette === 1 ? s.primary : s.secondary
+    const variantClassName = variant === 0 ? s.defaultVariant : variant === 1 ? s.primaryVariant : s.secondaryVariant
+
+    const finalClassName = `${s.btn} ${sizeClassName} ${paletteClassName} ${variantClassName} ${className} `
 
     return (
         <button
@@ -42,5 +45,7 @@ export enum Palette {
     secondary
 }
 export enum Variant {
-
+    default,
+    primary,
+    secondary
 }

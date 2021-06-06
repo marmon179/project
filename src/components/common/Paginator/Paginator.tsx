@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import styles from './Paginator.module.scss'
-import cn from 'classnames'
+import {Button, Palette, Variant} from '../c2-SuperButton/Button';
 
 
 export const Paginator: React.FC<PropsType> = ({
@@ -24,30 +23,56 @@ export const Paginator: React.FC<PropsType> = ({
     let rightPortionPageNumber = portionNumber * portionSize;
 
 
-    return <div className={cn(styles.paginator)}>
-        {portionNumber > 1 &&
-        <button onClick={() => {
-            setPortionNumber(portionNumber - 1)
-        }}>PREV</button>}
+    return (
+        <div
+            // className={cn(styles.paginator)}
+        >
+            {portionNumber > 1 &&
+            <Button
+                palette={Palette.secondary}
+                variant={Variant.primary}
+                onClick={() => {
+                    setPortionNumber(portionNumber - 1)
+                }}
+            >
+                PREV
+            </Button>}
 
-        {pages
-            .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
-            .map((p) => {
-                return <span className={cn({
-                    [styles.selectedPage]: currentPage === p
-                }, styles.pageNumber)}
-                             key={p}
-                             onClick={(e) => {
-                                 onPageChanged(p);
-                             }}>{p}</span>
-            })}
-        {portionCount > portionNumber &&
-        <button onClick={() => {
-            setPortionNumber(portionNumber + 1)
-        }}>NEXT</button>}
+            {pages
+                .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+                .map((p) => {
+                    return (
+                        <Button
+                            // className={cn({
+                            //     [styles.selectedPage]: currentPage === p
+                            // }, styles.pageNumber)}
+                            // className={styles.selectedPage}
+                            style={currentPage !== p ? {backgroundColor: 'transparent'} : {}}
+                            key={p}
+                            onClick={() => {
+                                onPageChanged(p);
+                            }}
+                            palette={Palette.primary}
+                            variant={Variant.primary}
+                        >
+                            {p}
+                        </Button>
+                    )
+                })}
+            {portionCount > portionNumber &&
+            <Button
+                palette={Palette.default}
+                variant={Variant.primary}
+                onClick={() => {
+                    setPortionNumber(portionNumber + 1)
+                }}
+            >
+                NEXT
+            </Button>}
 
 
-    </div>
+        </div>
+    )
 }
 //types
 type PropsType = {
