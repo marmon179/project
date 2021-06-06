@@ -6,7 +6,7 @@ import {AppStateType} from '../../bll/store';
 
 
 export const PacksListContainer = () => {
-    const totalItemsCount = useSelector<AppStateType, number>(state => state.search.totalItemsCount)
+    const cardPacksTotalCount = useSelector<AppStateType, number>(state => state.search.cardPacksTotalCount)
     const pageSize = useSelector<AppStateType, number>(state => state.search.pageSize)
     const currentPage = useSelector<AppStateType, number>(state => state.search.currentPage)
     const dispatch = useDispatch()
@@ -30,7 +30,7 @@ export const PacksListContainer = () => {
                 onSubmit={onSubmit}
                 currentPage={currentPage}
                 pageSize={pageSize}
-                totalItemsCount={totalItemsCount}
+                cardPacksTotalCount={cardPacksTotalCount}
                 onPageChanged={onPageChanged}
             />
         </>

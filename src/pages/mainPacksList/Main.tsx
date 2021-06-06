@@ -13,7 +13,7 @@ import {Paginator} from '../../components/common/Paginator/Paginator';
 export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
-    totalItemsCount: number
+    cardPacksTotalCount: number
     pageSize: number
     currentPage: number
     onPageChanged: (pageNumber: number) => void
@@ -21,7 +21,7 @@ export type PropsType = {
 
 export const PacksList: React.FC<PropsType> = (props) => {
 
-    const {initialValues, onSubmit, totalItemsCount, pageSize, currentPage, onPageChanged} = props
+    const {initialValues, onSubmit, cardPacksTotalCount, pageSize, currentPage, onPageChanged} = props
 
 
     return (
@@ -64,7 +64,7 @@ export const PacksList: React.FC<PropsType> = (props) => {
 
                 </div>
                 <div className={s.wrapperPaginator}>
-                    <Paginator  totalItemsCount={totalItemsCount} pageSize={pageSize} currentPage={currentPage} onPageChanged={onPageChanged}/>
+                    <Paginator  cardPacksTotalCount={cardPacksTotalCount} pageSize={pageSize} currentPage={currentPage} onPageChanged={onPageChanged}/>
                 </div>
 
             </div>

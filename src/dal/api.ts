@@ -236,14 +236,14 @@ export const cardsAPI = {
      *       type: "card" // если не отправить будет таким
      *       }
      * */
-    createCard (data: CreateCards) {
+    createCard(data: CreateCards) {
         return instance.post('cards/card', data)
     },
     /**
      * Update Card
      *  ?id=5eb6cb9a7a82672138e0d7c1
      * */
-    deleteCard (config: string) {
+    deleteCard(config: string) {
         return instance.delete('cards/card', {params: config})
     },
     /**
@@ -256,7 +256,7 @@ export const cardsAPI = {
      *
      *      }
      * */
-    updateCard (data: UpdateCards) {
+    updateCard(data: UpdateCards) {
         return instance.put('cards/card', data)
     },
 }
@@ -273,6 +273,7 @@ interface ConfigureFetchCardPacks {
     page: number // не обязательно
     pageCount: number // не обязательно
 }
+
 interface CreateCardPacks {
     cardsPack: {
         name: string // если не отправить будет таким
@@ -285,12 +286,14 @@ interface CreateCardPacks {
         type: string // если не отправить будет таким
     }
 }
+
 interface UpdateCardPacks {
     cardsPack: {
         _id: string
         name?: string
     }
 }
+
 interface FetchCardsConfig {
     cardAnswer?: string
     cardQuestion?: string
@@ -301,6 +304,7 @@ interface FetchCardsConfig {
     page?: number
     pageCount?: number
 }
+
 interface CreateCards {
     card: {
         cardsPack_id: string
@@ -311,11 +315,12 @@ interface CreateCards {
         rating?: number // не обязателен
         answerImg?: string // не обязателен
         questionImg?: string // не обязателен
-        questionVideo?:string // не обязателен
+        questionVideo?: string // не обязателен
         answerVideo?: string // не обязателен
         type?: string // если не отправить будет таким
     }
 }
+
 interface UpdateCards {
     card: {
         _id: string
@@ -328,28 +333,14 @@ interface UpdateCards {
 /** Response Types */
 
 interface FetchCardPacksType {
-    cardPacks: [
-        {
-            _id: string
-            user_id: string
-            name: string
-            path: string // папка
-            cardsCount: number
-            grade: number // средняя оценка карточек
-            shots: number // количество попыток
-            rating: number // лайки
-            type: string // ещё будет "folder" (папка)
-            created: string
-            updated: string
-            __v: number
-        },
-    ]
+    cardPacks: cardPacks []
     cardPacksTotalCount: number // количество колод
     maxCardsCount: number
     minCardsCount: number
     page: number // выбранная страница
     pageCount: number // количество элементов на странице
 }
+
 interface CardType {
     answer: string
     question: string
@@ -361,6 +352,7 @@ interface CardType {
     updated: string
     _id: string
 }
+
 interface FetchCardType {
     cards: CardType[]
     cardsTotalCount: number
@@ -371,3 +363,17 @@ interface FetchCardType {
     packUserId: string
 }
 
+export interface cardPacks {
+    _id: string
+    user_id: string
+    name: string
+    path: string // папка
+    cardsCount: number
+    grade: number // средняя оценка карточек
+    shots: number // количество попыток
+    rating: number // лайки
+    type: string // ещё будет "folder" (папка)
+    created: string
+    updated: string
+    __v: number
+}
