@@ -1,8 +1,10 @@
 import React from "react";
 import s from "./TableRow.module.scss";
-import {Button, Palette, Size, Variant} from "../c2-SuperButton/Button";
+import {Button, Palette, Size, Variant} from "../common/c2-SuperButton/Button";
+
 
 type PropsPackType = {
+    cardId: string
     addedPackUserId: string
     userId: string
     packName: string
@@ -14,6 +16,7 @@ type PropsPackType = {
 
 export const TableRow: React.FC<PropsPackType> = props => {
     const {
+        cardId,
         onRemovePack,
         addedPackUserId,
         userId,
@@ -32,7 +35,7 @@ export const TableRow: React.FC<PropsPackType> = props => {
                             variant={Variant.primary}
                             size={Size.small}
                             palette={Palette.secondary}
-                            onClick={() => onRemovePack(addedPackUserId)}
+                            onClick={() => onRemovePack(cardId)}
                         >
                             Delete
                         </Button>}

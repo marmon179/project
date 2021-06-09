@@ -1,9 +1,10 @@
 import {AppThunk} from "./store";
-import {CardPacks, cardsAPI, ConfigureFetchCardPacks} from "../dal/api";
+import {CardPacks, cardsAPI, cardsPack, ConfigureFetchCardPacks} from "../dal/api";
 
 const initState = {
     search: '',
-    cardPacks: [] as cardPacks[],
+    packName: '',
+    cardPacks: [] as CardPacks[],
     cardPacksTotalCount: 1000,
     pageSize: 9,
     currentPage: 1,
@@ -27,10 +28,10 @@ export const SearchReducer = (state: InitialStateLoading = initState, action: Se
     }
 }
 //action
-export const toGetDateAC = (packName: string) => ({type: 'SEARCH/DATE-SEARCH', packName: packName} as const)
-export const setCardPacks = (cardPacks: cardPacks[]) => ({type: 'SEARCH/SET_CARD_PACKS', cardPacks} as const)
+export const toGetDateAC = (packName: string) => ({type: 'SEARCH/DATE-SEARCH', packName} as const)
+export const setCardPacks = (cardPacks: CardPacks[]) => ({type: 'SEARCH/SET_CARD_PACKS', cardPacks} as const)
 export const setCurrentPage = (currentPage: number) => ({type: 'SEARCH/SET_CURRENT_PAGE', currentPage} as const)
-export const setTotalUsersCount = (cardPacksTotalCount: number) => ({
+export const setTotalPacksCount = (cardPacksTotalCount: number) => ({
     type: 'SEARCH/SET_TOTAL_PACKS_COUNT',
     cardPacksTotalCount
 } as const)
@@ -82,4 +83,5 @@ export type SearchActionType =
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setTotalPacksCount>
     | ReturnType<typeof setCardPacks>
+
 

@@ -1,8 +1,8 @@
 import React from "react";
 import s from "../../pages/mainPacksList/Main.module.scss";
-import TableHeader from "../common/tableHeader/TableHeader";
 import {CardPacks} from "../../dal/api";
-import TableRow from "../common/tableRow/TableRow";
+import { TableHeader } from "../tableHeader/TableHeader";
+import { TableRow } from "../tableRow/TableRow";
 
 type PropsPacksType = {
     userId: string
@@ -22,6 +22,7 @@ export const Packs: React.FC<PropsPacksType> = React.memo(props => {
         <div className={s.tableInner}>
             <TableHeader title1="Name" title2="Cards" title3="Last Updated" title4="Created by" title5="Action"/>
             {cardPacks.map(u => <TableRow
+                cardId={u._id}
                 addedPackUserId={u.user_id}
                 userId={userId}
                 packName={u.name}
