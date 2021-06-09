@@ -168,7 +168,7 @@ export const cardsAPI = {
      *      // не обязательно, или прийдут все
      * }
      * */
-    fetchCardPacks(config: Partial<ConfigureFetchCardPacks>) {
+    fetchCardPacks(config?: Partial<ConfigureFetchCardPacks>) {
         return instance.get<FetchCardPacksType>('cards/pack', {params: config})
     },
     /**
@@ -265,7 +265,7 @@ export const cardsAPI = {
 // Types cardsAPI
 /** Request Types */
 
-interface ConfigureFetchCardPacks {
+export interface ConfigureFetchCardPacks {
     packName: string // не обязательно
     min: number // не обязательно
     max: number // не обязательно
@@ -333,7 +333,7 @@ interface UpdateCards {
 /** Response Types */
 
 interface FetchCardPacksType {
-    cardPacks: cardPacks []
+    cardPacks: CardPacks []
     cardPacksTotalCount: number // количество колод
     maxCardsCount: number
     minCardsCount: number
@@ -363,7 +363,7 @@ interface FetchCardType {
     packUserId: string
 }
 
-export interface cardPacks {
+export interface CardPacks {
     _id: string
     user_id: string
     name: string

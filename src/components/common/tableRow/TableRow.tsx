@@ -1,21 +1,57 @@
 import React from "react";
 import s from "./TableRow.module.scss";
+import {Button, Palette, Size, Variant} from "../c2-SuperButton/Button";
 
+type PropsPackType = {
+    addedPackUserId: string
+    userId: string
+    packName: string
+    cardsCount: number
+    updated: string
+    created: string
+    onRemovePack: (id: string) => void
+}
 
-
-export const TableRow = (props: any) => {
-    return (<table>
+export const TableRow: React.FC<PropsPackType> = props => {
+    const {
+        onRemovePack,
+        addedPackUserId,
+        userId,
+    } = props
+    return (
+        <table>
             <tr>
-                <th className={s.tableRow}>{props.title1}</th>
-                <th className={s.tableRow}>{props.title2}</th>
-                <th className={s.tableRow}>{props.title3}</th>
-                <th className={s.tableRow}>{props.title4}</th>
-                <th className={s.tableRow}>{props.title5}</th>
-                <div className={s.tableBtnInner}>
-                    <button className={s.tableButton}>1</button>
-                    <button className={s.tableButton}>2</button>
-                    <button className={s.tableButton}>3</button>
-                </div>
+                <th className={s.tableRow}>{props.packName}</th>
+                <th className={s.tableRow}>{props.cardsCount}</th>
+                <th className={s.tableRow}>{props.updated}</th>
+                <th className={s.tableRow}>{props.created}</th>
+                <th className={s.tableRow}>
+                    <div className={s.tableBtnInner}>
+                        {userId === addedPackUserId && <Button
+                            className={s.tableButton}
+                            variant={Variant.primary}
+                            size={Size.small}
+                            palette={Palette.secondary}
+                            onClick={() => onRemovePack(addedPackUserId)}
+                        >
+                            Delete
+                        </Button>}
+                        <Button
+                            className={s.tableButton}
+                            variant={Variant.primary}
+                            size={Size.small}
+                        >
+                            Edit
+                        </Button>
+                        <Button
+                            className={s.tableButton}
+                            variant={Variant.primary}
+                            size={Size.small}
+                        >
+                            Learn
+                        </Button>
+                    </div>
+                </th>
             </tr>
         </table>
     );
