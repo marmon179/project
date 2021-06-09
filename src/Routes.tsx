@@ -9,8 +9,8 @@ import {EnterEmailContainer} from './pages/passwordRecovery/enterEmail/EnterEmai
 import {AuthLoginContainer} from './pages/Login/AuthLoginContainer';
 import {Test} from './pages/test/Test';
 import {PacksListContainer} from './pages/mainPacksList/MainContainer';
-import {ModalAddNewPack} from './pages/modalWindows/modalAddNewPack/ModalAddNewPack';
 import {ModalDeletePack} from './pages/modalWindows/modalDeletePack/ModalDeletePack';
+import {ModalAddNewPackContainer} from './pages/modalWindows/modalAddNewPack/ModalAddNewPackContainer';
 
 export const PATH = {
     LOGIN: '/login',
@@ -22,8 +22,8 @@ export const PATH = {
     HEADER: '/header',
     FORGOT_EMAIL: '/check-email',
     PACKS_LIST: '/pack-list',
-    NEW_PACKS:'/new-pack',
-    DELETE_PACK:'/delete-pack'
+    NEW_PACKS: '/new-pack',
+    DELETE_PACK: '/delete-pack'
 }
 
 const Routes = () => {
@@ -39,7 +39,7 @@ const Routes = () => {
                 <Route path={PATH.NEW_PASSWORD} render={() => <ForgotNewPasswordContainer/>}/>
                 <Route path={PATH.FORGOT_EMAIL} render={() => <CheckEmail/>}/>
                 <Route path={PATH.PACKS_LIST} render={() => <PacksListContainer/>}/>
-                <Route path={PATH.NEW_PACKS} render={() => <ModalAddNewPack/>}/>
+                <Route path={PATH.NEW_PACKS} render={() => <ModalAddNewPackContainer/>}/>
                 <Route path={PATH.DELETE_PACK} render={() => <ModalDeletePack/>}/>
                 <Route path={PATH.TEST} render={() => <Test/>}/>
 
