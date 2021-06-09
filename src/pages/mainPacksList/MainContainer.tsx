@@ -1,7 +1,7 @@
 import React from 'react';
 import {PacksList} from './Main';
 import {useDispatch, useSelector} from 'react-redux';
-import {requestPacks, toGetDateAC} from '../../bll/SearchReducer';
+import {requestPacks, searchPacks} from '../../bll/SearchReducer';
 import {AppStateType} from '../../bll/store';
 
 
@@ -12,16 +12,16 @@ export const PacksListContainer = () => {
     const dispatch = useDispatch()
 
     const onPageChanged = (pageNumber: number) => {
-        dispatch(requestPacks(pageNumber,pageSize))
+        dispatch(requestPacks(pageNumber, pageSize))
     }
 
     const initialValues: initialValuesType = {
-        search: ''
+        packName: ''
     }
 
     const onSubmit = React.useCallback((values: any) => {
-        alert(JSON.stringify(values))
-        dispatch(toGetDateAC(values))
+        // alert(JSON.stringify(values))
+        dispatch(searchPacks(values))
     }, [dispatch])
     return (
         <>
@@ -39,5 +39,5 @@ export const PacksListContainer = () => {
 //types
 export type initialValuesType =
     {
-        search: string
+        packName: string
     }

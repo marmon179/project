@@ -24,8 +24,8 @@ export function Header() {
                          activeClassName={style.active}>NewPassword</NavLink>
                 <NavLink to={PATH.PROFILE} className={style.link} activeClassName={style.active}>Profile</NavLink>
                 <NavLink to={PATH.PACKS_LIST} className={style.link} activeClassName={style.active}>PackList</NavLink>
-                {/*<NavLink to={PATH.NEW_PACKS} className={style.link} activeClassName={style.active}>NewPack</NavLink>*/}
-                {/*<NavLink to={PATH.DELETE_PACK} className={style.link} activeClassName={style.active}>DelPack</NavLink>*/}
+                <NavLink to={PATH.NEW_PACKS} className={style.link} activeClassName={style.active}>NewPack</NavLink>
+                <NavLink to={PATH.DELETE_PACK} className={style.link} activeClassName={style.active}>DelPack</NavLink>
                 <NavLink to={PATH.TEST} className={style.link} activeClassName={style.active}>Test</NavLink>
             </div>
         </div>

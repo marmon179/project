@@ -15,4 +15,3 @@ export const TableHeader = (props: any) => {
     );
 };
 
-export default TableHeader;

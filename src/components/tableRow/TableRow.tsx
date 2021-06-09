@@ -12,9 +12,9 @@ export const TableRow = (props: any) => {
                 <th className={s.tableRow}>{props.title4}</th>
                 <th className={s.tableRow}>{props.title5}</th>
                 <div className={s.tableBtnInner}>
-                    <button className={s.tableButton}>1</button>
-                    <button className={s.tableButton}>2</button>
-                    <button className={s.tableButton}>3</button>
+                    <button className={s.tableButton}>del</button>
+                    <button className={s.tableButton}>edit</button>
+                    <button className={s.tableButton}>lea</button>
                 </div>
             </tr>
         </table>

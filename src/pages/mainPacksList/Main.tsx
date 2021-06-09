@@ -3,14 +3,13 @@ import s from './Main.module.scss'
 import Title from '../../components/common/title/Title';
 import SubTitle from '../../components/common/subTitle/SubTitle';
 import {Button, Palette, Size} from '../../components/common/c2-SuperButton/Button';
-import TableHeader from '../../components/common/tableHeader/TableHeader';
-import TableRow from '../../components/common/tableRow/TableRow';
 import {Form, Formik} from 'formik';
 import {InputSearch} from '../../components/common/inputSearch/InputSearch';
 import {initialValuesType} from './MainContainer';
 import {Paginator} from '../../components/common/Paginator/Paginator';
-import {Packs} from '../../components/Packs/Packs';
 import {PacksContainer} from '../../components/Packs/PacksContainer';
+import {NavLink} from 'react-router-dom';
+import {PATH} from '../../Routes';
 
 export type PropsType = {
     initialValues: initialValuesType
@@ -45,9 +44,15 @@ export const PacksList: React.FC<PropsType> = (props) => {
                         <Title title="Packs list"/>
                         <div className={s.search}>
                             <Form>
-                                <InputSearch type="search" name="search" placeholder="Search..."/>
+                                <InputSearch type="text" name="packName" placeholder="Search..."/>
                             </Form>
-                            <Button size={Size.medium} palette={Palette.primary} title="Add new pack"/>
+                            <NavLink to={PATH.NEW_PACKS} className={s.linkSingUp}><Button
+                                size={Size.medium}
+                                palette={Palette.primary}
+                                title="Add new pack"/>
+                            </NavLink>
+
+
                         </div>
                         <PacksContainer/>
                     </main>

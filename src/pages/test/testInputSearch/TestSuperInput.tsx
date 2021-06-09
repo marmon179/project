@@ -10,7 +10,7 @@ export const TestInputSearch = () => {
     const dispatch = useDispatch()
     return (
         <Formik
-            initialValues={{search: ''}}
+            initialValues={{packName: ''}}
             onSubmit={(values:any) => {
                 alert(JSON.stringify(values))
                 dispatch(toGetDateAC(values))

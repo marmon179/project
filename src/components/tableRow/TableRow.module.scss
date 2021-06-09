@@ -1,5 +1,5 @@
-@import "./src/styles/mixins";
-@import "./src/styles/vars";
+@import "../../styles/mixins";
+@import "../../styles/vars";
 
 .tableRow{
   @include textSan("San Francisco",13px,400,16px);

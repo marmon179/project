@@ -1,5 +1,5 @@
 import React from 'react';
-import TableRow from '../../common/tableRow/TableRow';
+import TableRow from '../../tableRow/TableRow';
 
 type PropsPackType = {
     packName: string

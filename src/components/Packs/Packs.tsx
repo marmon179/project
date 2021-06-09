@@ -1,7 +1,7 @@
 import React from 'react';
 import {Pack} from './Pack/Pack';
 import s from '../../pages/mainPacksList/Main.module.scss';
-import TableHeader from '../common/tableHeader/TableHeader';
+import {TableHeader} from '../tableHeader/TableHeader';
 import {cardPacks} from '../../dal/api';
 
 type PropsPacksType = {
@@ -21,8 +21,6 @@ export const Packs: React.FC<PropsPacksType> = React.memo(props => {
                 updated = {u.updated}
                 created = {u.created}
             />)}
-
-
         </div>
 
     );
