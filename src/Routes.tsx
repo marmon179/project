@@ -11,6 +11,7 @@ import {Test} from './pages/test/Test';
 import {PacksListContainer} from './pages/mainPacksList/MainContainer';
 import {ModalDeletePack} from './pages/modalWindows/modalDeletePack/ModalDeletePack';
 import {ModalAddNewPackContainer} from './pages/modalWindows/modalAddNewPack/ModalAddNewPackContainer';
+import {ModalEditPackContainer} from './pages/modalWindows/modalEditPack/ModalEditPackContainer';
 
 export const PATH = {
     LOGIN: '/login',
@@ -23,7 +24,8 @@ export const PATH = {
     FORGOT_EMAIL: '/check-email',
     PACKS_LIST: '/pack-list',
     NEW_PACKS: '/new-pack',
-    DELETE_PACK: '/delete-pack'
+    DELETE_PACK: '/delete-pack',
+    EDIT_PACK: '/edit-pack'
 }
 
 const Routes = () => {
@@ -41,6 +43,7 @@ const Routes = () => {
                 <Route path={PATH.PACKS_LIST} render={() => <PacksListContainer/>}/>
                 <Route path={PATH.NEW_PACKS} render={() => <ModalAddNewPackContainer/>}/>
                 <Route path={PATH.DELETE_PACK} render={() => <ModalDeletePack/>}/>
+                <Route path={PATH.EDIT_PACK} render={() => <ModalEditPackContainer/>}/>
                 <Route path={PATH.TEST} render={() => <Test/>}/>
 
                 <Route render={() => <Error404/>}/>

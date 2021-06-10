@@ -274,7 +274,7 @@ export interface ConfigureFetchCardPacks {
     pageCount: number // не обязательно
 }
 
- interface CreateCardPacks {
+interface CreateCardPacks {
     cardsPack: cardsPack
 }
 
@@ -290,10 +290,12 @@ export interface cardsPack {
 }
 
 interface UpdateCardPacks {
-    cardsPack: {
-        _id: string
-        name?: string
-    }
+    cardsPack: UpdateCardsPack
+}
+
+export interface UpdateCardsPack {
+    _id: string
+    name?: string
 }
 
 interface FetchCardsConfig {

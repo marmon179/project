@@ -1,10 +1,10 @@
 import React from 'react'
-import {ModalAddNewPack} from './ModalAddNewPack';
+import {ModalEditPack} from './ModalEditPack';
 import {useDispatch} from 'react-redux';
 import {addCardsPacks} from '../../../bll/SearchReducer';
 
 
-export const ModalAddNewPackContainer = () => {
+export const ModalEditPackContainer = () => {
     const dispatch = useDispatch()
     const initialValues: initialValuesType = {
         name: '',
@@ -23,7 +23,7 @@ export const ModalAddNewPackContainer = () => {
         dispatch(addCardsPacks(values))
     }, [])
     return (
-        <ModalAddNewPack
+        <ModalEditPack
             initialValues={initialValues}
             onSubmit={onSubmit}
         />

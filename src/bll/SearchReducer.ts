@@ -1,5 +1,5 @@
-import {AppThunk} from "./store";
-import {CardPacks, cardsAPI, cardsPack, ConfigureFetchCardPacks} from "../dal/api";
+import {AppThunk} from './store';
+import {CardPacks, cardsAPI, cardsPack, ConfigureFetchCardPacks, UpdateCardsPack} from '../dal/api';
 
 const initState = {
     search: '',
@@ -69,12 +69,10 @@ export const addCardsPacks = (date: cardsPack): AppThunk => (dispatch) => {
         .then(((res) => {
         }))
 }
-// export const deletedCardsPack = (id:string): AppThunk => (dispatch) => {
-//     cardsAPI.deleteCard(id)
-//         .then(((res) => {
-//
-//         }))
-// }
+export const editPack = (date: UpdateCardsPack): AppThunk => async dispatch => {
+    await cardsAPI.updateCardPacks({cardsPack: date})
+    dispatch(fetchPacks())
+}
 //type
 export type InitialStateLoading = typeof initState
 
