@@ -1,7 +1,7 @@
 import React from 'react'
 import {ModalEditPack} from './ModalEditPack';
 import {useDispatch, useSelector} from 'react-redux';
-import {editPack, openModalWindow} from '../../../bll/SearchReducer';
+import {editPack} from '../../../bll/SearchReducer';
 import {AppStateType} from '../../../bll/store';
 
 
@@ -17,9 +17,7 @@ export const ModalEditPackContainer = () => {
     const onSubmit = React.useCallback((values: initialValuesType) => {
         // alert(JSON.stringify(values))
         dispatch(editPack(values))
-        dispatch(openModalWindow(false))
     }, [])
-
 
     return (
         <ModalEditPack

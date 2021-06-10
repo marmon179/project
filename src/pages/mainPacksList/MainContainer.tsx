@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {PacksList} from './Main';
 import {useDispatch, useSelector} from 'react-redux';
 import {requestPacks, searchPacks} from '../../bll/SearchReducer';

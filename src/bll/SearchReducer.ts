@@ -53,8 +53,8 @@ export const fetchPacks = (config?: Partial<ConfigureFetchCardPacks>): AppThunk 
 
 }
 
-export const requestPacks = (page: number, pageCount: number): AppThunk => (dispatch) => {
-    cardsAPI.fetchCardPacks({page, pageCount})
+export const requestPacks = (page: number, pageCount: number): AppThunk => async dispatch => {
+    await cardsAPI.fetchCardPacks({page, pageCount})
         .then(((res) => {
             dispatch(setCardPacks(res.data.cardPacks))
             dispatch(setCurrentPage(page))
@@ -66,16 +66,14 @@ export const removePack = (id: string): AppThunk => async dispatch => {
     dispatch(fetchPacks())
 }
 
-export const searchPacks = (packName: string): AppThunk => (dispatch) => {
-    cardsAPI.fetchCardPacks({packName})
+export const searchPacks = (packName: string): AppThunk => async dispatch => {
+    await cardsAPI.fetchCardPacks({packName})
         .then(((res) => {
             dispatch(setCardPacks(res.data.cardPacks))
         }))
 }
-export const addCardsPacks = (date: cardsPack): AppThunk => (dispatch) => {
-    cardsAPI.createCardPacks({cardsPack: date})
-        .then(((res) => {
-        }))
+export const addCardsPacks = (date: cardsPack): AppThunk => async () => {
+    await cardsAPI.createCardPacks({cardsPack: date})
 }
 export const editPack = (date: UpdateCardsPack): AppThunk => async dispatch => {
     await cardsAPI.updateCardPacks({cardsPack: date})
