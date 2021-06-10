@@ -1,9 +1,9 @@
-import React, {useCallback, useEffect} from "react";
+import React, {useCallback, useEffect} from 'react';
 import {Packs} from './Packs';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../bll/store';
 import {CardPacks} from '../../dal/api';
-import {editPack, removePack, requestPacks} from '../../bll/SearchReducer';
+import {addId, removePack, requestPacks} from '../../bll/SearchReducer';
 
 export const PacksContainer = () => {
     const cardPacks = useSelector<AppStateType, CardPacks[]>(state => state.search.cardPacks)
@@ -16,8 +16,8 @@ export const PacksContainer = () => {
     const onRemovePack = useCallback((id) => {
         dispatch(removePack(id))
     }, [dispatch])
-    const editPacks = useCallback((id) => {
-        dispatch(editPack(id))
+    const onEditPack = useCallback((id) => {
+        dispatch(addId(id))
     }, [dispatch])
 
     useEffect(() => {
@@ -27,7 +27,8 @@ export const PacksContainer = () => {
 
     return (
         <>
-            <Packs cardPacks={cardPacks} userId={userId} onRemovePack={onRemovePack}/>
+            <Packs cardPacks={cardPacks} userId={userId} onRemovePack={onRemovePack} onEditPack={onEditPack}
+                   />
         </>
 
     );

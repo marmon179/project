@@ -14,6 +14,7 @@ export type PropsType = {
 export const ModalEditPack: React.FC<PropsType> = React.memo(props => {
 
     const {initialValues, onSubmit} = props
+
     return (
         <Formik initialValues={initialValues}
                 onSubmit={onSubmit}

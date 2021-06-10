@@ -1,27 +1,26 @@
 import React from 'react'
 import {ModalEditPack} from './ModalEditPack';
-import {useDispatch} from 'react-redux';
-import {addCardsPacks} from '../../../bll/SearchReducer';
+import {useDispatch, useSelector} from 'react-redux';
+import {editPack, openModalWindow} from '../../../bll/SearchReducer';
+import {AppStateType} from '../../../bll/store';
 
 
 export const ModalEditPackContainer = () => {
     const dispatch = useDispatch()
+    const id = useSelector<AppStateType, string>(state => state.search._id)
     const initialValues: initialValuesType = {
+        _id: id,
         name: '',
-        path: '',
-        grade: 0,
-        shots: 0,
-        rating: 0,
-        deckCover: '',
-        private: false,
-        type: ''
 
     }
 
     const onSubmit = React.useCallback((values: initialValuesType) => {
         // alert(JSON.stringify(values))
-        dispatch(addCardsPacks(values))
+        dispatch(editPack(values))
+        dispatch(openModalWindow(false))
     }, [])
+
+
     return (
         <ModalEditPack
             initialValues={initialValues}
@@ -32,14 +31,9 @@ export const ModalEditPackContainer = () => {
 //types
 export type initialValuesType =
     {
+        _id: string
         name: string
-        path: string
-        grade: number
-        shots: number
-        rating: number
-        deckCover: string
-        private: false
-        type: string
+
     }
 
 

@@ -8,6 +8,8 @@ const initState = {
     cardPacksTotalCount: 1000,
     pageSize: 9,
     currentPage: 1,
+    modalWindow: false,
+    _id: ''
 
 
 }
@@ -22,6 +24,10 @@ export const SearchReducer = (state: InitialStateLoading = initState, action: Se
             return {...state, cardPacksTotalCount: action.cardPacksTotalCount}
         case 'SEARCH/SET_CARD_PACKS':
             return {...state, cardPacks: action.cardPacks}
+        case 'SEARCH/ADD_ID':
+            return {...state, _id: action.id}
+        case 'SEARCH/OPEN_MODAL_WINDOW':
+            return {...state, modalWindow: action.modalWindow}
 
         default:
             return state
@@ -31,6 +37,8 @@ export const SearchReducer = (state: InitialStateLoading = initState, action: Se
 export const toGetDateAC = (packName: string) => ({type: 'SEARCH/DATE-SEARCH', packName} as const)
 export const setCardPacks = (cardPacks: CardPacks[]) => ({type: 'SEARCH/SET_CARD_PACKS', cardPacks} as const)
 export const setCurrentPage = (currentPage: number) => ({type: 'SEARCH/SET_CURRENT_PAGE', currentPage} as const)
+export const addId = (id: string) => ({type: 'SEARCH/ADD_ID', id} as const)
+export const openModalWindow = (modalWindow: boolean) => ({type: 'SEARCH/OPEN_MODAL_WINDOW', modalWindow} as const)
 export const setTotalPacksCount = (cardPacksTotalCount: number) => ({
     type: 'SEARCH/SET_TOTAL_PACKS_COUNT',
     cardPacksTotalCount
@@ -81,5 +89,7 @@ export type SearchActionType =
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setTotalPacksCount>
     | ReturnType<typeof setCardPacks>
+    | ReturnType<typeof addId>
+    | ReturnType<typeof openModalWindow>
 
 
