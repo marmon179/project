@@ -3,15 +3,14 @@ import s from "./TableHeader.module.scss";
 
 
 export const TableHeader = (props: any) => {
-    return (<table className={s.tableHeader}>
-            <tr>
-                <td>{props.title1}</td>
-                <td>{props.title2}</td>
-                <td>{props.title3}</td>
-                <td>{props.title4}</td>
-                <td>{props.title5}</td>
-            </tr>
-        </table>
+    return (
+        <div className={s.tableHeader}>
+                <div className={s.tableHeaderTitle}>{props.title1}</div>
+                <div className={s.tableHeaderTitle}>{props.title2}</div>
+                <div className={s.tableHeaderTitle}>{props.title3}</div>
+                <div className={s.tableHeaderTitle}>{props.title4}</div>
+                <div className={s.tableHeaderTitle}>{props.title5}</div>
+        </div>
     );
 };
 

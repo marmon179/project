@@ -24,43 +24,39 @@ export const TableRow: React.FC<PropsPackType> = props => {
         userId,
     } = props
     return (
-        <table>
-            <tr>
-                <th className={s.tableRow}>{props.packName}</th>
-                <th className={s.tableRow}>{props.cardsCount}</th>
-                <th className={s.tableRow}>{props.updated}</th>
-                <th className={s.tableRow}>{props.created}</th>
-                <th className={s.tableRow}>
-                    <div className={s.tableBtnInner}>
-                        {userId === addedPackUserId && <Button
-                            className={s.tableButton}
-                            variant={Variant.primary}
-                            size={Size.small}
-                            palette={Palette.secondary}
-                            onClick={() => onRemovePack(cardId)}
-                        >
-                            Delete
-                        </Button>}
-                        {userId === addedPackUserId && <Button
-                            className={s.tableButton}
-                            variant={Variant.primary}
-                            size={Size.small}
-                            palette={Palette.primary}
-                            onClick={() => onEditPack(cardId)}
-                        >
-                            Edit
-                        </Button>}
-                        <Button
-                            className={s.tableButton}
-                            variant={Variant.primary}
-                            size={Size.small}
-                        >
-                            Learn
-                        </Button>
-                    </div>
-                </th>
-            </tr>
-        </table>
+        <div className={s.tableRowInner}>
+            <div>{props.packName}</div>
+            <div>{props.cardsCount}</div>
+            <div>{props.updated}</div>
+            <div>{props.created}</div>
+            <div className={s.tableBtnInner}>
+                {userId === addedPackUserId && <Button
+                    className={s.tableButton}
+                    variant={Variant.primary}
+                    size={Size.small}
+                    palette={Palette.secondary}
+                    onClick={() => onRemovePack(cardId)}
+                >
+                    Delete
+                </Button>}
+                {userId === addedPackUserId && <Button
+                    className={s.tableButton}
+                    variant={Variant.primary}
+                    size={Size.small}
+                    palette={Palette.primary}
+                    onClick={() => onEditPack(cardId)}
+                >
+                    Edit
+                </Button>}
+                <Button
+                    className={s.tableButton}
+                    variant={Variant.primary}
+                    size={Size.small}
+                >
+                    Learn
+                </Button>
+            </div>
+        </div>
     );
 };
 

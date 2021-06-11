@@ -1,0 +1,32 @@
+@import "./src/styles/mixins";
+@import "./src/styles/vars";
+
+
+.containerForm {
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 444px;
+  width: 413px;
+  background: #F9F9FE;
+  border-radius: 8px;
+}
+
+.addNewCardFrom {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btnInner {
+  margin-top: 50px;
+  display: flex;
+  gap: 50px;
+}

@@ -1,14 +1,19 @@
-@import "../../styles/mixins";
-@import "../../styles/vars";
+@import "./src/styles/mixins";
+@import "./src/styles/vars";
 
-.tableRow{
+.tableRowInner {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.2fr 0.1fr 0.2fr 0.2fr 0.3fr;
   @include textSan("San Francisco",13px,400,16px);
+  padding-left: 24px;
   height: 48px;
-  width: 669px;
+  grid-gap: 5px;
 }
 
 .tableBtnInner {
   display: flex;
+  gap: 15px;
 }
 
 .tableButton {

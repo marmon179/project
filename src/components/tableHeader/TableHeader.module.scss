@@ -1,9 +1,16 @@
-@import "../../styles/mixins";
-@import "../../styles/vars";
+@import "./src/styles/mixins";
+@import "./src/styles/vars";
 
 .tableHeader {
-  @include textSan("San Francisco",13px,700,16px);
   background: #ECECF9;
   height: 48px;
-  width: 100%;
+  padding-left: 24px;
+  display: grid;
+  grid-template-columns: 0.2fr 0.1fr 0.2fr 0.2fr 0.2fr;
+  align-items: center;
+  grid-gap: 5px;
+}
+
+.tableHeaderTitle {
+  @include textSan("San Francisco",13px,700,16px);
 }
