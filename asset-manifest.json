@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/project/static/css/main.16e1650a.chunk.css",
-    "main.js": "/project/static/js/main.4f3c8037.chunk.js",
-    "main.js.map": "/project/static/js/main.4f3c8037.chunk.js.map",
-    "runtime-main.js": "/project/static/js/runtime-main.2fb31a33.js",
-    "runtime-main.js.map": "/project/static/js/runtime-main.2fb31a33.js.map",
-    "static/js/2.c4e748e2.chunk.js": "/project/static/js/2.c4e748e2.chunk.js",
-    "static/js/2.c4e748e2.chunk.js.map": "/project/static/js/2.c4e748e2.chunk.js.map",
-    "static/js/3.2173cb67.chunk.js": "/project/static/js/3.2173cb67.chunk.js",
-    "static/js/3.2173cb67.chunk.js.map": "/project/static/js/3.2173cb67.chunk.js.map",
+    "main.css": "/project/static/css/main.2887a7cd.chunk.css",
+    "main.js": "/project/static/js/main.a54f52bc.chunk.js",
+    "main.js.map": "/project/static/js/main.a54f52bc.chunk.js.map",
+    "runtime-main.js": "/project/static/js/runtime-main.5775efbb.js",
+    "runtime-main.js.map": "/project/static/js/runtime-main.5775efbb.js.map",
+    "static/js/2.2e32acc3.chunk.js": "/project/static/js/2.2e32acc3.chunk.js",
+    "static/js/2.2e32acc3.chunk.js.map": "/project/static/js/2.2e32acc3.chunk.js.map",
+    "static/js/3.a43c2c6b.chunk.js": "/project/static/js/3.a43c2c6b.chunk.js",
+    "static/js/3.a43c2c6b.chunk.js.map": "/project/static/js/3.a43c2c6b.chunk.js.map",
     "index.html": "/project/index.html",
-    "static/css/main.16e1650a.chunk.css.map": "/project/static/css/main.16e1650a.chunk.css.map",
-    "static/js/2.c4e748e2.chunk.js.LICENSE.txt": "/project/static/js/2.c4e748e2.chunk.js.LICENSE.txt",
+    "static/css/main.2887a7cd.chunk.css.map": "/project/static/css/main.2887a7cd.chunk.css.map",
+    "static/js/2.2e32acc3.chunk.js.LICENSE.txt": "/project/static/js/2.2e32acc3.chunk.js.LICENSE.txt",
     "static/media/SuperCheckbox.module.css": "/project/static/media/cgedked.0d7c2269.jpg",
-    "static/media/loading.f3889154.svg": "/project/static/media/loading.f3889154.svg",
+    "static/media/loading.2d4beb4f.svg": "/project/static/media/loading.2d4beb4f.svg",
     "static/media/mail.bc3a4042.svg": "/project/static/media/mail.bc3a4042.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2fb31a33.js",
-    "static/js/2.c4e748e2.chunk.js",
-    "static/css/main.16e1650a.chunk.css",
-    "static/js/main.4f3c8037.chunk.js"
+    "static/js/runtime-main.5775efbb.js",
+    "static/js/2.2e32acc3.chunk.js",
+    "static/css/main.2887a7cd.chunk.css",
+    "static/js/main.a54f52bc.chunk.js"
   ]
 }
