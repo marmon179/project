@@ -12,6 +12,7 @@ import {PacksListContainer} from './pages/mainPacksList/MainContainer';
 import {ModalDeletePack} from './pages/modalWindows/modalDeletePack/ModalDeletePack';
 import {ModalAddNewPackContainer} from './pages/modalWindows/modalAddNewPack/ModalAddNewPackContainer';
 import {ModalEditPackContainer} from './pages/modalWindows/modalEditPack/ModalEditPackContainer';
+import ModalsPage from './components/common/modals-1-ui/ModalsPage';
 
 export const PATH = {
     LOGIN: '/login',
@@ -25,7 +26,8 @@ export const PATH = {
     PACKS_LIST: '/pack-list',
     NEW_PACKS: '/new-pack',
     DELETE_PACK: '/delete-pack',
-    EDIT_PACK: '/edit-pack'
+    EDIT_PACK: '/edit-pack',
+    MODAL: '/modal'
 }
 
 const Routes = () => {
@@ -41,9 +43,10 @@ const Routes = () => {
                 <Route path={PATH.NEW_PASSWORD} render={() => <ForgotNewPasswordContainer/>}/>
                 <Route path={PATH.FORGOT_EMAIL} render={() => <CheckEmail/>}/>
                 <Route path={PATH.PACKS_LIST} render={() => <PacksListContainer/>}/>
-                <Route path={PATH.NEW_PACKS} render={() => <ModalAddNewPackContainer/>}/>
+                {/*<Route path={PATH.NEW_PACKS} render={() => <ModalAddNewPackContainer/>}/>*/}
                 <Route path={PATH.DELETE_PACK} render={() => <ModalDeletePack/>}/>
                 <Route path={PATH.EDIT_PACK} render={() => <ModalEditPackContainer/>}/>
+                <Route path={PATH.MODAL} render={() => <ModalsPage/>}/>
                 <Route path={PATH.TEST} render={() => <Test/>}/>
 
                 <Route render={() => <Error404/>}/>

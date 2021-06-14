@@ -1,10 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {ModalAddNewPack} from './ModalAddNewPack';
 import {useDispatch} from 'react-redux';
 import {addCardsPacks} from '../../../bll/SearchReducer';
+import {ModalAddNewPackInput} from './ModalAddNewPackInput';
 
+type PropsType = {
+    show: boolean
+    close: () => void
+    backgroundOnClick?: () => void;
+    answer?: string;
+    setAnswer?: (answer: string) => void;
+    modalOnClick?: () => void;
+}
 
-export const ModalAddNewPackContainer = () => {
+export const ModalAddNewPackContainer: React.FC<PropsType> = props => {
+
+    const {show,backgroundOnClick = () => {},answer,setAnswer,modalOnClick = () => {},} = props
+    const [answerData, setAnswerData] = useState(answer);
     const dispatch = useDispatch()
     const initialValues: initialValuesType = {
         name: '',
@@ -23,9 +35,18 @@ export const ModalAddNewPackContainer = () => {
         dispatch(addCardsPacks(values))
     }, [])
     return (
-        <ModalAddNewPack
+        <ModalAddNewPackInput
             initialValues={initialValues}
             onSubmit={onSubmit}
+            show={show}
+            enableBackground={true}
+            backgroundOnClick={() => {
+                setAnswerData(answer);
+                backgroundOnClick()
+            }}
+            modalOnClick={modalOnClick}
+            width={395}
+            height={221}
         />
     )
 }
