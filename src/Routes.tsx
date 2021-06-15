@@ -10,7 +10,9 @@ import {AuthLoginContainer} from './pages/Login/AuthLoginContainer';
 import {Test} from './pages/test/Test';
 import {PacksListContainer} from './pages/PacksList/PacksListContainer';
 import ModalsPage from './components/common/modals-1-ui/ModalsPage';
-import { ModalDeletePack } from './pages/PacksList/deletePack/modalDeletePack/ModalDeletePack';
+import {ModalDeletePack} from './pages/PacksList/deletePack/modalDeletePack/ModalDeletePack';
+import {LearnQuestion} from './pages/learnQuestion/LearnQuestion';
+import {LearnQuestionAnswer} from './pages/learnQuestionAnswer/LearnQuestionAnswer';
 
 export const PATH = {
     LOGIN: '/login',
@@ -23,9 +25,10 @@ export const PATH = {
     FORGOT_EMAIL: '/check-email',
     PACKS_LIST: '/pack-list',
     DELETE_PACK: '/delete-pack',
-    MODAL: '/modal'
+    MODAL: '/modal',
+    LEARN_QUESTION: '/learn-question',
+    LEARN_QUESTION_ANSWER: '/learn-question-answer'
 }
-
 const Routes = () => {
     return (
         <div>
@@ -40,6 +43,8 @@ const Routes = () => {
                 <Route path={PATH.FORGOT_EMAIL} render={() => <CheckEmail/>}/>
                 <Route path={PATH.PACKS_LIST} render={() => <PacksListContainer/>}/>
                 <Route path={PATH.DELETE_PACK} render={() => <ModalDeletePack/>}/>
+                <Route path={PATH.LEARN_QUESTION} render={() => <LearnQuestion/>}/>
+                <Route path={PATH.LEARN_QUESTION_ANSWER} render={() => <LearnQuestionAnswer/>}/>
 
                 <Route path={PATH.MODAL} render={() => <ModalsPage/>}/>
                 <Route path={PATH.TEST} render={() => <Test/>}/>
