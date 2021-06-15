@@ -1,0 +1,41 @@
+@import "./src/styles/mixins";
+@import "./src/styles/vars";
+
+
+.containerForm {
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 576px;
+  width: 413px;
+  background: #F9F9FE;
+  border-radius: 8px;
+  padding: 50px 30px 60px 30px;
+}
+.learnQuestionAnswerTitleInner {
+  align-self: center;
+}
+.learnQuestionTextInner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.learnQuestionAnswerInputInner {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.learnQuestionAnswerInputInner input {
+  margin-right: 10px;
+}
+.btnInner {
+  display: flex;
+  gap: 50px;
+}
