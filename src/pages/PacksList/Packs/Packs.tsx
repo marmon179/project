@@ -1,10 +1,9 @@
 import React from 'react';
-import s from '../../pages/mainPacksList/Main.module.scss';
-import {CardPacks} from '../../dal/api';
-import {TableHeader} from '../tableHeader/TableHeader';
-import {TableRow} from '../tableRow/TableRow';
-import {ModalEditPack} from '../../pages/modalWindows/modalEditPack/ModalEditPack';
-import {ModalEditPackContainer} from '../../pages/modalWindows/modalEditPack/ModalEditPackContainer';
+import s from '../PackList.module.scss';
+import {CardPacks} from '../../../dal/api';
+import {TableHeader} from '../../../components/tableHeader/TableHeader';
+import {TableRow} from '../../../components/tableRow/TableRow';
+import {ModalEditPackContainer} from '../editPack/modalEditPack/ModalEditPackContainer';
 
 type PropsPacksType = {
     userId: string
@@ -14,19 +13,11 @@ type PropsPacksType = {
     show: boolean
     close: () => void
     backgroundOnClick?: () => void;
+    modalOnClick?: () => void;
 }
 
 export const Packs: React.FC<PropsPacksType> = React.memo(props => {
-    const {
-        userId,
-        cardPacks,
-        onRemovePack,
-        onEditPack,
-        show,
-        close,
-        backgroundOnClick,
-
-    } = props
+    const {userId, cardPacks, onRemovePack, onEditPack, backgroundOnClick, show, close,} = props
 
 
     return (
@@ -44,8 +35,11 @@ export const Packs: React.FC<PropsPacksType> = React.memo(props => {
                 onRemovePack={onRemovePack}
                 onEditPack={onEditPack}
             />)}
-            <ModalEditPackContainer show={show} close={close}  backgroundOnClick={backgroundOnClick}/>
 
+            <ModalEditPackContainer
+                show={show}
+                close={close}
+                backgroundOnClick={backgroundOnClick}/>
         </div>
 
     );

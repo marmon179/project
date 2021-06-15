@@ -1,14 +1,13 @@
 import React from 'react';
-import s from './Main.module.scss'
+import s from './PackList.module.scss'
 import Title from '../../components/common/title/Title';
 import SubTitle from '../../components/common/subTitle/SubTitle';
-import {Button, Palette, Size} from '../../components/common/c2-SuperButton/Button';
 import {Form, Formik} from 'formik';
 import {InputSearch} from '../../components/common/inputSearch/InputSearch';
-import {initialValuesType} from './MainContainer';
+import {initialValuesType} from './PacksListContainer';
 import {Paginator} from '../../components/common/Paginator/Paginator';
-import {PacksContainer} from '../../components/Packs/PacksContainer';
-import {ModalAddNewPackContainer} from '../modalWindows/modalAddNewPack/ModalAddNewPackContainer';
+import {PacksContainer} from './Packs/PacksContainer';
+import {AddNewPack} from './addNewPack/AddNewPack';
 
 export type PropsType = {
     initialValues: initialValuesType
@@ -17,10 +16,6 @@ export type PropsType = {
     pageSize: number
     currentPage: number
     onPageChanged: (pageNumber: number) => void
-    show: boolean
-    close: () => void
-    backgroundOnClick?: () => void;
-    onClickButton: () => void
 }
 
 export const PacksList: React.FC<PropsType> = (props) => {
@@ -32,10 +27,6 @@ export const PacksList: React.FC<PropsType> = (props) => {
         pageSize,
         currentPage,
         onPageChanged,
-        show,
-        close,
-        backgroundOnClick,
-        onClickButton
     } = props
 
 
@@ -55,29 +46,27 @@ export const PacksList: React.FC<PropsType> = (props) => {
                         Ползунок туда сюда
                     </aside>
                     <main className={s.main}>
+
                         <Title title="Packs list"/>
+
                         <div className={s.search}>
                             <Form>
                                 <InputSearch type="text" name="packName" placeholder="Search..."/>
                             </Form>
-                            <Button
-                                size={Size.medium}
-                                palette={Palette.primary}
-                                title="Add new pack"
-                                onClick={onClickButton}
-                            />
-                            <ModalAddNewPackContainer show={show}
-                                                      close={close}
-                                                      backgroundOnClick={backgroundOnClick}/>
+
+                            <AddNewPack/>
 
                         </div>
                         <PacksContainer/>
                     </main>
-
                 </div>
+
                 <div className={s.wrapperPaginator}>
-                    <Paginator cardPacksTotalCount={cardPacksTotalCount} pageSize={pageSize} currentPage={currentPage}
-                               onPageChanged={onPageChanged}/>
+                    <Paginator
+                        cardPacksTotalCount={cardPacksTotalCount}
+                        pageSize={pageSize}
+                        currentPage={currentPage}
+                        onPageChanged={onPageChanged}/>
                 </div>
 
             </div>

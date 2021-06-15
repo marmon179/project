@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {PacksList} from './Main';
+import React from 'react';
+import {PacksList} from './PackList';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../bll/store';
 import {fetchPacks, searchPacks} from '../../bll/SearchReducer';
@@ -10,7 +10,6 @@ export const PacksListContainer = () => {
     const pageCount = useSelector<AppStateType, number>(state => state.search.pageSize)
     const currentPage = useSelector<AppStateType, number>(state => state.search.currentPage)
 
-    const [show, setShow] = useState(false);
     const dispatch = useDispatch()
 
     const onPageChanged = (page: number) => {
@@ -24,7 +23,7 @@ export const PacksListContainer = () => {
     const onSubmit = React.useCallback((values: any) => {
         // alert(JSON.stringify(values))
         dispatch(searchPacks(values))
-    }, [dispatch])
+    }, [searchPacks])
     return (
         <>
             <PacksList
@@ -34,10 +33,6 @@ export const PacksListContainer = () => {
                 pageSize={pageCount}
                 cardPacksTotalCount={cardPacksTotalCount}
                 onPageChanged={onPageChanged}
-                show={show}
-                close={() => setShow(false)}
-                backgroundOnClick={() => setShow(false)}
-                onClickButton={() => setShow(true)}
             />
         </>
     );

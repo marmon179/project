@@ -1,27 +1,23 @@
 import React from 'react'
-import {ModalEditPack} from './ModalEditPack';
 import {useDispatch, useSelector} from 'react-redux';
-import {editPack} from '../../../bll/SearchReducer';
-import {AppStateType} from '../../../bll/store';
+import {editPack} from '../../../../bll/SearchReducer';
+import {AppStateType} from '../../../../bll/store';
+import { ModalEditPack } from './ModalEditPack';
 
 
 export const ModalEditPackContainer: React.FC<PropsType> = props => {
 
-    const {
-        show, backgroundOnClick = () => {},
-        modalOnClick = () => {},
-        close
-    } = props
+    const {show, backgroundOnClick = () => {}, modalOnClick = () => {}, close} = props
 
     const dispatch = useDispatch()
     const id = useSelector<AppStateType, string>(state => state.search._id)
+
     const initialValues: initialValuesType = {
         _id: id,
         name: '',
     }
 
     const onSubmit = React.useCallback((values: initialValuesType) => {
-        // alert(JSON.stringify(values))
         dispatch(editPack(values))
         close()
     }, [])
@@ -36,8 +32,7 @@ export const ModalEditPackContainer: React.FC<PropsType> = props => {
                 backgroundOnClick()
             }}
             modalOnClick={modalOnClick}
-            width={395}
-            height={221}
+            close={close}
         />
     )
 }

@@ -8,10 +8,9 @@ import {CheckEmail} from './pages/passwordRecovery/checkEmail/CheckEmail';
 import {EnterEmailContainer} from './pages/passwordRecovery/enterEmail/EnterEmailContainer';
 import {AuthLoginContainer} from './pages/Login/AuthLoginContainer';
 import {Test} from './pages/test/Test';
-import {PacksListContainer} from './pages/mainPacksList/MainContainer';
-import {ModalDeletePack} from './pages/modalWindows/modalDeletePack/ModalDeletePack';
-import {ModalEditPackContainer} from './pages/modalWindows/modalEditPack/ModalEditPackContainer';
+import {PacksListContainer} from './pages/PacksList/PacksListContainer';
 import ModalsPage from './components/common/modals-1-ui/ModalsPage';
+import { ModalDeletePack } from './pages/PacksList/deletePack/modalDeletePack/ModalDeletePack';
 
 export const PATH = {
     LOGIN: '/login',

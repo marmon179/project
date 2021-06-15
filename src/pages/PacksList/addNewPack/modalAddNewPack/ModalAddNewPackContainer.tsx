@@ -1,14 +1,12 @@
 import React from 'react'
 import {useDispatch} from 'react-redux';
-import {addCardsPacks} from '../../../bll/SearchReducer';
-import {ModalAddNewPackInput} from './ModalAddNewPackInput';
+import {addCardsPacks} from '../../../../bll/SearchReducer';
+import {ModalAddNewPack} from './ModalAddNewPack';
 
-export const ModalAddNewPackContainer: React.FC<PropsType> = props => {
+export const ModalAddNewPackContainer: React.FC<PropsType> = React.memo(props => {
 
-    const {show, backgroundOnClick = () => {},
-           modalOnClick = () => {},
-           close
-    } = props
+    const {show, backgroundOnClick = () => {}, modalOnClick = () => {}, close} = props
+
 
     const dispatch = useDispatch()
     const initialValues: initialValuesType = {
@@ -20,31 +18,26 @@ export const ModalAddNewPackContainer: React.FC<PropsType> = props => {
         deckCover: '',
         private: false,
         type: ''
-
     }
 
 
     const onSubmit = React.useCallback((values: initialValuesType) => {
-        // alert(JSON.stringify(values))
         dispatch(addCardsPacks(values))
         close()
     }, [addCardsPacks])
+
     return (
-        <ModalAddNewPackInput
+        <ModalAddNewPack
             initialValues={initialValues}
             onSubmit={onSubmit}
             show={show}
             enableBackground={true}
-            backgroundOnClick={() => {
-                backgroundOnClick()
-            }}
+            backgroundOnClick={() => {backgroundOnClick()}}
             modalOnClick={modalOnClick}
-            width={395}
-            height={221}
             close={close}
         />
     )
-}
+})
 //types
 export type initialValuesType =
     {

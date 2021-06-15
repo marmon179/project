@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './ModalDeletePack.module.scss';
-import SubTitle from "../../../components/common/subTitle/SubTitle";
-import {Button, Size} from "../../../components/common/c2-SuperButton/Button";
+import SubTitle from "../../../../components/common/subTitle/SubTitle";
+import {Button, Size} from "../../../../components/common/c2-SuperButton/Button";
 
 
 export function ModalDeletePack() {
