@@ -54,7 +54,7 @@ export const addCardsPacks = (date: cardsPack): AppThunk => async dispatch => {
 }
 export const removePack = (id: string): AppThunk => async dispatch => {
     await cardsAPI.deleteCardPacks(id)
-    dispatch(fetchPacks())
+    dispatch(fetchPacks({page:1,pageCount:9}))
 }
 
 export const searchPacks = (packName: string): AppThunk => async dispatch => {
