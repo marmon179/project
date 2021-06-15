@@ -15,13 +15,13 @@ export type PropsType = {
     modalOnClick?: () => void;
     width: number;
     height: number;
+    close: () => void;
 }
 
 export const ModalAddNewPackInput: React.FC<PropsType> = React.memo(props => {
 
     const {initialValues, onSubmit, show, enableBackground, backgroundOnClick,
-        modalOnClick = () => {}, width,
-        height,children} = props
+        modalOnClick = () => {}, width, height} = props
 
     const top = `calc(50vh - ${height / 2}px)`;
     const left = `calc(50vw - ${width / 2}px)`;
@@ -35,37 +35,12 @@ export const ModalAddNewPackInput: React.FC<PropsType> = React.memo(props => {
             left: '0px',
             width: '100vw',
             height: '100vh',
+            background: 'black',
             opacity: 0.35,
             zIndex: 20,
-
-
         }}
              onClick={backgroundOnClick}
-        >
-            <Formik initialValues={initialValues}
-                    onSubmit={onSubmit}
-            >
-                <div className={s.modalAdd}>
-                    <div className={s.containerAdd}>
-                        <div className={s.modalTitleInner}>
-                            <SubTitle title="Add new pack"/>
-                            <span>X</span>
-                        </div>
-                        <Form>
-                            <div className={s.modalAddInput}>
-                                <label>Name Pack</label>
-                                <InputSearch type="text" name="name"/>
-                            </div>
-                            <div className={s.btnInner}>
-                                <Button size={Size.small} title="Cancel"/>
-                                <Button size={Size.small} palette={Palette.primary} title="Save"/>
-                            </div>
-                        </Form>
-                    </div>
-
-                </div>
-            </Formik>
-        </div>}
+       />}
             <div
             style={{
                 position: 'fixed',
@@ -83,11 +58,30 @@ export const ModalAddNewPackInput: React.FC<PropsType> = React.memo(props => {
             }}
             onClick={modalOnClick}
             >
-                {children}
+                <Formik initialValues={initialValues}
+                        onSubmit={onSubmit}
+                >
+                        <div className={s.containerAdd}>
+                            <div className={s.modalTitleInner}>
+                                <SubTitle title="Add new pack"/>
+                            </div>
+                            <Form>
+                                <div className={s.modalAddInput}>
+                                    <label>Name Pack</label>
+                                    <InputSearch type="text" name="name"/>
+                                </div>
+                                <div className={s.btnInner}>
+                                    <Button
+                                        size={Size.small}
+                                        palette={Palette.primary}
+                                        title="Save"/>
+                                </div>
+                            </Form>
+                    </div>
+                </Formik>
             </div>
 
         </>
-
     )
 })
 

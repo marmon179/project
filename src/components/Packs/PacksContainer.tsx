@@ -3,14 +3,14 @@ import {Packs} from './Packs';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../bll/store';
 import {CardPacks} from '../../dal/api';
-import {addId, removePack, requestPacks} from '../../bll/SearchReducer';
+import {addId, fetchPacks, removePack} from '../../bll/SearchReducer';
 import {PATH} from '../../Routes';
 import {useHistory} from 'react-router-dom';
 
 export const PacksContainer = () => {
     const cardPacks = useSelector<AppStateType, CardPacks[]>(state => state.search.cardPacks)
-    const pageSize = useSelector<AppStateType, number>(state => state.search.pageSize)
-    const currentPage = useSelector<AppStateType, number>(state => state.search.currentPage)
+    const pageCount = useSelector<AppStateType, number>(state => state.search.pageSize)
+    const page = useSelector<AppStateType, number>(state => state.search.currentPage)
 
     const userId = useSelector<AppStateType, string>(state => state.app.meObject._id)
     const dispatch = useDispatch()
@@ -25,8 +25,8 @@ export const PacksContainer = () => {
     }, [dispatch])
 
     useEffect(() => {
-        dispatch(requestPacks(currentPage, pageSize))
-    }, [dispatch, currentPage, pageSize])
+        dispatch(fetchPacks({page, pageCount}))
+    }, [])
 
 
     return (

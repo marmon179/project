@@ -8,7 +8,6 @@ const initState = {
     cardPacksTotalCount: 1000,
     pageSize: 9,
     currentPage: 1,
-    modalWindow: false,
     _id: ''
 
 
@@ -26,9 +25,6 @@ export const SearchReducer = (state: InitialStateLoading = initState, action: Se
             return {...state, cardPacks: action.cardPacks}
         case 'SEARCH/ADD_ID':
             return {...state, _id: action.id}
-        case 'SEARCH/OPEN_MODAL_WINDOW':
-            return {...state, modalWindow: action.modalWindow}
-
         default:
             return state
     }
@@ -38,7 +34,6 @@ export const toGetDateAC = (packName: string) => ({type: 'SEARCH/DATE-SEARCH', p
 export const setCardPacks = (cardPacks: CardPacks[]) => ({type: 'SEARCH/SET_CARD_PACKS', cardPacks} as const)
 export const setCurrentPage = (currentPage: number) => ({type: 'SEARCH/SET_CURRENT_PAGE', currentPage} as const)
 export const addId = (id: string) => ({type: 'SEARCH/ADD_ID', id} as const)
-export const openModalWindow = (modalWindow: boolean) => ({type: 'SEARCH/OPEN_MODAL_WINDOW', modalWindow} as const)
 export const setTotalPacksCount = (cardPacksTotalCount: number) => ({
     type: 'SEARCH/SET_TOTAL_PACKS_COUNT',
     cardPacksTotalCount
@@ -49,17 +44,13 @@ export const fetchPacks = (config?: Partial<ConfigureFetchCardPacks>): AppThunk 
     const res = await cardsAPI.fetchCardPacks(config)
 
     dispatch(setCardPacks(res.data.cardPacks))
+    dispatch(setCurrentPage(res.data.page))
     dispatch(setTotalPacksCount(res.data.cardPacksTotalCount))
 
 }
-
-export const requestPacks = (page: number, pageCount: number): AppThunk => async dispatch => {
-    await cardsAPI.fetchCardPacks({page, pageCount})
-        .then(((res) => {
-            dispatch(setCardPacks(res.data.cardPacks))
-            dispatch(setCurrentPage(page))
-            dispatch(setTotalPacksCount(res.data.cardPacksTotalCount))
-        }))
+export const addCardsPacks = (date: cardsPack): AppThunk => async dispatch => {
+    await cardsAPI.createCardPacks({cardsPack: date})
+    dispatch(fetchPacks({page: 1, pageCount: 9}))
 }
 export const removePack = (id: string): AppThunk => async dispatch => {
     await cardsAPI.deleteCardPacks(id)
@@ -67,14 +58,12 @@ export const removePack = (id: string): AppThunk => async dispatch => {
 }
 
 export const searchPacks = (packName: string): AppThunk => async dispatch => {
-    await cardsAPI.fetchCardPacks({packName})
-        .then(((res) => {
-            dispatch(setCardPacks(res.data.cardPacks))
-        }))
+    const res = await cardsAPI.fetchCardPacks({packName})
+
+    dispatch(setCardPacks(res.data.cardPacks))
+
 }
-export const addCardsPacks = (date: cardsPack): AppThunk => async () => {
-    await cardsAPI.createCardPacks({cardsPack: date})
-}
+
 export const editPack = (date: UpdateCardsPack): AppThunk => async dispatch => {
     await cardsAPI.updateCardPacks({cardsPack: date})
     dispatch(fetchPacks())
@@ -88,6 +77,5 @@ export type SearchActionType =
     | ReturnType<typeof setTotalPacksCount>
     | ReturnType<typeof setCardPacks>
     | ReturnType<typeof addId>
-    | ReturnType<typeof openModalWindow>
 
 

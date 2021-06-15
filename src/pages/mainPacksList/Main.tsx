@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from './Main.module.scss'
 import Title from '../../components/common/title/Title';
 import SubTitle from '../../components/common/subTitle/SubTitle';
@@ -8,8 +8,6 @@ import {InputSearch} from '../../components/common/inputSearch/InputSearch';
 import {initialValuesType} from './MainContainer';
 import {Paginator} from '../../components/common/Paginator/Paginator';
 import {PacksContainer} from '../../components/Packs/PacksContainer';
-import {NavLink} from 'react-router-dom';
-import {PATH} from '../../Routes';
 import {ModalAddNewPackContainer} from '../modalWindows/modalAddNewPack/ModalAddNewPackContainer';
 
 export type PropsType = {
@@ -19,13 +17,27 @@ export type PropsType = {
     pageSize: number
     currentPage: number
     onPageChanged: (pageNumber: number) => void
+    show: boolean
+    close: () => void
+    backgroundOnClick?: () => void;
+    onClickButton: () => void
 }
 
 export const PacksList: React.FC<PropsType> = (props) => {
 
-    const {initialValues, onSubmit, cardPacksTotalCount, pageSize, currentPage, onPageChanged} = props
-    const [show, setShow] = useState(false);
-    const [answer, setAnswer] = useState('test answer');
+    const {
+        initialValues,
+        onSubmit,
+        cardPacksTotalCount,
+        pageSize,
+        currentPage,
+        onPageChanged,
+        show,
+        close,
+        backgroundOnClick,
+        onClickButton
+    } = props
+
 
     return (
         <Formik initialValues={initialValues}
@@ -52,13 +64,11 @@ export const PacksList: React.FC<PropsType> = (props) => {
                                 size={Size.medium}
                                 palette={Palette.primary}
                                 title="Add new pack"
-                                onClick={() => setShow(true)}
+                                onClick={onClickButton}
                             />
                             <ModalAddNewPackContainer show={show}
-                                                      answer={answer}
-                                                      setAnswer={setAnswer}
-                                                      close={() => setShow(false)}
-                                                      backgroundOnClick={() => setShow(false)}/>
+                                                      close={close}
+                                                      backgroundOnClick={backgroundOnClick}/>
 
                         </div>
                         <PacksContainer/>

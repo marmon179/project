@@ -31,10 +31,15 @@
 
 .modalAddInput {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .btnInner {
     margin-top: 45px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }

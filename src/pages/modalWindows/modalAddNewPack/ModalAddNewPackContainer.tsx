@@ -1,22 +1,15 @@
-import React, {useState} from 'react'
-import {ModalAddNewPack} from './ModalAddNewPack';
+import React from 'react'
 import {useDispatch} from 'react-redux';
 import {addCardsPacks} from '../../../bll/SearchReducer';
 import {ModalAddNewPackInput} from './ModalAddNewPackInput';
 
-type PropsType = {
-    show: boolean
-    close: () => void
-    backgroundOnClick?: () => void;
-    answer?: string;
-    setAnswer?: (answer: string) => void;
-    modalOnClick?: () => void;
-}
-
 export const ModalAddNewPackContainer: React.FC<PropsType> = props => {
 
-    const {show,backgroundOnClick = () => {},answer,setAnswer,modalOnClick = () => {},} = props
-    const [answerData, setAnswerData] = useState(answer);
+    const {show, backgroundOnClick = () => {},
+           modalOnClick = () => {},
+           close
+    } = props
+
     const dispatch = useDispatch()
     const initialValues: initialValuesType = {
         name: '',
@@ -30,10 +23,12 @@ export const ModalAddNewPackContainer: React.FC<PropsType> = props => {
 
     }
 
+
     const onSubmit = React.useCallback((values: initialValuesType) => {
         // alert(JSON.stringify(values))
         dispatch(addCardsPacks(values))
-    }, [])
+        close()
+    }, [addCardsPacks])
     return (
         <ModalAddNewPackInput
             initialValues={initialValues}
@@ -41,12 +36,12 @@ export const ModalAddNewPackContainer: React.FC<PropsType> = props => {
             show={show}
             enableBackground={true}
             backgroundOnClick={() => {
-                setAnswerData(answer);
                 backgroundOnClick()
             }}
             modalOnClick={modalOnClick}
             width={395}
             height={221}
+            close={close}
         />
     )
 }
@@ -62,6 +57,12 @@ export type initialValuesType =
         private: false
         type: string
     }
+type PropsType = {
+    show: boolean
+    close: () => void
+    backgroundOnClick?: () => void;
+    modalOnClick?: () => void;
+}
 
 
 
