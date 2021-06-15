@@ -1,11 +1,9 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {Packs} from './Packs';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../bll/store';
 import {CardPacks} from '../../dal/api';
 import {addId, fetchPacks, removePack} from '../../bll/SearchReducer';
-import {PATH} from '../../Routes';
-import {useHistory} from 'react-router-dom';
 
 export const PacksContainer = () => {
     const cardPacks = useSelector<AppStateType, CardPacks[]>(state => state.search.cardPacks)
@@ -14,14 +12,14 @@ export const PacksContainer = () => {
 
     const userId = useSelector<AppStateType, string>(state => state.app.meObject._id)
     const dispatch = useDispatch()
-    const history = useHistory()
+    const [show, setShow] = useState(false);
 
     const onRemovePack = useCallback((id) => {
         dispatch(removePack(id))
     }, [dispatch])
     const onEditPack = useCallback((id) => {
         dispatch(addId(id))
-        history.push(PATH.EDIT_PACK)
+        setShow(true)
     }, [dispatch])
 
     useEffect(() => {
@@ -31,7 +29,14 @@ export const PacksContainer = () => {
 
     return (
         <>
-            <Packs cardPacks={cardPacks} userId={userId} onRemovePack={onRemovePack} onEditPack={onEditPack}
+            <Packs
+                cardPacks={cardPacks}
+                userId={userId}
+                onRemovePack={onRemovePack}
+                onEditPack={onEditPack}
+                show={show}
+                close={() => setShow(false)}
+                backgroundOnClick={() => setShow(false)}
             />
         </>
 

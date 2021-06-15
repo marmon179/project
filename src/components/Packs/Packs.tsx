@@ -3,12 +3,17 @@ import s from '../../pages/mainPacksList/Main.module.scss';
 import {CardPacks} from '../../dal/api';
 import {TableHeader} from '../tableHeader/TableHeader';
 import {TableRow} from '../tableRow/TableRow';
+import {ModalEditPack} from '../../pages/modalWindows/modalEditPack/ModalEditPack';
+import {ModalEditPackContainer} from '../../pages/modalWindows/modalEditPack/ModalEditPackContainer';
 
 type PropsPacksType = {
     userId: string
     cardPacks: CardPacks[]
     onRemovePack: (id: string) => void
     onEditPack: (id: string) => void
+    show: boolean
+    close: () => void
+    backgroundOnClick?: () => void;
 }
 
 export const Packs: React.FC<PropsPacksType> = React.memo(props => {
@@ -17,6 +22,10 @@ export const Packs: React.FC<PropsPacksType> = React.memo(props => {
         cardPacks,
         onRemovePack,
         onEditPack,
+        show,
+        close,
+        backgroundOnClick,
+
     } = props
 
 
@@ -35,7 +44,7 @@ export const Packs: React.FC<PropsPacksType> = React.memo(props => {
                 onRemovePack={onRemovePack}
                 onEditPack={onEditPack}
             />)}
-
+            <ModalEditPackContainer show={show} close={close}  backgroundOnClick={backgroundOnClick}/>
 
         </div>
 

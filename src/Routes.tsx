@@ -24,7 +24,6 @@ export const PATH = {
     FORGOT_EMAIL: '/check-email',
     PACKS_LIST: '/pack-list',
     DELETE_PACK: '/delete-pack',
-    EDIT_PACK: '/edit-pack',
     MODAL: '/modal'
 }
 
@@ -42,7 +41,7 @@ const Routes = () => {
                 <Route path={PATH.FORGOT_EMAIL} render={() => <CheckEmail/>}/>
                 <Route path={PATH.PACKS_LIST} render={() => <PacksListContainer/>}/>
                 <Route path={PATH.DELETE_PACK} render={() => <ModalDeletePack/>}/>
-                <Route path={PATH.EDIT_PACK} render={() => <ModalEditPackContainer/>}/>
+
                 <Route path={PATH.MODAL} render={() => <ModalsPage/>}/>
                 <Route path={PATH.TEST} render={() => <Test/>}/>
 

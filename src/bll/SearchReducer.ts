@@ -66,7 +66,7 @@ export const searchPacks = (packName: string): AppThunk => async dispatch => {
 
 export const editPack = (date: UpdateCardsPack): AppThunk => async dispatch => {
     await cardsAPI.updateCardPacks({cardsPack: date})
-    dispatch(fetchPacks())
+    dispatch(fetchPacks({page:1,pageCount:9}))
 }
 //type
 export type InitialStateLoading = typeof initState
