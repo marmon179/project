@@ -17,7 +17,7 @@ export const ModalEditPack: React.FC<PropsType> = React.memo(props => {
 
     const {
         initialValues, onSubmit, show,
-        enableBackground, backgroundOnClick,
+        enableBackground, backgroundOnClick,close,
         modalOnClick = () => {}
     } = props
 
@@ -32,9 +32,9 @@ export const ModalEditPack: React.FC<PropsType> = React.memo(props => {
                     initialValues={initialValues}
                     onSubmit={onSubmit}
                     title={'Edit pack'}
+                    close={close}
                 />
             </div>
-
         </>
     )
 })

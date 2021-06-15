@@ -10,12 +10,13 @@ type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
     title:string
+    close: () => void;
 
 }
 
 export const ModalFormik: React.FC<PropsType> = props => {
 
-    const {initialValues, onSubmit,title} = props
+    const {initialValues, onSubmit,title,close} = props
 
     return (
         <div>
@@ -33,6 +34,12 @@ export const ModalFormik: React.FC<PropsType> = props => {
                             <InputSearch type="text" name="name"/>
                         </div>
                         <div className={s.btnInner}>
+                            <Button
+                                size={Size.small}
+                                palette={Palette.default}
+                                onClick={close}
+                                title="Close"/>
+
                             <Button
                                 size={Size.small}
                                 palette={Palette.primary}

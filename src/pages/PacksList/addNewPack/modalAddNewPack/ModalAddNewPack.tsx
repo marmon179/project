@@ -17,7 +17,7 @@ export const ModalAddNewPack: React.FC<PropsType> = React.memo(props => {
 
     const {
         initialValues, onSubmit, show,
-        enableBackground, backgroundOnClick,
+        enableBackground, backgroundOnClick,close,
         modalOnClick = () => {}
     } = props
 
@@ -31,6 +31,7 @@ export const ModalAddNewPack: React.FC<PropsType> = React.memo(props => {
                 <ModalFormik
                     initialValues={initialValues}
                     onSubmit={onSubmit}
+                    close={close}
                     title={'Add new pack'}
                 />
             </div>
