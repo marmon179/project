@@ -9,7 +9,7 @@ type PropsPacksType = {
     cardPacks: CardPacks[]
     onRemovePack: (id: string) => void
     onEditPack: (id: string) => void
-    onLearnPack: (id: string) => void
+    onLearnPack: (id: string,packName:string) => void
     show: boolean
     close: () => void
     backgroundOnClick?: () => void;

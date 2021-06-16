@@ -3,8 +3,8 @@ import {Packs} from './Packs';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../../bll/store';
 import {CardPacks} from '../../../dal/api';
-import {addId, fetchPacks, removePack} from '../../../bll/PacksReducer';
-import { useHistory } from 'react-router-dom';
+import {addId, addPackName, fetchPacks, removePack} from '../../../bll/PacksReducer';
+import {useHistory} from 'react-router-dom';
 import {PATH} from '../../../Routes';
 
 export const PacksContainer = () => {
@@ -26,8 +26,9 @@ export const PacksContainer = () => {
         dispatch(addId(id))
         setShow(true)
     }, [dispatch])
-    const onLearnPack = useCallback((id) => {
+    const onLearnPack = useCallback((id, packName) => {
         dispatch(addId(id))
+        dispatch(addPackName(packName))
         history.push(PATH.CARDS_LIST)
 
     }, [dispatch])
@@ -49,7 +50,7 @@ export const PacksContainer = () => {
                 show={show}
                 backgroundOnClick={() => setShow(false)}
             />
-            </>
+        </>
     );
 };
 

@@ -10,11 +10,13 @@ import {AddNewPack} from './addNewCard/AddNewCard';
 export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
+    title: string
+    back: () => void
 }
 
 export const CardsList: React.FC<PropsType> = props => {
 
-    const {initialValues, onSubmit} = props
+    const {initialValues, onSubmit, title, back} = props
 
     return (
         <Formik
@@ -23,8 +25,10 @@ export const CardsList: React.FC<PropsType> = props => {
             <div className={s.container}>
                 <div className={s.cardsList}>
                     <main className={s.main}>
-
-                        <Title title="Pack name"/>
+                        <div className={s.wrapper}>
+                            <button onClick={back}>Back</button>
+                            <Title title={title}/>
+                        </div>
 
                         <div className={s.search}>
                             <Form>

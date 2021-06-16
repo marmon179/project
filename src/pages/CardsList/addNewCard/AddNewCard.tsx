@@ -11,7 +11,7 @@ export const AddNewPack = React.memo(() => {
             <Button
                 size={Size.medium}
                 palette={Palette.primary}
-                title="Add new pack"
+                title="Add new card"
                 onClick={() => setShow(true)}
             />
             <ModalAddNewCardContainer

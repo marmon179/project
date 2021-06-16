@@ -3,20 +3,18 @@ import {CardPacks, cardsAPI, cardsPack, ConfigureFetchCardPacks, UpdateCardsPack
 
 const initState = {
     packs: '',
-    packName: '',
     cardPacks: [] as CardPacks[],
     cardPacksTotalCount: 1000,
     pageSize: 9,
     currentPage: 1,
-    _id: ''
+    _id: '',
+    packName:''
 
 
 }
 
 export const PacksReducer = (state: InitialStatePacks = initState, action: PacksActionType): InitialStatePacks => {
     switch (action.type) {
-        case 'PACKS/DATE-SEARCH':
-            return {...state, packName: action.packName}
         case 'PACKS/SET_CURRENT_PAGE':
             return {...state, currentPage: action.currentPage}
         case 'PACKS/SET_TOTAL_PACKS_COUNT':
@@ -25,15 +23,17 @@ export const PacksReducer = (state: InitialStatePacks = initState, action: Packs
             return {...state, cardPacks: action.cardPacks}
         case 'PACKS/ADD_ID':
             return {...state, _id: action.id}
+        case 'PACKS/ADD_PACK_NAME':
+            return {...state,packName: action.packName}
         default:
             return state
     }
 }
 //action
-export const toGetDateAC = (packName: string) => ({type: 'PACKS/DATE-SEARCH', packName} as const)
 export const setCardPacks = (cardPacks: CardPacks[]) => ({type: 'PACKS/SET_CARD_PACKS', cardPacks} as const)
 export const setCurrentPage = (currentPage: number) => ({type: 'PACKS/SET_CURRENT_PAGE', currentPage} as const)
 export const addId = (id: string) => ({type: 'PACKS/ADD_ID', id} as const)
+export const addPackName = (packName: string) => ({type: 'PACKS/ADD_PACK_NAME', packName} as const)
 export const setTotalPacksCount = (cardPacksTotalCount: number) => ({
     type: 'PACKS/SET_TOTAL_PACKS_COUNT',
     cardPacksTotalCount
@@ -72,10 +72,10 @@ export const editPack = (date: UpdateCardsPack): AppThunk => async dispatch => {
 export type InitialStatePacks = typeof initState
 
 export type PacksActionType =
-    | ReturnType<typeof toGetDateAC>
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setTotalPacksCount>
     | ReturnType<typeof setCardPacks>
     | ReturnType<typeof addId>
+    | ReturnType<typeof addPackName>
 
 

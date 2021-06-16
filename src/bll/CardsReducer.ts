@@ -39,6 +39,7 @@ export const fetchCards = (config?: Partial<FetchCardsConfig>): AppThunk =>
     }
 export const addCard = (data: CreateCart): AppThunk => async dispatch => {
     await cardsAPI.createCard({card: data})
+    dispatch(fetchCards({cardsPack_id: data.cardsPack_id}))
 }
 //type
 export type InitialStateCards = typeof initState

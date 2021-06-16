@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {addCardsPacks} from '../../../../bll/PacksReducer';
 import {ModalAddNewCard} from './ModalAddNewCard';
 import {AppStateType} from '../../../../bll/store';
-import { addCard } from '../../../../bll/CardsReducer';
+import {addCard, fetchCards} from '../../../../bll/CardsReducer';
 
 export const ModalAddNewCardContainer: React.FC<PropsType> = React.memo(props => {
 
