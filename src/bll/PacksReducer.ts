@@ -2,7 +2,7 @@ import {AppThunk} from './store';
 import {CardPacks, cardsAPI, cardsPack, ConfigureFetchCardPacks, UpdateCardsPack} from '../dal/api';
 
 const initState = {
-    search: '',
+    packs: '',
     packName: '',
     cardPacks: [] as CardPacks[],
     cardPacksTotalCount: 1000,
@@ -13,29 +13,29 @@ const initState = {
 
 }
 
-export const SearchReducer = (state: InitialStateLoading = initState, action: SearchActionType): InitialStateLoading => {
+export const PacksReducer = (state: InitialStateLoading = initState, action: SearchActionType): InitialStateLoading => {
     switch (action.type) {
-        case 'SEARCH/DATE-SEARCH':
+        case 'PACKS/DATE-SEARCH':
             return {...state, packName: action.packName}
-        case 'SEARCH/SET_CURRENT_PAGE':
+        case 'PACKS/SET_CURRENT_PAGE':
             return {...state, currentPage: action.currentPage}
-        case 'SEARCH/SET_TOTAL_PACKS_COUNT':
+        case 'PACKS/SET_TOTAL_PACKS_COUNT':
             return {...state, cardPacksTotalCount: action.cardPacksTotalCount}
-        case 'SEARCH/SET_CARD_PACKS':
+        case 'PACKS/SET_CARD_PACKS':
             return {...state, cardPacks: action.cardPacks}
-        case 'SEARCH/ADD_ID':
+        case 'PACKS/ADD_ID':
             return {...state, _id: action.id}
         default:
             return state
     }
 }
 //action
-export const toGetDateAC = (packName: string) => ({type: 'SEARCH/DATE-SEARCH', packName} as const)
-export const setCardPacks = (cardPacks: CardPacks[]) => ({type: 'SEARCH/SET_CARD_PACKS', cardPacks} as const)
-export const setCurrentPage = (currentPage: number) => ({type: 'SEARCH/SET_CURRENT_PAGE', currentPage} as const)
-export const addId = (id: string) => ({type: 'SEARCH/ADD_ID', id} as const)
+export const toGetDateAC = (packName: string) => ({type: 'PACKS/DATE-SEARCH', packName} as const)
+export const setCardPacks = (cardPacks: CardPacks[]) => ({type: 'PACKS/SET_CARD_PACKS', cardPacks} as const)
+export const setCurrentPage = (currentPage: number) => ({type: 'PACKS/SET_CURRENT_PAGE', currentPage} as const)
+export const addId = (id: string) => ({type: 'PACKS/ADD_ID', id} as const)
 export const setTotalPacksCount = (cardPacksTotalCount: number) => ({
-    type: 'SEARCH/SET_TOTAL_PACKS_COUNT',
+    type: 'PACKS/SET_TOTAL_PACKS_COUNT',
     cardPacksTotalCount
 } as const)
 
@@ -54,7 +54,7 @@ export const addCardsPacks = (date: cardsPack): AppThunk => async dispatch => {
 }
 export const removePack = (id: string): AppThunk => async dispatch => {
     await cardsAPI.deleteCardPacks(id)
-    dispatch(fetchPacks({page:1,pageCount:9}))
+    dispatch(fetchPacks({page: 1, pageCount: 9}))
 }
 
 export const searchPacks = (packName: string): AppThunk => async dispatch => {
@@ -66,7 +66,7 @@ export const searchPacks = (packName: string): AppThunk => async dispatch => {
 
 export const editPack = (date: UpdateCardsPack): AppThunk => async dispatch => {
     await cardsAPI.updateCardPacks({cardsPack: date})
-    dispatch(fetchPacks({page:1,pageCount:9}))
+    dispatch(fetchPacks({page: 1, pageCount: 9}))
 }
 //type
 export type InitialStateLoading = typeof initState

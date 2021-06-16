@@ -4,7 +4,7 @@ import {SuperInputText} from '../../../components/common/c1-SuperInputText/Super
 import {useDispatch} from 'react-redux';
 import {InputSearch} from '../../../components/common/inputSearch/InputSearch';
 import style from './TestInputSearch.module.css'
-import {toGetDateAC} from '../../../bll/SearchReducer';
+import {toGetDateAC} from '../../../bll/PacksReducer';
 
 export const TestInputSearch = () => {
     const dispatch = useDispatch()

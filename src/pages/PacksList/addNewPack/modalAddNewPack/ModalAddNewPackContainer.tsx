@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch} from 'react-redux';
-import {addCardsPacks} from '../../../../bll/SearchReducer';
+import {addCardsPacks} from '../../../../bll/PacksReducer';
 import {ModalAddNewPack} from './ModalAddNewPack';
 
 export const ModalAddNewPackContainer: React.FC<PropsType> = React.memo(props => {

@@ -2,13 +2,13 @@ import React from 'react';
 import {PacksList} from './PackList';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../bll/store';
-import {fetchPacks, searchPacks} from '../../bll/SearchReducer';
+import {fetchPacks, searchPacks} from '../../bll/PacksReducer';
 
 
 export const PacksListContainer = () => {
-    const cardPacksTotalCount = useSelector<AppStateType, number>(state => state.search.cardPacksTotalCount)
-    const pageCount = useSelector<AppStateType, number>(state => state.search.pageSize)
-    const currentPage = useSelector<AppStateType, number>(state => state.search.currentPage)
+    const cardPacksTotalCount = useSelector<AppStateType, number>(state => state.packs.cardPacksTotalCount)
+    const pageCount = useSelector<AppStateType, number>(state => state.packs.pageSize)
+    const currentPage = useSelector<AppStateType, number>(state => state.packs.currentPage)
 
     const dispatch = useDispatch()
 

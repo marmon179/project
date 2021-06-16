@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux';
-import {editPack} from '../../../../bll/SearchReducer';
+import {editPack} from '../../../../bll/PacksReducer';
 import {AppStateType} from '../../../../bll/store';
 import { ModalEditPack } from './ModalEditPack';
 
@@ -10,7 +10,7 @@ export const ModalEditPackContainer: React.FC<PropsType> = props => {
     const {show, backgroundOnClick = () => {}, modalOnClick = () => {}, close} = props
 
     const dispatch = useDispatch()
-    const id = useSelector<AppStateType, string>(state => state.search._id)
+    const id = useSelector<AppStateType, string>(state => state.packs._id)
 
     const initialValues: initialValuesType = {
         _id: id,
