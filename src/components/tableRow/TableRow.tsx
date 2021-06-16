@@ -13,6 +13,7 @@ type PropsPackType = {
     created: string
     onRemovePack: (id: string) => void
     onEditPack: (id: string) => void
+    onLearnPack: (id: string) => void
 }
 
 export const TableRow: React.FC<PropsPackType> = props => {
@@ -22,6 +23,7 @@ export const TableRow: React.FC<PropsPackType> = props => {
         onEditPack,
         addedPackUserId,
         userId,
+        onLearnPack
     } = props
     return (
         <div className={s.tableRowInner}>
@@ -48,16 +50,18 @@ export const TableRow: React.FC<PropsPackType> = props => {
                 >
                     Edit
                 </Button>}
-                <Button
+                {userId === addedPackUserId && <Button
                     className={s.tableButton}
                     variant={Variant.primary}
                     size={Size.small}
+                    palette={Palette.default}
+                    onClick={() => onLearnPack(cardId)}
                 >
                     Learn
-                </Button>
+                </Button>}
+
             </div>
         </div>
     );
 };
 
-export default TableRow;

@@ -9,6 +9,7 @@ type PropsPacksType = {
     cardPacks: CardPacks[]
     onRemovePack: (id: string) => void
     onEditPack: (id: string) => void
+    onLearnPack: (id: string) => void
     show: boolean
     close: () => void
     backgroundOnClick?: () => void;
@@ -16,7 +17,7 @@ type PropsPacksType = {
 }
 
 export const Packs: React.FC<PropsPacksType> = React.memo(props => {
-    const {userId, cardPacks, onRemovePack, onEditPack, backgroundOnClick, show, close,} = props
+    const {userId, cardPacks, onRemovePack, onEditPack,onLearnPack, backgroundOnClick, show, close,} = props
 
 
     return (
@@ -33,6 +34,7 @@ export const Packs: React.FC<PropsPacksType> = React.memo(props => {
                 created={u.created}
                 onRemovePack={onRemovePack}
                 onEditPack={onEditPack}
+                onLearnPack={onLearnPack}
             />)}
 
             <ModalEditPackContainer

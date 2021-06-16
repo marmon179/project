@@ -1,21 +1,19 @@
 import React from 'react'
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {addCardsPacks} from '../../../../bll/PacksReducer';
 import {ModalAddNewCard} from './ModalAddNewCard';
-import {addCard} from '../../../../bll/CardsReducer';
+import {AppStateType} from '../../../../bll/store';
+import { addCard } from '../../../../bll/CardsReducer';
 
 export const ModalAddNewCardContainer: React.FC<PropsType> = React.memo(props => {
 
-    const {
-        show, backgroundOnClick = () => {
-        }, modalOnClick = () => {
-        }, close
-    } = props
+    const {show, backgroundOnClick = () => {}, modalOnClick = () => {}, close} = props
 
 
     const dispatch = useDispatch()
+    const id = useSelector<AppStateType, string>(state => state.packs._id)
     const initialValues: initialValuesType = {
-        cardsPack_id: '',
+        cardsPack_id: id,
         question: '',
         answer: '',
         grade: 0,
@@ -30,8 +28,8 @@ export const ModalAddNewCardContainer: React.FC<PropsType> = React.memo(props =>
 
 
     const onSubmit = React.useCallback((values: initialValuesType) => {
-        alert(JSON.stringify(values))
-        // dispatch(addCard(values))
+        // alert(JSON.stringify(values))
+        dispatch(addCard(values))
         close()
     }, [addCardsPacks])
 
