@@ -217,7 +217,7 @@ export const cardsAPI = {
      *        &page=1 // не обязательно
      *        &pageCount=7 // не обязательно
      * */
-    fitchCards(config: FetchCardsConfig) {
+    fetchCards(config?: Partial<FetchCardsConfig>) {
         return instance.get<FetchCardType>('cards/card', {params: config})
     },
     /**
@@ -298,7 +298,7 @@ export interface UpdateCardsPack {
     name?: string
 }
 
-interface FetchCardsConfig {
+export interface FetchCardsConfig {
     cardAnswer?: string
     cardQuestion?: string
     cardsPack_id: string
@@ -309,22 +309,23 @@ interface FetchCardsConfig {
     pageCount?: number
 }
 
-interface CreateCards {
-    card: {
-        cardsPack_id: string
-        question?: string // если не отправить будет таким
-        answer?: string // если не отправить будет таким
-        grade?: number // 0..5, не обязателен
-        shots?: number // не обязателен
-        rating?: number // не обязателен
-        answerImg?: string // не обязателен
-        questionImg?: string // не обязателен
-        questionVideo?: string // не обязателен
-        answerVideo?: string // не обязателен
-        type?: string // если не отправить будет таким
-    }
+export interface CreateCards {
+    card: CreateCart
 }
 
+export interface CreateCart {
+    cardsPack_id: string
+    question?: string // если не отправить будет таким
+    answer?: string // если не отправить будет таким
+    grade?: number // 0..5, не обязателен
+    shots?: number // не обязателен
+    rating?: number // не обязателен
+    answerImg?: string // не обязателен
+    questionImg?: string // не обязателен
+    questionVideo?: string // не обязателен
+    answerVideo?: string // не обязателен
+    type?: string // если не отправить будет таким
+}
 interface UpdateCards {
     card: {
         _id: string
@@ -345,7 +346,7 @@ interface FetchCardPacksType {
     pageCount: number // количество элементов на странице
 }
 
-interface CardType {
+export interface CardType {
     answer: string
     question: string
     cardsPack_id: string

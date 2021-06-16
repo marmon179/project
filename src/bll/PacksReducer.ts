@@ -13,7 +13,7 @@ const initState = {
 
 }
 
-export const PacksReducer = (state: InitialStateLoading = initState, action: SearchActionType): InitialStateLoading => {
+export const PacksReducer = (state: InitialStatePacks = initState, action: PacksActionType): InitialStatePacks => {
     switch (action.type) {
         case 'PACKS/DATE-SEARCH':
             return {...state, packName: action.packName}
@@ -69,9 +69,9 @@ export const editPack = (date: UpdateCardsPack): AppThunk => async dispatch => {
     dispatch(fetchPacks({page: 1, pageCount: 9}))
 }
 //type
-export type InitialStateLoading = typeof initState
+export type InitialStatePacks = typeof initState
 
-export type SearchActionType =
+export type PacksActionType =
     | ReturnType<typeof toGetDateAC>
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setTotalPacksCount>

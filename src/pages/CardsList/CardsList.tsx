@@ -4,6 +4,8 @@ import s from './CardsList.module.scss';
 import Title from '../../components/common/title/Title';
 import {initialValuesType} from './CardsListContainer';
 import {InputSearch} from '../../components/common/inputSearch/InputSearch';
+import {CardsContainer} from './Cards/CardsContainer';
+import {AddNewPack} from './addNewCard/AddNewCard';
 
 export type PropsType = {
     initialValues: initialValuesType
@@ -28,8 +30,11 @@ export const CardsList: React.FC<PropsType> = props => {
                             <Form>
                                 <InputSearch type="text" name="packCard" placeholder="Search..."/>
                             </Form>
-                        </div>
 
+                            <AddNewPack/>
+
+                        </div>
+                        <CardsContainer/>
                     </main>
 
 
