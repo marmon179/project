@@ -24,7 +24,6 @@ export function Header() {
                          activeClassName={style.active}>NewPassword</NavLink>
                 <NavLink to={PATH.PROFILE} className={style.link} activeClassName={style.active}>Profile</NavLink>
                 <NavLink to={PATH.PACKS_LIST} className={style.link} activeClassName={style.active}>PacksList</NavLink>
-                <NavLink to={PATH.CARDS_LIST} className={style.link} activeClassName={style.active}>CardsList</NavLink>
                 <NavLink to={PATH.DELETE_PACK} className={style.link} activeClassName={style.active}>DelPack</NavLink>
                 <NavLink to={PATH.MODAL} className={style.link} activeClassName={style.active}>Modal</NavLink>
                 <NavLink to={PATH.LEARN_QUESTION} className={style.link} activeClassName={style.active}>LearnQuestion</NavLink>
