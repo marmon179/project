@@ -3,32 +3,17 @@
   border: 2px solid red;
 }
 
-.packsList {
+.cardsList {
   display: grid;
   grid-template-columns: 0.2fr 0.8fr;
   height: 640px;
   border: 2px solid red ;
 }
 
-.aside {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid red ;
-  align-items: center;
-  padding-top: 33px;
-}
 .main {
   padding: 24px 48px 20px 48px;
 }
-
 .search{
   display: flex;
   align-items: center;
 }
-
-.wrapperPaginator{
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-

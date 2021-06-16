@@ -18,7 +18,7 @@ export type PropsType = {
     onPageChanged: (pageNumber: number) => void
 }
 
-export const PacksList: React.FC<PropsType> = (props) => {
+export const PacksList: React.FC<PropsType> = props => {
 
     const {
         initialValues,
@@ -34,7 +34,7 @@ export const PacksList: React.FC<PropsType> = (props) => {
         <Formik initialValues={initialValues}
                 onSubmit={onSubmit}
         >
-            <div className={s.conteiner}>z
+            <div className={s.container}>z
                 <div className={s.packsList}>
                     <aside className={s.aside}>
                         <SubTitle title="Show packs cards"/>
