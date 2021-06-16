@@ -31,7 +31,7 @@ export const PacksListContainer = () => {
                 onSubmit={onSubmit}
                 currentPage={currentPage}
                 pageSize={pageCount}
-                cardPacksTotalCount={cardPacksTotalCount}
+                cardTotalCount={cardPacksTotalCount}
                 onPageChanged={onPageChanged}
             />
         </>

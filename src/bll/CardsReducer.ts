@@ -3,8 +3,9 @@ import {AppThunk} from './store';
 
 const initState = {
     cards: [] as CardType[],
-    page: 1,
-    cardsTotalCount: 2
+    page: 9,
+    cardsTotalCount: 100,
+    currentPage: 1,
 
 }
 
@@ -13,7 +14,9 @@ export const CardsReducer = (state: InitialStateCards = initState, action: Cards
         case 'CARDS/SET_CARDS':
             return {...state, cards: action.cards}
         case 'CARDS/SET_CURRENT_PAGE_CARDS':
-            return {...state, page: action.page}
+            return {...state, currentPage: action.page}
+        case 'CARDS/SET_TOTAL_PAGE_CARDS':
+            return {...state,cardsTotalCount: action.cardsTotalCount}
 
         default:
             return state
@@ -40,6 +43,14 @@ export const fetchCards = (config?: Partial<FetchCardsConfig>): AppThunk =>
 export const addCard = (data: CreateCart): AppThunk => async dispatch => {
     await cardsAPI.createCard({card: data})
     dispatch(fetchCards({cardsPack_id: data.cardsPack_id}))
+}
+export const removeCard = (id:string,cardsPack_id:string):AppThunk => async dispatch => {
+    await cardsAPI.deleteCard(id)
+    dispatch(fetchCards({cardsPack_id}))
+}
+export const editCard = (_id:string,cardsPack_id:string,question:string,comments:string):AppThunk => async dispatch => {
+    await cardsAPI.updateCard({card:{_id,question,comments}})
+    dispatch(fetchCards({cardsPack_id}))
 }
 //type
 export type InitialStateCards = typeof initState

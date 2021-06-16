@@ -6,17 +6,22 @@ import {initialValuesType} from './CardsListContainer';
 import {InputSearch} from '../../components/common/inputSearch/InputSearch';
 import {CardsContainer} from './Cards/CardsContainer';
 import {AddNewPack} from './addNewCard/AddNewCard';
+import {Paginator} from '../../components/common/Paginator/Paginator';
 
 export type PropsType = {
     initialValues: initialValuesType
     onSubmit: (values: initialValuesType) => void
     title: string
     back: () => void
+    onPageChanged: (pageNumber: number) => void
+    cardPacksTotalCount: number
+    pageSize: number
+    currentPage: number
 }
 
 export const CardsList: React.FC<PropsType> = props => {
 
-    const {initialValues, onSubmit, title, back} = props
+    const {initialValues, onSubmit, title, back,onPageChanged,cardPacksTotalCount,pageSize,currentPage} = props
 
     return (
         <Formik
@@ -40,8 +45,13 @@ export const CardsList: React.FC<PropsType> = props => {
                         </div>
                         <CardsContainer/>
                     </main>
-
-
+                </div>
+                <div className={s.wrapperPaginator}>
+                    <Paginator
+                        cardPacksTotalCount={cardPacksTotalCount}
+                        pageSize={pageSize}
+                        currentPage={currentPage}
+                        onPageChanged={onPageChanged}/>
                 </div>
             </div>
 

@@ -243,8 +243,8 @@ export const cardsAPI = {
      * Update Card
      *  ?id=5eb6cb9a7a82672138e0d7c1
      * */
-    deleteCard(config: string) {
-        return instance.delete('cards/card', {params: config})
+    deleteCard(id: string) {
+        return instance.delete('cards/card', {params: {id}})
     },
     /**
      * Create Card
