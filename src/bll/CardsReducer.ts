@@ -1,6 +1,5 @@
-import {cardsAPI, cardsPack, CardType, CreateCards, CreateCart, FetchCardsConfig} from '../dal/api'
+import {cardsAPI, CardType, CreateCart, FetchCardsConfig} from '../dal/api'
 import {AppThunk} from './store';
-import {fetchPacks} from './PacksReducer';
 
 const initState = {
     cards: [] as CardType[],
