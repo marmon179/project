@@ -30,9 +30,9 @@ export const ModalFormikEditCard: React.FC<PropsType> = props => {
                     </div>
                     <Form>
                         <div className={s.modalAddInput}>
-                            <label>Name Question</label>
+                            <label>New Question</label>
                             <InputSearch type="text" name="question" placeholder="question"/>
-                            <label>Name Answer</label>
+                            <label>New Answer</label>
                             <InputSearch type="text" name="answer" placeholder="answer"/>
                         </div>
                         <div className={s.btnInner}>

@@ -15,7 +15,7 @@ type PropsCardType = {
 }
 
 export const TableRowCard: React.FC<PropsCardType> = props => {
-    const {question, answer, created, updated,onRemoveCard,onLearnCard,id,cardsPack_id} = props
+    const {question, answer, created, updated,onRemoveCard,onLearnCard,id} = props
 
     return (
         <div className={s.tableRowInner}>

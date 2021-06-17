@@ -21,6 +21,7 @@ export const CardsContainer = () => {
 
     const onLearnCard = useCallback((id) => {
         dispatch(addIdCard(id))
+        setShow(true)
     }, [])
 
     useEffect(() => {

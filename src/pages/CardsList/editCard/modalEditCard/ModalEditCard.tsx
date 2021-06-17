@@ -31,7 +31,7 @@ export const ModalEditCard: React.FC<PropsType> = React.memo(props => {
                 <ModalFormikEditCard
                     initialValues={initialValues}
                     onSubmit={onSubmit}
-                    title={'Edit pack'}
+                    title={'Edit card'}
                     close={close}
                 />
             </div>

@@ -11,9 +11,10 @@ export const ModalEditCardContainer: React.FC<PropsType> = props => {
 
     const dispatch = useDispatch()
     const id = useSelector<AppStateType, string>(state => state.packs._id)
+    const idCards = useSelector<AppStateType, string>(state => state.cards._id)
 
     const initialValues: initialValuesType = {
-        _id: '',
+        _id: idCards,
         question:'',
         comments:''
     }

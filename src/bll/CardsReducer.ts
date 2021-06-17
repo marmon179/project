@@ -6,7 +6,6 @@ const initState = {
     page: 9,
     cardsTotalCount: 100,
     currentPage: 1,
-    cardsPack_id:'',
     _id:''
 
 }
@@ -21,8 +20,6 @@ export const CardsReducer = (state: InitialStateCards = initState, action: Cards
             return {...state,cardsTotalCount: action.cardsTotalCount}
         case 'CARDS/ADD_ID_CARDS':
             return {...state,_id: action.id}
-        case 'CARDS/ADD_ID_PACK_CARD':
-            return {...state,cardsPack_id: action.cardsPack_id}
 
         default:
             return state
@@ -31,7 +28,6 @@ export const CardsReducer = (state: InitialStateCards = initState, action: Cards
 //action
 export const setCards = (cards: CardType[]) => ({type: 'CARDS/SET_CARDS', cards} as const)
 export const addIdCard = (id: string) => ({type: 'CARDS/ADD_ID_CARDS', id} as const)
-export const addIdPackCard = (cardsPack_id: string) => ({type: 'CARDS/ADD_ID_PACK_CARD', cardsPack_id} as const)
 export const setCurrentPageCards = (page: number) => ({type: 'CARDS/SET_CURRENT_PAGE_CARDS', page} as const)
 export const setTotalPageCountCards = (cardsTotalCount: number) => ({
     type: 'CARDS/SET_TOTAL_PAGE_CARDS',
@@ -68,7 +64,6 @@ export type CardsActionType =
     | ReturnType<typeof setCurrentPageCards>
     | ReturnType<typeof setTotalPageCountCards>
     | ReturnType<typeof addIdCard>
-    | ReturnType<typeof addIdPackCard>
 
 
 
