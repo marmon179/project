@@ -14,7 +14,6 @@ export type PropsType = {
 }
 
 export const ModalEditCard: React.FC<PropsType> = React.memo(props => {
-
     const {
         initialValues, onSubmit, show,
         enableBackground, backgroundOnClick,close,
@@ -25,6 +24,7 @@ export const ModalEditCard: React.FC<PropsType> = React.memo(props => {
 
     return (
         <>
+
             {enableBackground && <div className={s.modalAdd} onClick={backgroundOnClick}/>}
 
             <div className={s.wrapper} onClick={modalOnClick}>
