@@ -1,0 +1,40 @@
+@import "../../../../styles/mixins";
+
+.modalAdd {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.containerAdd {
+    height: 221px;
+    width: 395px;
+    border-radius: 2px;
+    background: #F9F9FE;
+    padding: 24px;
+    margin: 15% auto;
+}
+
+.modalTitleInner {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #EDF0F6;
+    padding-bottom: 15px;
+}
+
+.modalAddInput {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnInner {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -10,8 +10,8 @@ type PropsCardType = {
     created: string
     updated: string
     id: string
-    onRemoveCard: (id: string,cardsPack_id:string) => void
-    onLearnCard: (id: string,cardsPack_id:string,answer: string,question: string) => void
+    onRemoveCard: (id: string) => void
+    onLearnCard: (id: string) => void
 }
 
 export const TableRowCard: React.FC<PropsCardType> = props => {
@@ -28,7 +28,7 @@ export const TableRowCard: React.FC<PropsCardType> = props => {
                 variant={Variant.primary}
                 size={Size.small}
                 palette={Palette.secondary}
-                onClick={() => onRemoveCard(id, cardsPack_id)}
+                onClick={() => onRemoveCard(id)}
             >
                 Delete
             </Button>
@@ -36,8 +36,8 @@ export const TableRowCard: React.FC<PropsCardType> = props => {
                     className={s.tableButton}
                     variant={Variant.primary}
                     size={Size.small}
-                    palette={Palette.default}
-                    onClick={() => onLearnCard(id, cardsPack_id, answer, question)}
+                    palette={Palette.primary}
+                    onClick={() => onLearnCard(id)}
                 >
                     Edit
                 </Button></div>
