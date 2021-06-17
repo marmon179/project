@@ -23,7 +23,8 @@ export const TableRowCard: React.FC<PropsCardType> = props => {
             <div>{answer}</div>
             <div>{created}</div>
             <div>{updated}</div>
-            <div className={s.tableBtnInner}><Button
+            <div className={s.tableBtnInner}>
+                <Button
                 className={s.tableButton}
                 variant={Variant.primary}
                 size={Size.small}

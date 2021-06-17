@@ -3,6 +3,7 @@ import {CardPacks} from '../../../dal/api';
 import {TableHeader} from '../../../components/tableHeader/TableHeader';
 import {TableRow} from '../../../components/tableRow/TableRow';
 import {ModalEditPackContainer} from '../editPack/modalEditPack/ModalEditPackContainer';
+import {ModalEditCardContainer} from '../../CardsList/editCard/modalEditCard/ModalEditCardContainer';
 
 type PropsPacksType = {
     userId: string
@@ -16,8 +17,8 @@ type PropsPacksType = {
 }
 
 export const Packs: React.FC<PropsPacksType> = React.memo(props => {
-    const {userId, cardPacks, onRemovePack, onEditPack,onLearnPack, backgroundOnClick, show, close} = props
 
+    const {userId, cardPacks, onRemovePack, onEditPack,onLearnPack, backgroundOnClick, show, close} = props
 
     return (
 
@@ -39,7 +40,10 @@ export const Packs: React.FC<PropsPacksType> = React.memo(props => {
             <ModalEditPackContainer
                 show={show}
                 close={close}
-                backgroundOnClick={backgroundOnClick}/>
+                backgroundOnClick={backgroundOnClick}
+            />
+
+
         </>
 
     );

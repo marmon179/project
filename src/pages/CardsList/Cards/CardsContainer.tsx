@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppStateType} from '../../../bll/store';
 import {CardType} from '../../../dal/api';
 import {addIdCard, fetchCards, removeCard} from '../../../bll/CardsReducer';
+import {ModalEditCardContainer} from '../editCard/modalEditCard/ModalEditCardContainer';
 
 
 export const CardsContainer = () => {

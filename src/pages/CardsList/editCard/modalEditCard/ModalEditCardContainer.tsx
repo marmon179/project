@@ -22,7 +22,7 @@ export const ModalEditCardContainer: React.FC<PropsType> = props => {
     const onSubmit = React.useCallback((values: initialValuesType) => {
         dispatch(editCard(values,id))
         close()
-    }, [])
+    }, [editCard])
 
     return (
         <ModalEditCard

@@ -20,7 +20,7 @@ export const ModalEditPackContainer: React.FC<PropsType> = props => {
     const onSubmit = React.useCallback((values: initialValuesType) => {
         dispatch(editPack(values))
         close()
-    }, [])
+    }, [editPack])
 
     return (
         <ModalEditPack

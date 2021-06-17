@@ -24,7 +24,6 @@ export const ModalEditCard: React.FC<PropsType> = React.memo(props => {
 
     return (
         <>
-
             {enableBackground && <div className={s.modalAdd} onClick={backgroundOnClick}/>}
 
             <div className={s.wrapper} onClick={modalOnClick}>

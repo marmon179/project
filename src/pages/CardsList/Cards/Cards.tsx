@@ -19,9 +19,8 @@ export const Cards: React.FC<PropsCardsType> = React.memo(props => {
 
     return (
         <>
-            <TableHeader title1="Question" title2="Answer" title3="Last Updated"
-                         title4="Grade" title5="Actions"/>
-            {cards.map(u =><TableRowCard
+            <TableHeader title1="Question" title2="Answer" title3="Last Updated" title4="Grade" title5="Actions"/>
+            {cards.map(u => <TableRowCard
             answer={u.answer}
             user_id={u.user_id}
             question={u.question}
@@ -39,6 +38,7 @@ export const Cards: React.FC<PropsCardsType> = React.memo(props => {
                 backgroundOnClick={backgroundOnClick}
             />
         </>
+
     );
 })
 
