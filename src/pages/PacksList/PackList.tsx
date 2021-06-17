@@ -34,39 +34,41 @@ export const PacksList: React.FC<PropsType> = props => {
         <Formik initialValues={initialValues}
                 onSubmit={onSubmit}
         >
-            <div className={s.container}>z
+            <div className={s.container}>
                 <div className={s.packsList}>
                     <aside className={s.aside}>
-                        <SubTitle title="Show packs cards"/>
+                        <SubTitle title="Show packs cards" />
                         <form action="">
-                            <input type="radio" name="switchCard"/>
-                            <input type="radio" name="switchCard"/>
+                            <input type="radio" name="switchCard" />
+                            <input type="radio" name="switchCard" />
                         </form>
-                        <SubTitle title="Number of cards"/>
+                        <SubTitle title="Number of cards" />
                         Ползунок туда сюда
                     </aside>
                     <main className={s.main}>
 
-                        <Title title="Packs list"/>
+                        <Title title="Packs list" />
 
                         <div className={s.search}>
                             <Form>
-                                <InputSearch type="text" name="packName" placeholder="Search..."/>
+                                <InputSearch type="text" name="packName" placeholder="Search..." />
                             </Form>
 
-                            <AddNewPack/>
+                            <AddNewPack />
 
                         </div>
-                        <PacksContainer/>
+                        <div className={s.packsContainerInner}>
+                            <PacksContainer />
+                        </div>
+                        <div className={s.wrapperPaginator}>
+                            <Paginator
+                                cardPacksTotalCount={cardTotalCount}
+                                pageSize={pageSize}
+                                currentPage={currentPage}
+                                onPageChanged={onPageChanged} />
+                        </div>
                     </main>
-                </div>
 
-                <div className={s.wrapperPaginator}>
-                    <Paginator
-                        cardPacksTotalCount={cardTotalCount}
-                        pageSize={pageSize}
-                        currentPage={currentPage}
-                        onPageChanged={onPageChanged}/>
                 </div>
 
             </div>

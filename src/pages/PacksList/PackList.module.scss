@@ -16,9 +16,12 @@
   border: 2px solid red ;
   align-items: center;
   padding-top: 33px;
+  background: #ECECF9;
+
 }
 .main {
   padding: 24px 48px 20px 48px;
+  background: #FEFEFF;
 }
 
 .search{
@@ -26,9 +29,14 @@
   align-items: center;
 }
 
+.packsContainerInner {
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
 .wrapperPaginator{
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  margin: 10px auto 0 auto;
 }
 

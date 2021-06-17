@@ -6,7 +6,7 @@
   height: 48px;
   padding-left: 24px;
   display: grid;
-  grid-template-columns: 0.2fr 0.1fr 0.2fr 0.2fr 0.2fr;
+  grid-template-columns: repeat(5,1fr);
   align-items: center;
   grid-gap: 5px;
 }

@@ -21,7 +21,7 @@ export type PropsType = {
 
 export const CardsList: React.FC<PropsType> = props => {
 
-    const {initialValues, onSubmit, title, back,onPageChanged,cardPacksTotalCount,pageSize,currentPage} = props
+    const {initialValues, onSubmit, title, back, onPageChanged, cardPacksTotalCount, pageSize, currentPage} = props
 
     return (
         <Formik
@@ -32,26 +32,28 @@ export const CardsList: React.FC<PropsType> = props => {
                     <main className={s.main}>
                         <div className={s.wrapper}>
                             <button onClick={back}>Back</button>
-                            <Title title={title}/>
+                            <Title title={title} />
                         </div>
 
                         <div className={s.search}>
                             <Form>
-                                <InputSearch type="text" name="packCard" placeholder="Search..."/>
+                                <InputSearch type="text" name="packCard" placeholder="Search..." />
                             </Form>
 
-                            <AddNewPack/>
+                            <AddNewPack />
 
                         </div>
-                        <CardsContainer/>
+                        <div className={s.packsContainerInner}>
+                            <CardsContainer />
+                        </div>
                     </main>
-                </div>
-                <div className={s.wrapperPaginator}>
-                    <Paginator
-                        cardPacksTotalCount={cardPacksTotalCount}
-                        pageSize={pageSize}
-                        currentPage={currentPage}
-                        onPageChanged={onPageChanged}/>
+                    <div className={s.wrapperPaginator}>
+                        <Paginator
+                            cardPacksTotalCount={cardPacksTotalCount}
+                            pageSize={pageSize}
+                            currentPage={currentPage}
+                            onPageChanged={onPageChanged} />
+                    </div>
                 </div>
             </div>
 
