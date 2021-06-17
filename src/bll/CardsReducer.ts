@@ -1,4 +1,4 @@
-import {cardsAPI, CardType, CreateCart, FetchCardsConfig} from '../dal/api'
+import {cardsAPI, CardType, CreateCart, FetchCardsConfig, UpdateCard} from '../dal/api'
 import {AppThunk} from './store';
 
 const initState = {
@@ -6,6 +6,7 @@ const initState = {
     page: 9,
     cardsTotalCount: 100,
     currentPage: 1,
+    _id:''
 
 }
 
@@ -17,6 +18,8 @@ export const CardsReducer = (state: InitialStateCards = initState, action: Cards
             return {...state, currentPage: action.page}
         case 'CARDS/SET_TOTAL_PAGE_CARDS':
             return {...state,cardsTotalCount: action.cardsTotalCount}
+        case 'CARDS/ADD_ID_CARDS':
+            return {...state,_id: action.id}
 
         default:
             return state
@@ -24,6 +27,7 @@ export const CardsReducer = (state: InitialStateCards = initState, action: Cards
 }
 //action
 export const setCards = (cards: CardType[]) => ({type: 'CARDS/SET_CARDS', cards} as const)
+export const addIdCard = (id: string) => ({type: 'CARDS/ADD_ID_CARDS', id} as const)
 export const setCurrentPageCards = (page: number) => ({type: 'CARDS/SET_CURRENT_PAGE_CARDS', page} as const)
 export const setTotalPageCountCards = (cardsTotalCount: number) => ({
     type: 'CARDS/SET_TOTAL_PAGE_CARDS',
@@ -48,8 +52,8 @@ export const removeCard = (id:string,cardsPack_id:string):AppThunk => async disp
     await cardsAPI.deleteCard(id)
     dispatch(fetchCards({cardsPack_id}))
 }
-export const editCard = (_id:string,cardsPack_id:string,question:string,comments:string):AppThunk => async dispatch => {
-    await cardsAPI.updateCard({card:{_id,question,comments}})
+export const editCard = (date:UpdateCard,cardsPack_id:string):AppThunk => async dispatch => {
+    await cardsAPI.updateCard({card:date})
     dispatch(fetchCards({cardsPack_id}))
 }
 //type
@@ -59,6 +63,7 @@ export type CardsActionType =
     | ReturnType<typeof setCards>
     | ReturnType<typeof setCurrentPageCards>
     | ReturnType<typeof setTotalPageCountCards>
+    | ReturnType<typeof addIdCard>
 
 
 

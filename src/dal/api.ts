@@ -327,12 +327,13 @@ export interface CreateCart {
     type?: string // если не отправить будет таким
 }
 interface UpdateCards {
-    card: {
-        _id: string
-        question?: string // не обязательно
-        comments?: string // не обязателен
+    card: UpdateCard
+}
 
-    }
+export interface UpdateCard{
+    _id: string
+    question?: string // не обязательно
+    comments?: string // не обязателен
 }
 
 /** Response Types */

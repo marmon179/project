@@ -13,11 +13,10 @@ type PropsPacksType = {
     show: boolean
     close: () => void
     backgroundOnClick?: () => void;
-    modalOnClick?: () => void;
 }
 
 export const Packs: React.FC<PropsPacksType> = React.memo(props => {
-    const {userId, cardPacks, onRemovePack, onEditPack,onLearnPack, backgroundOnClick, show, close,} = props
+    const {userId, cardPacks, onRemovePack, onEditPack,onLearnPack, backgroundOnClick, show, close} = props
 
 
     return (

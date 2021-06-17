@@ -2,16 +2,20 @@ import React from 'react';
 import {TableHeader} from '../../../components/tableHeader/TableHeader';
 import {CardType} from '../../../dal/api';
 import {TableRowCard} from './TableRowCard/TableRowCard';
+import {ModalEditCardContainer} from '../editCard/modalEditCard/ModalEditCardContainer';
 
 type PropsCardsType = {
     cards: CardType[]
-    onRemoveCard: (id: string,cardsPack_id:string) => void
-    onLearnCard: (id: string,cardsPack_id:string,answer: string,question: string) => void
+    onRemoveCard: (id: string) => void
+    onLearnCard: (id: string) => void
+    show: boolean
+    close: () => void
+    backgroundOnClick?: () => void;
 }
 
 export const Cards: React.FC<PropsCardsType> = React.memo(props => {
 
-    const {cards,onRemoveCard,onLearnCard} = props
+    const {cards,onRemoveCard,onLearnCard,backgroundOnClick, show, close} = props
 
     return (
         <>
@@ -28,6 +32,12 @@ export const Cards: React.FC<PropsCardsType> = React.memo(props => {
             onRemoveCard={onRemoveCard}
             onLearnCard={onLearnCard}
             />)}
+
+            <ModalEditCardContainer
+                show={show}
+                close={close}
+                backgroundOnClick={backgroundOnClick}
+            />
         </>
     );
 })

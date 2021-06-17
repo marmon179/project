@@ -3,7 +3,6 @@ import {NavLink} from 'react-router-dom';
 import style from './Header.module.css'
 import {PATH} from '../../Routes';
 import Logo from '../../components/common/logo/Logo';
-import {LearnQuestionAnswer} from '../learnQuestionAnswer/LearnQuestionAnswer';
 
 
 export function Header() {
