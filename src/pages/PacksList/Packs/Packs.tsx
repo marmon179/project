@@ -3,22 +3,31 @@ import {CardPacks} from '../../../dal/api';
 import {TableHeader} from '../../../components/tableHeader/TableHeader';
 import {TableRow} from '../../../components/tableRow/TableRow';
 import {ModalEditPackContainer} from '../editPack/modalEditPack/ModalEditPackContainer';
-import {ModalEditCardContainer} from '../../CardsList/editCard/modalEditCard/ModalEditCardContainer';
+import {ModalDeletePack} from '../deletePack/modalDeletePack/ModalDeletePack';
 
 type PropsPacksType = {
     userId: string
     cardPacks: CardPacks[]
-    onRemovePack: (id: string) => void
+    onRemovePack: (id: string, packName: string) => void
     onEditPack: (id: string) => void
-    onLearnPack: (id: string,packName:string) => void
+    onLearnPack: (id: string, packName: string) => void
     show: boolean
     close: () => void
     backgroundOnClick?: () => void;
+    del: boolean;
+    setTrue: () => void
+    setFalse: () => void
+    backgroundOnClickDel: () => void
+    packNam: string
 }
 
 export const Packs: React.FC<PropsPacksType> = React.memo(props => {
 
-    const {userId, cardPacks, onRemovePack, onEditPack,onLearnPack, backgroundOnClick, show, close} = props
+    const {
+        userId, cardPacks, onRemovePack, onEditPack, onLearnPack, backgroundOnClick, show, close,
+        del, setTrue, setFalse, backgroundOnClickDel, packNam
+
+    } = props
 
     return (
 
@@ -42,7 +51,14 @@ export const Packs: React.FC<PropsPacksType> = React.memo(props => {
                 close={close}
                 backgroundOnClick={backgroundOnClick}
             />
-
+            <ModalDeletePack
+                show={del}
+                setTrue={setTrue}
+                setFalse={setFalse}
+                enableBackground={true}
+                backgroundOnClick={backgroundOnClickDel}
+                packName={packNam}
+            />
 
         </>
 

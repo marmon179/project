@@ -11,7 +11,7 @@ type PropsPackType = {
     cardsCount: number
     updated: string
     created: string
-    onRemovePack: (id: string) => void
+    onRemovePack: (id: string,packName:string) => void
     onEditPack: (id: string) => void
     onLearnPack: (id: string,packName:string) => void
 }
@@ -38,7 +38,7 @@ export const TableRow: React.FC<PropsPackType> = props => {
                     variant={Variant.primary}
                     size={Size.small}
                     palette={Palette.secondary}
-                    onClick={() => onRemovePack(cardId)}
+                    onClick={() => onRemovePack(cardId,packName)}
                 >
                     Delete
                 </Button>}
