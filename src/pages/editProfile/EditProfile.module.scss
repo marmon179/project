@@ -1,0 +1,41 @@
+@import "./src/styles/mixins";
+@import "./src/styles/vars";
+
+
+.containerForm {
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 540px;
+  width: 413px;
+  background: #F9F9FE;
+  border-radius: 8px;
+}
+.avatarEditProfileInner {
+  width: 96px;
+  height: 96px;
+  position: relative;
+}
+.chooseAvatar {
+  border: 0 solid transparent;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  position: absolute;
+  right: 0;
+  top: 70px;
+}
+
+.btnInner {
+  margin-top: 50px;
+  display: flex;
+  gap: 50px;
+}

@@ -1,0 +1,39 @@
+.container {
+  padding: 24px 136px 71px 136px;
+  border: 2px solid red;
+}
+
+.myPacksList {
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
+  height: 640px;
+  border: 2px solid red ;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red ;
+  align-items: center;
+  background: #ECECF9;
+}
+
+.innerProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #D9D9F1;
+  width: 100%;
+  padding: 33px;
+}
+
+.main {
+  padding: 24px 48px 20px 48px;
+  background: #FEFEFF;
+}
+
+.packsContainerInner {
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+
